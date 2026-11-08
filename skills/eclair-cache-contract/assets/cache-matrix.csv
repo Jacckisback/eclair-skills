@@ -1,0 +1,3 @@
+route,response_type,shared_cache,cache_control,invalidate_on,contains_personal_data,test_case
+/,public,yes,public;max-age-by-policy,publish/no-publish,no,homepage-cache
+/account,private,no,private;no-store,not-applicable,yes,account-no-leak

@@ -1,0 +1,44 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.1', '8.3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: none
+      - name: Validate skills structure
+        run: python3 scripts/validate_skills.py
+      - name: Release integrity (SHA-256, licence, catalogue)
+        run: python3 scripts/check_release.py
+      - name: Offline sample checks
+        run: python3 scripts/verify_sample.py
+      - name: Member Directory offline checks (experimental prototype)
+        run: python3 scripts/verify_member_directory.py
+      - name: Python unit tests
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+      - name: PHP lint catalogue demo
+        run: php -l examples/extensions/catalogue-demo/extension.php
+      - name: PHP isolated tests (not HTTP/SMTP/production tests)
+        run: |
+          php tests/member-directory.php
+          php tests/member-public.php
+          php tests/member-enroll.php

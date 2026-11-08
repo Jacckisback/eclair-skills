@@ -1,0 +1,159 @@
+{
+  "schema": "eclair-extension/1",
+  "id": "member-directory",
+  "name": "Member Directory (experimental auth + opt-in email flows)",
+  "description": "Gestion des membres avec connexion publique expérimentale et inscription/récupération par email explicitement activables (prototype non qualifié).",
+  "version": "0.3.0",
+  "requires": {
+    "eclair": ">=2.0.0",
+    "php": ">=8.1"
+  },
+  "depends": {},
+  "provides": [
+    "member-directory",
+    "member-login-prototype",
+    "member-email-prototype"
+  ],
+  "entry": "extension.php",
+  "routes": {
+    "public": [
+      {
+        "method": "GET",
+        "path": "/membres/connexion",
+        "handler": "loginPage",
+        "cache": false
+      },
+      {
+        "method": "POST",
+        "path": "/membres/connexion",
+        "handler": "login",
+        "cache": false
+      },
+      {
+        "method": "GET",
+        "path": "/membres/espace",
+        "handler": "profilePage",
+        "cache": false
+      },
+      {
+        "method": "POST",
+        "path": "/membres/deconnexion",
+        "handler": "logout",
+        "cache": false
+      },
+      {
+        "method": "GET",
+        "path": "/membres/inscription",
+        "handler": "signupPage",
+        "cache": false
+      },
+      {
+        "method": "POST",
+        "path": "/membres/inscription",
+        "handler": "signup",
+        "cache": false
+      },
+      {
+        "method": "GET",
+        "path": "/membres/verification",
+        "handler": "verifyPage",
+        "cache": false
+      },
+      {
+        "method": "POST",
+        "path": "/membres/verification",
+        "handler": "verify",
+        "cache": false
+      },
+      {
+        "method": "GET",
+        "path": "/membres/recuperation",
+        "handler": "recoverPage",
+        "cache": false
+      },
+      {
+        "method": "POST",
+        "path": "/membres/recuperation",
+        "handler": "recover",
+        "cache": false
+      },
+      {
+        "method": "GET",
+        "path": "/membres/reinitialisation",
+        "handler": "resetPage",
+        "cache": false
+      },
+      {
+        "method": "POST",
+        "path": "/membres/reinitialisation",
+        "handler": "reset",
+        "cache": false
+      }
+    ],
+    "admin": [
+      {
+        "method": "GET",
+        "path": "",
+        "handler": "adminPage",
+        "right": "users"
+      },
+      {
+        "method": "POST",
+        "path": "/create",
+        "handler": "create",
+        "right": "users"
+      },
+      {
+        "method": "POST",
+        "path": "/disable",
+        "handler": "disable",
+        "right": "users"
+      }
+    ]
+  },
+  "nav": [
+    {
+      "label": "Comptes membres",
+      "path": "",
+      "icon": "users",
+      "right": "users"
+    }
+  ],
+  "dashboard": [],
+  "settings": [
+    {
+      "key": "registration_enabled",
+      "type": "bool",
+      "label": "Autoriser inscription par email (prototype non audité)",
+      "default": false
+    },
+    {
+      "key": "recovery_enabled",
+      "type": "bool",
+      "label": "Autoriser récupération email (prototype non audité)",
+      "default": false
+    }
+  ],
+  "blocks": [],
+  "assets": [],
+  "tasks": [],
+  "migrations": [
+    "001-directory"
+  ],
+  "data": {
+    "schema": 1
+  },
+  "provenance": {
+    "source": "Éclair Skills Foundations v1.2.0 — experimental POST contract; audit required",
+    "license": "AGPL-3.0-only"
+  },
+  "files": {
+    "extension.php": "c0157d9981f2fdc9544f2d854b5e4ba5d01d251978bc218c8055f96021f898f5",
+    "lib/MemberAccounts.php": "eb12e036d77aacb0caa1920543eaffd89a5d3a8ab0743e9342721ea760db278d",
+    "lib/MemberPermissions.php": "4a8f6c91498ac6127a77e188a8155c8dffa89a7ea81a844b668d97644df860df",
+    "lib/MemberPublic.php": "0970a90e67a3f46b9559e8ac620cd3b722550acf4edb50fb4f29f5309c7fbe74",
+    "lib/MemberSessions.php": "250b4a3ffe1d9354745e0a5a48ba4b8981e5ccaf1212ab1dac5335a7e3695839",
+    "lib/MemberEnroll.php": "a9691d84d4192ebfac123bd89e0e883f80f0dc6e92e1e67ceaf9d9083a659484",
+    "lib/MemberTransport.php": "f05f0405cbd800f43bb596aaee4b7086ca6d94abf0e4abd17ba5be2391ded28d"
+  }
+}

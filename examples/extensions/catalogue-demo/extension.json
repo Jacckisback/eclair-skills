@@ -1,0 +1,44 @@
+{
+  "schema": "eclair-extension/1",
+  "id": "catalogue-demo",
+  "name": "Catalogue vitrine (démonstration)",
+  "description": "Démonstration en lecture seule, sans panier, comptes, commande ou paiement.",
+  "version": "0.1.0",
+  "requires": {
+    "eclair": ">=2.0.0",
+    "php": ">=8.1"
+  },
+  "depends": {},
+  "provides": [
+    "catalogue-vitrine-demo"
+  ],
+  "entry": "extension.php",
+  "routes": {
+    "public": [
+      {
+        "method": "GET",
+        "path": "/catalogue-demo",
+        "handler": "page",
+        "cache": true
+      }
+    ],
+    "admin": []
+  },
+  "nav": [],
+  "dashboard": [],
+  "settings": [],
+  "blocks": [],
+  "assets": [],
+  "tasks": [],
+  "migrations": [],
+  "data": {
+    "schema": 1
+  },
+  "provenance": {
+    "source": "eclair-skills-complete",
+    "license": "AGPL-3.0-only"
+  },
+  "files": {
+    "extension.php": "5a6e92117896198540a32a563ae796dec943f23e7eb66585074ee9be1cd0e674"
+  }
+}

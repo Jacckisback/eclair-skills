@@ -1,0 +1,3 @@
+# Prompt pour Codex / ChatGPT
+
+> Analyse ce projet Éclair CMS en commençant par `eclair/index.php` et `docs/SKILLS-GUIDE.md`. Utilise les skills `eclair-architecture`, `eclair-extension-builder`, `eclair-security-audit` et `eclair-test-suite`. Décris la fonctionnalité demandée en la ramenant aux capacités natives `eclair-extension/1`. Crée les fichiers de l'extension sous `site/extensions/<id>/` sans modifier le noyau. Avant de proposer l'activation, exécute `php tools/validate.php <extension> --json`, `php tests/run.php` et `php tools/measure.php --check`. Si une capacité manque (identité clients, POST public, outbox, types de contenus), arrête ce volet et crée une RFC + tests ; n'invente pas d'API.

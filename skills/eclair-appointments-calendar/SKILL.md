@@ -1,0 +1,35 @@
+---
+name: eclair-appointments-calendar
+description: "Use when a user wants to prendre rendez-vous et intégrer calendriers externes on Éclair CMS 2.x; design a rendez-vous et calendrier workflow with native extension compatibility, security and acceptance gates."
+---
+
+# Rendez-vous et calendrier — Éclair CMS 2.x
+
+## Déclencheur et résultat attendu
+Utiliser ce skill pour **prendre rendez-vous et intégrer calendriers externes**. Il produit une architecture vérifiable, les changements de site autorisés, des tests positifs et négatifs et une note sur les dépendances au noyau. Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
+
+## Diagnostic obligatoire avant modification
+1. Lire `references/core-map.md` et `references/native-contract.md` ; vérifier version réelle du CMS, manifeste `eclair-extension/1` et les capacités disponibles dans `GET /<admin>/api/capabilities` (si accès autorisé).
+2. Lire `references/family-contract.md` et `references/acceptance.md` pour ce domaine. Ne jamais copier l'ancien système de packs v0.x dans Éclair 2.
+3. Identifier le modèle de données : **Prestataire, service, durée, buffers, exceptions, événements et fuseaux**. Documenter chaque champ privé/public et la provenance des données.
+
+## Procédure spécifique
+4. **Parcours métier :** Normaliser horaires en UTC, conserver fuseau d’affichage, bloquer créneaux d’indisponibilité, gérer resynchronisation externe. Dessiner les états et les erreurs avant d'écrire du code.
+5. **Emplacements :** conserver tout code propriétaire au site dans `site/extensions/<id>/`, l'apparence dans `site/themes/<id>/` ; enregistrer les données dans le préfixe `Store` fourni par `$ctx['data']`. Ne jamais éditer `app/`, `assets/`, `index.php` ou l'updater dans le cadre de ce skill.
+6. **Contrat actuel :** Les vitrines publiques sont possibles avec GET; réservations, paiements, candidatures, CRM et données personnelles exigent POST sécurisé, stockage adapté et droits vérifiés côté serveur.
+7. **Invariant de sécurité :** Une intégration externe nécessite OAuth/scopes minimaux et ne doit pas exposer les calendriers privés. Vérifier droits serveur sur chaque objet, échappement avec `e()`, validation des données, absence de secret et de PII dans le HTML public ou un cache partagé.
+8. **Preuves :** écrire test positif « Tester DST, rendez-vous traversant minuit, événement supprimé » et test de rejet « Un créneau bloqué manuellement n’est jamais proposé après resynchronisation ». Mesurer les régressions SEO/performance, documenter rollback et responsabilité des données.
+9. **Validation native :** `php tools/validate.php <dossier> --json`, `php tests/run.php` et `php tools/measure.php --check` sur le checkout officiel (si extension installable). Pour une fonctionnalité non supportée par le noyau actuel, fournir une RFC et un test bloquant, pas une assertion de réussite fictive.
+
+## Livrables obligatoires
+- Mini-spécification : objectifs, utilisateurs, parcours, états, données, métriques.
+- Matrice d'autorisations et de cache : route, méthode, session, visibilité, indexation.
+- Paquet `extension.json`/`extension.php` seulement si le contrat natif supporte réellement les opérations ; sinon plan d'extension ou maquette GET sûre.
+- Tests démontrant les cas positifs et les refus, procédure de désactivation conservant les données et note de compatibilité.
+
+## Critères d'acceptation
+- Tester DST, rendez-vous traversant minuit, événement supprimé.
+- Un créneau bloqué manuellement n’est jamais proposé après resynchronisation.
+- Les parcours non pris en charge par Éclair v2 sont explicitement signalés comme **non livrables en production**.
+
+**Statut de maturité de ce skill :** `design-workflow-requires-verified-core-capabilities`. Voir `references/acceptance.md` pour les cas d'essai reproductibles.
