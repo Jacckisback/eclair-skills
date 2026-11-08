@@ -318,6 +318,16 @@ php tests/member-enroll.php
 
 Diese Prüfungen belegen Struktur und isoliertes Verhalten. Sie sind **keine** HTTP/SMTP-Integrationstests und **kein** Sicherheitsaudit der experimentellen Prototypen.
 
+### 🔏 Signatur vor der Installation prüfen
+
+Jede Version ist mit dem Ed25519-Schlüssel des Éclair-CMS-Maintainers signiert (derselbe öffentliche Schlüssel wie beim CMS-Updater: `H+pk0ph+U+csV7aoGTUZp8hsWBrjvtxavotdKqJuYEs=`). Eine Signatur deckt `SHA256SUMS.json` ab, das den SHA-256 jeder Datei auflistet. Benötigt PHP mit sodium (Standard seit PHP 7.2).
+
+```bash
+php scripts/verify_signature.php
+```
+
+`✓ Authentic` bedeutet: jeder Skill ist genau der vom Maintainer signierte. Jedes andere Ergebnis: nicht installieren. Details in [docs/SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md).
+
 ## Was diese Bibliothek nicht verspricht
 
 - Keine garantierte Lighthouse-Punktzahl, kein Google-Ranking, keine Zitierung durch KI-Assistenten: das wird gemessen, nicht versprochen.

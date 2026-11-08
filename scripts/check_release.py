@@ -4,7 +4,8 @@
 Checks that:
 - LICENSE contains the GNU AGPL v3.0 text;
 - SHA256SUMS.json lists every file of the repository (except itself,
-  the .git directory and ignored caches) with a matching SHA-256 digest;
+  SIGNATURE.json, the .git directory and ignored caches) with a matching
+  SHA-256 digest, and no symbolic link is present;
 - catalog.json declares 57 skills in eight families, matching skills/.
 
 Use --write to regenerate SHA256SUMS.json after an intentional change.
@@ -18,6 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SUMS = 'SHA256SUMS.json'
+SIGNATURE = 'SIGNATURE.json'
 SKIP_DIRS = {'.git', '__pycache__'}
 EXPECTED = {'foundation': 8, 'commerce': 10, 'lms': 7, 'community': 6,
             'business': 8, 'design': 7, 'seo': 5, 'integrations': 6}
@@ -27,7 +29,7 @@ def files(root):
     for p in sorted(root.rglob('*')):
         rel = p.relative_to(root)
         if p.is_file() and not SKIP_DIRS.intersection(rel.parts) \
-                and rel.as_posix() != SUMS and p.suffix != '.pyc':
+                and rel.as_posix() not in (SUMS, SIGNATURE) and p.suffix != '.pyc':
             yield rel.as_posix(), p
 
 
@@ -45,6 +47,10 @@ def main():
         print(f'WROTE {SUMS}: {len(current)} files')
         return 0
     errors = []
+    for p in ROOT.rglob('*'):
+        rel = p.relative_to(ROOT)
+        if p.is_symlink() and not SKIP_DIRS.intersection(rel.parts):
+            errors.append(f'Symbolic link refused: {rel.as_posix()}')
     lic = (ROOT / 'LICENSE').read_text(encoding='utf-8') if (ROOT / 'LICENSE').is_file() else ''
     if 'GNU AFFERO GENERAL PUBLIC LICENSE' not in lic or 'Version 3, 19 November 2007' not in lic \
             or 'END OF TERMS AND CONDITIONS' not in lic:

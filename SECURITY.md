@@ -2,6 +2,14 @@
 
 [English](#english) · [Français](#français) · [Español](#español) · [Deutsch](#deutsch) · [Italiano](#italiano) · [Português](#português)
 
+**Verify before installing · Vérifier avant d’installer · Verificar antes de instalar · Vor der Installation prüfen · Verificare prima di installare · Verificar antes de instalar**
+
+```bash
+php scripts/verify_signature.php
+```
+
+Full review / revue complète: [docs/SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md)
+
 ## English
 Do not open public issues for vulnerabilities. Use GitHub private vulnerability reporting on this repository (*Security* tab → *Report a vulnerability*). Issues in the CMS core go to [`Jacckisback/eclair-cms`](https://github.com/Jacckisback/eclair-cms). Scope: skills are guides; `examples/extensions/catalogue-demo` is a read-only example; `examples/extensions/member-directory` and `core-patch/` are **experimental prototypes, not production-ready**. CI here is not a security audit.
 

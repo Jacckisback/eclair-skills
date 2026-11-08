@@ -331,6 +331,10 @@ def readme(lang, cat):
         'php -l examples/extensions/catalogue-demo/extension.php\nphp tests/member-directory.php\n'
         'php tests/member-public.php\nphp tests/member-enroll.php\n```\n')
     add(t['ci_note'] + '\n')
+    add(f'### 🔏 {t["sig_title"]}\n')
+    add(t['sig_text'] + '\n')
+    add('```bash\nphp scripts/verify_signature.php\n```\n')
+    add(t['sig_after'] + '\n')
 
     add(f'## {t["limits_title"]}\n')
     for x in t['limits']:

@@ -1,0 +1,8 @@
+{
+    "format": "eclair-skills/signature/1",
+    "algorithm": "Ed25519 (libsodium crypto_sign_detached)",
+    "context": "eclair-skills/release/1:",
+    "public_key": "H+pk0ph+U+csV7aoGTUZp8hsWBrjvtxavotdKqJuYEs=",
+    "payload": "{\"repository\":\"Jacckisback/eclair-skills\",\"version\":\"2.0.0\",\"skills\":57,\"sums_file\":\"SHA256SUMS.json\",\"sums_sha256\":\"ce9d1b10940b16a676cadd05bd67f788a3f669a907a1b652dd4726792f729f4f\",\"signed_at\":\"2026-11-08T11:29:35Z\"}",
+    "signature": "mdMgoKlDqu/29jzRW2gJ5YE/jQyJesrhbV2IE+ks4qUEb1MKK99a+DKGWeDZiYsPxndyQjA5Ie/m1p0Y2YfzAg=="
+}
