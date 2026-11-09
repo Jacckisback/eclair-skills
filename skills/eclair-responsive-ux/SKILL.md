@@ -1,6 +1,6 @@
 ---
 name: eclair-responsive-ux
-description: "Use when a user wants to optimiser navigation, formulaires et compositions mobiles on Éclair CMS 2.x; design a ux responsive workflow with native extension compatibility, security and acceptance gates."
+description: "Optimise navigation, forms and layouts on mobile. Use on Éclair CMS 2.x when the user wants to: optimiser navigation, formulaires et compositions mobiles. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # UX responsive — Éclair CMS 2.x

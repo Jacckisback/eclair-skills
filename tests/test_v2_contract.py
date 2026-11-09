@@ -20,7 +20,7 @@ class NativeV2ContractTests(unittest.TestCase):
     def test_installer_no_overwrite(self):
         with tempfile.TemporaryDirectory() as d:
             r=Path(d);install(ROOT,r)
-            self.assertEqual(len(list((r/'.agents/skills').iterdir())),57)
+            self.assertEqual(len(list((r/'.agents/skills').iterdir())),200)
             with self.assertRaises(FileExistsError):install(ROOT,r)
     def test_manifest_has_files_and_v2(self):
         m=json.loads((ROOT/'examples/extensions/skill-sample/extension.json').read_text())

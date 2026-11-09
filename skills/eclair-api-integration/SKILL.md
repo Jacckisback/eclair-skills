@@ -1,6 +1,6 @@
 ---
 name: eclair-api-integration
-description: "Use when a user wants to créer intégrations externes robustes et limitées on Éclair CMS 2.x; design a connecteurs api workflow with native extension compatibility, security and acceptance gates."
+description: "Build robust, rate-limited external API connectors. Use on Éclair CMS 2.x when the user wants to: créer intégrations externes robustes et limitées. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Connecteurs API — Éclair CMS 2.x

@@ -1,6 +1,6 @@
 ---
 name: eclair-design-system
-description: "Use when a user wants to construire un langage visuel cohérent et maintenable on Éclair CMS 2.x; design a système de design workflow with native extension compatibility, security and acceptance gates."
+description: "Build a coherent, maintainable visual language (tokens, components). Use on Éclair CMS 2.x when the user wants to: construire un langage visuel cohérent et maintenable. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Système de design — Éclair CMS 2.x

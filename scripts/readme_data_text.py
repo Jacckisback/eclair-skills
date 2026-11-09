@@ -1,8 +1,8 @@
 """Localized README and diagram texts (used by build_readmes.py).
 
 Languages: en (default README.md), fr, es, de, it, pt.
-Rules: no guaranteed Lighthouse score, ranking or AI citation; 57 skills are
-agent guides, not 57 PHP extensions; experimental prototypes stay experimental.
+Rules: no guaranteed Lighthouse score, ranking or AI citation; 200 skills are
+agent guides, not 200 PHP extensions; experimental prototypes stay experimental.
 """
 
 T = {}
@@ -11,8 +11,8 @@ T = {}
 T['en'] = dict(
     lang_name='English',
     tagline='Agent Skills that teach your AI agent to build fast, secure, SEO & GEO-ready websites and applications on Éclair CMS.',
-    banner_sub='57 Agent Skills · 8 families · Éclair CMS 2.0.x',
-    intro=('**Éclair Skills** is a library of **57 Agent Skills** for [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
+    banner_sub='200 Agent Skills · 18 families · Éclair CMS 2.0.x',
+    intro=('**Éclair Skills** is a library of **200 Agent Skills** for [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
            'Add them to your project and your coding agent (Claude Code, Codex, ChatGPT or any agent that reads `SKILL.md` folders) stops improvising: '
            'it follows a proven method, respects the CMS contract, never touches the core and proves its work with tests.'),
     why_title='Why Éclair Skills?',
@@ -21,7 +21,7 @@ T['en'] = dict(
          ('Secure and fast by default', 'CSRF, object permissions, escaping, no personal data in a shared cache, measured performance budgets.'),
          ('Honest about limits', 'every skill says what Éclair 2.0 supports today and what still needs a core capability.')],
     notice_title='Read this first',
-    notice=('**57 skills ≠ 57 PHP extensions.** A skill is a guide for your agent (instructions, references and tests to write). '
+    notice=('**200 skills ≠ 200 PHP extensions.** A skill is a guide for your agent (instructions, references and tests to write). '
             'It is not a plugin you install on a live site. The only working example is the read-only `catalogue-demo`.'),
     how_title='How it works',
     how_intro='You describe your goal in plain language. The agent finds the right skill from its description, then follows five steps:',
@@ -49,7 +49,7 @@ T['en'] = dict(
             ('Domain families', 'Commerce, LMS, community, business apps and integrations: pick the families your project needs.'),
             ('Cross-cutting quality', 'Design & UX and SEO & GEO apply to every page, whatever the domain.'),
             ('Your site', 'The result lives in site/themes and site/extensions, validated and tested.')],
-    families_title='The 8 families',
+    families_title='The 18 families',
     fam=dict(foundation=('Foundations', 'Native v2 contract, tests and security'),
              commerce=('Commerce Pro', 'Transactional shop and payments, designed before deployment'),
              lms=('LMS', 'Courses, enrollments, progress, certificates'),
@@ -74,7 +74,7 @@ T['en'] = dict(
              ('Community / forum', ['eclair-auth-roles', 'eclair-forum', 'eclair-discussions-topics', 'eclair-community-profiles', 'eclair-moderation', 'eclair-notifications', 'eclair-community-search', 'eclair-security-audit']),
              ('Local business site', ['eclair-design', 'eclair-theme-builder', 'eclair-bookings', 'eclair-appointments-calendar', 'eclair-forms-crm', 'eclair-crm-integration', 'eclair-seo-audit', 'eclair-structured-data']),
              ('WordPress migration & SEO/GEO', ['eclair-wordpress-migration', 'eclair-routing', 'eclair-seo-audit', 'eclair-structured-data', 'eclair-multilingual-seo', 'eclair-geo-optimization', 'eclair-performance-ux', 'eclair-accessibility'])],
-    catalog_title='Full catalogue of the 57 skills',
+    catalog_title='Full catalogue of the 200 skills',
     catalog_intro='Click a skill to open its `SKILL.md`. The status column shows what can be delivered on Éclair 2.0 today.',
     col_skill='Skill', col_what='What it helps the agent do', col_status='Status',
     mat=dict(native='Native v2', readonly='Read-only prototype possible', design='Design · needs core', partial='Partly blocked by core'),
@@ -84,12 +84,12 @@ T['en'] = dict(
             '🟡 **Partly blocked by core**: some parts depend on a core contract change.'),
     maturity_title='Maturity: from agent guide to production',
     maturity_intro='A skill is the first step, not the last. Four levels separate a guide from an application in production:',
-    levels=[('Workflow', 'SKILL.md guides design, checks interfaces and avoids mistakes. All 57 skills are here.'),
+    levels=[('Workflow', 'SKILL.md guides design, checks interfaces and avoids mistakes. All 200 skills are here.'),
             ('Native v2 package', 'Valid extension.json, read-only or protected admin code, official validator and native tests.'),
             ('Business engines', 'Accounts, POST, transactions, webhooks, security audit, performance, backup/restore, CI.'),
             ('Production', 'Limited rollout, monitoring, verified restore, supervision, legal compliance.')],
-    here='All 57 skills',
-    gates_note='Before enabling any commercial application, five gates must pass: exact CMS compatibility, tested authentication and data isolation, transactional storage and signed payments, independent security audit, and no performance or SEO regression. See [docs/ROADMAP_57.md](docs/ROADMAP_57.md).',
+    here='All 200 skills',
+    gates_note='Before enabling any commercial application, five gates must pass: exact CMS compatibility, tested authentication and data isolation, transactional storage and signed payments, independent security audit, and no performance or SEO regression. See [docs/ROADMAP.md](docs/ROADMAP.md).',
     examples_title='Examples and prototypes',
     col_path='Folder', col_state='State', col_desc='What it is',
     examples=[('examples/extensions/catalogue-demo', '✅ Working example', 'Read-only showcase, GET `/catalogue-demo`, no customers, cart, order or payment.'),
@@ -111,7 +111,7 @@ T['en'] = dict(
             'Agents: Claude Code, Codex, ChatGPT and any agent that supports `SKILL.md` folders.',
             'Skill contents are written in French; they work with any agent whatever the language you speak to it.'],
     more_title='Go further',
-    more=[('docs/CATALOGUE_COMPLET.md', 'Full catalogue (generated)'), ('docs/ROADMAP_57.md', 'Roadmap and production gates'),
+    more=[('docs/CATALOGUE_COMPLET.md', 'Full catalogue (generated)'), ('docs/ROADMAP.md', 'Roadmap and production gates'),
           ('docs/CAPABILITY_MATRIX.md', 'Capability matrix'), ('docs/AGENT_QUICKSTART.md', 'Agent quick start'),
           ('AGENTS.md', 'Rules for agents'), ('CONTRIBUTING.md', 'Contributing'), ('SECURITY.md', 'Reporting a vulnerability')],
     license_title='License',
@@ -129,8 +129,8 @@ T['en'] = dict(
 T['fr'] = dict(
     lang_name='Français',
     tagline='Des Agent Skills qui apprennent à votre agent IA à créer des sites et applications rapides, sûrs, prêts pour le SEO et le GEO, sur Éclair CMS.',
-    banner_sub='57 Agent Skills · 8 familles · Éclair CMS 2.0.x',
-    intro=('**Éclair Skills** est une bibliothèque de **57 Agent Skills** pour [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
+    banner_sub='200 Agent Skills · 18 familles · Éclair CMS 2.0.x',
+    intro=('**Éclair Skills** est une bibliothèque de **200 Agent Skills** pour [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
            'Ajoutez-les à votre projet et votre agent de code (Claude Code, Codex, ChatGPT ou tout agent qui lit des dossiers `SKILL.md`) cesse d’improviser : '
            'il suit une méthode éprouvée, respecte le contrat du CMS, ne touche jamais au noyau et prouve son travail par des tests.'),
     why_title='Pourquoi Éclair Skills ?',
@@ -139,7 +139,7 @@ T['fr'] = dict(
          ('Sûr et rapide par défaut', 'CSRF, permissions par objet, échappement, aucune donnée personnelle en cache partagé, budgets de performance mesurés.'),
          ('Honnête sur les limites', 'chaque skill indique ce qu’Éclair 2.0 permet aujourd’hui et ce qui exige encore une capacité du noyau.')],
     notice_title='À lire d’abord',
-    notice=('**57 skills ≠ 57 extensions PHP.** Un skill est un guide pour votre agent (instructions, références et tests à écrire). '
+    notice=('**200 skills ≠ 200 extensions PHP.** Un skill est un guide pour votre agent (instructions, références et tests à écrire). '
             'Ce n’est pas un plugin à installer sur un site en ligne. Le seul exemple fonctionnel est `catalogue-demo`, en lecture seule.'),
     how_title='Comment ça marche',
     how_intro='Vous décrivez votre objectif en langage courant. L’agent trouve le bon skill grâce à sa description, puis suit cinq étapes :',
@@ -167,7 +167,7 @@ T['fr'] = dict(
             ('Familles métier', 'Commerce, LMS, communauté, applications métiers et intégrations : prenez celles dont votre projet a besoin.'),
             ('Qualité transversale', 'Design et UX, SEO et GEO s’appliquent à chaque page, quel que soit le domaine.'),
             ('Votre site', 'Le résultat vit dans site/themes et site/extensions, validé et testé.')],
-    families_title='Les 8 familles',
+    families_title='Les 18 familles',
     fam=dict(foundation=('Fondations', 'Contrat natif v2, tests et sécurité'),
              commerce=('Commerce Pro', 'Boutique transactionnelle et paiement, conçus avant déploiement'),
              lms=('LMS', 'Cours, inscriptions, progression, certifications'),
@@ -188,7 +188,7 @@ T['fr'] = dict(
     recipes_title='Recettes : quels skills pour quel projet',
     recipes_intro='Commencez par les fondations, puis suivez l’ordre ci-dessous. Chaque flèche est une étape que l’agent termine et teste avant la suivante.',
     recipes=[('Boutique en ligne', None), ('École en ligne', None), ('Communauté / forum', None), ('Site d’entreprise locale', None), ('Migration WordPress et SEO/GEO', None)],
-    catalog_title='Catalogue complet des 57 skills',
+    catalog_title='Catalogue complet des 200 skills',
     catalog_intro='Cliquez sur un skill pour ouvrir son `SKILL.md`. La colonne statut indique ce qui peut être livré sur Éclair 2.0 aujourd’hui.',
     col_skill='Skill', col_what='Ce qu’il aide l’agent à faire', col_status='Statut',
     mat=dict(native='Natif v2', readonly='Prototype lecture seule possible', design='Conception · noyau requis', partial='Partiellement bloqué'),
@@ -198,12 +198,12 @@ T['fr'] = dict(
             '🟡 **Partiellement bloqué** : certaines parties dépendent d’une évolution du contrat du noyau.'),
     maturity_title='Maturité : du guide d’agent à la production',
     maturity_intro='Un skill est la première étape, pas la dernière. Quatre niveaux séparent un guide d’une application en production :',
-    levels=[('Workflow', 'SKILL.md guide la conception, vérifie les interfaces et évite les erreurs. Les 57 skills sont à ce niveau.'),
+    levels=[('Workflow', 'SKILL.md guide la conception, vérifie les interfaces et évite les erreurs. Les 200 skills sont à ce niveau.'),
             ('Paquet natif v2', 'extension.json valide, code en lecture seule ou admin protégé, validateur officiel et tests natifs.'),
             ('Moteurs métiers', 'Comptes, POST, transactions, webhooks, audit de sécurité, performance, sauvegarde/restauration, CI.'),
             ('Production', 'Déploiement limité, monitoring, restauration vérifiée, supervision, conformité légale.')],
-    here='Les 57 skills',
-    gates_note='Avant d’activer une application commerciale, cinq barrières doivent être franchies : compatibilité exacte du CMS, authentification et isolation des données testées, stockage transactionnel et paiements signés, audit de sécurité indépendant, aucune régression de performance ou de SEO. Voir [docs/ROADMAP_57.md](docs/ROADMAP_57.md).',
+    here='Les 200 skills',
+    gates_note='Avant d’activer une application commerciale, cinq barrières doivent être franchies : compatibilité exacte du CMS, authentification et isolation des données testées, stockage transactionnel et paiements signés, audit de sécurité indépendant, aucune régression de performance ou de SEO. Voir [docs/ROADMAP.md](docs/ROADMAP.md).',
     examples_title='Exemples et prototypes',
     col_path='Dossier', col_state='État', col_desc='De quoi il s’agit',
     examples=[('examples/extensions/catalogue-demo', '✅ Exemple fonctionnel', 'Vitrine en lecture seule, GET `/catalogue-demo`, sans clients, panier, commande ni paiement.'),
@@ -225,7 +225,7 @@ T['fr'] = dict(
             'Agents : Claude Code, Codex, ChatGPT et tout agent compatible avec les dossiers `SKILL.md`.',
             'Le contenu des skills est rédigé en français ; ils fonctionnent avec tout agent, quelle que soit la langue dans laquelle vous lui parlez.'],
     more_title='Aller plus loin',
-    more=[('docs/CATALOGUE_COMPLET.md', 'Catalogue complet (généré)'), ('docs/ROADMAP_57.md', 'Feuille de route et barrières de production'),
+    more=[('docs/CATALOGUE_COMPLET.md', 'Catalogue complet (généré)'), ('docs/ROADMAP.md', 'Feuille de route et barrières de production'),
           ('docs/CAPABILITY_MATRIX.md', 'Matrice des capacités'), ('docs/AGENT_QUICKSTART.md', 'Démarrage rapide pour agents'),
           ('AGENTS.md', 'Règles pour les agents'), ('CONTRIBUTING.md', 'Contribuer'), ('SECURITY.md', 'Signaler une vulnérabilité')],
     license_title='Licence',
@@ -243,8 +243,8 @@ T['fr'] = dict(
 T['es'] = dict(
     lang_name='Español',
     tagline='Agent Skills que enseñan a tu agente de IA a crear sitios y aplicaciones rápidos, seguros y preparados para SEO y GEO en Éclair CMS.',
-    banner_sub='57 Agent Skills · 8 familias · Éclair CMS 2.0.x',
-    intro=('**Éclair Skills** es una biblioteca de **57 Agent Skills** para [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
+    banner_sub='200 Agent Skills · 18 familias · Éclair CMS 2.0.x',
+    intro=('**Éclair Skills** es una biblioteca de **200 Agent Skills** para [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
            'Añádelos a tu proyecto y tu agente de código (Claude Code, Codex, ChatGPT o cualquier agente que lea carpetas `SKILL.md`) deja de improvisar: '
            'sigue un método probado, respeta el contrato del CMS, nunca toca el núcleo y demuestra su trabajo con pruebas.'),
     why_title='¿Por qué Éclair Skills?',
@@ -253,7 +253,7 @@ T['es'] = dict(
          ('Seguro y rápido por defecto', 'CSRF, permisos por objeto, escapado, ningún dato personal en caché compartida, presupuestos de rendimiento medidos.'),
          ('Honesto con los límites', 'cada skill indica lo que Éclair 2.0 permite hoy y lo que aún necesita una capacidad del núcleo.')],
     notice_title='Lee esto primero',
-    notice=('**57 skills ≠ 57 extensiones PHP.** Un skill es una guía para tu agente (instrucciones, referencias y pruebas que escribir). '
+    notice=('**200 skills ≠ 200 extensiones PHP.** Un skill es una guía para tu agente (instrucciones, referencias y pruebas que escribir). '
             'No es un plugin que se instala en un sitio en producción. El único ejemplo funcional es `catalogue-demo`, de solo lectura.'),
     how_title='Cómo funciona',
     how_intro='Describes tu objetivo con palabras normales. El agente encuentra el skill adecuado por su descripción y sigue cinco pasos:',
@@ -281,7 +281,7 @@ T['es'] = dict(
             ('Familias de negocio', 'Comercio, LMS, comunidad, aplicaciones de negocio e integraciones: elige las que tu proyecto necesita.'),
             ('Calidad transversal', 'Diseño y UX, SEO y GEO se aplican a todas las páginas, sea cual sea el dominio.'),
             ('Tu sitio', 'El resultado vive en site/themes y site/extensions, validado y probado.')],
-    families_title='Las 8 familias',
+    families_title='Las 18 familias',
     fam=dict(foundation=('Fundamentos', 'Contrato nativo v2, pruebas y seguridad'),
              commerce=('Commerce Pro', 'Tienda transaccional y pagos, diseñados antes del despliegue'),
              lms=('LMS', 'Cursos, inscripciones, progreso, certificados'),
@@ -302,7 +302,7 @@ T['es'] = dict(
     recipes_title='Recetas: qué skills para qué proyecto',
     recipes_intro='Empieza por los fundamentos y sigue el orden indicado. Cada flecha es un paso que el agente termina y prueba antes del siguiente.',
     recipes=[('Tienda online', None), ('Escuela online', None), ('Comunidad / foro', None), ('Web de negocio local', None), ('Migración WordPress y SEO/GEO', None)],
-    catalog_title='Catálogo completo de los 57 skills',
+    catalog_title='Catálogo completo de los 200 skills',
     catalog_intro='Haz clic en un skill para abrir su `SKILL.md`. La columna estado indica lo que se puede entregar hoy en Éclair 2.0.',
     col_skill='Skill', col_what='Qué ayuda a hacer al agente', col_status='Estado',
     mat=dict(native='Nativo v2', readonly='Prototipo de solo lectura posible', design='Diseño · requiere núcleo', partial='Parcialmente bloqueado'),
@@ -312,12 +312,12 @@ T['es'] = dict(
             '🟡 **Parcialmente bloqueado**: algunas partes dependen de un cambio del contrato del núcleo.'),
     maturity_title='Madurez: de la guía del agente a la producción',
     maturity_intro='Un skill es el primer paso, no el último. Cuatro niveles separan una guía de una aplicación en producción:',
-    levels=[('Workflow', 'SKILL.md guía el diseño, comprueba interfaces y evita errores. Los 57 skills están aquí.'),
+    levels=[('Workflow', 'SKILL.md guía el diseño, comprueba interfaces y evita errores. Los 200 skills están aquí.'),
             ('Paquete nativo v2', 'extension.json válido, código de solo lectura o admin protegido, validador oficial y pruebas nativas.'),
             ('Motores de negocio', 'Cuentas, POST, transacciones, webhooks, auditoría de seguridad, rendimiento, copia/restauración, CI.'),
             ('Producción', 'Despliegue limitado, monitorización, restauración verificada, supervisión, cumplimiento legal.')],
-    here='Los 57 skills',
-    gates_note='Antes de activar una aplicación comercial deben superarse cinco barreras: compatibilidad exacta del CMS, autenticación y aislamiento de datos probados, almacenamiento transaccional y pagos firmados, auditoría de seguridad independiente y ninguna regresión de rendimiento o SEO. Ver [docs/ROADMAP_57.md](docs/ROADMAP_57.md).',
+    here='Los 200 skills',
+    gates_note='Antes de activar una aplicación comercial deben superarse cinco barreras: compatibilidad exacta del CMS, autenticación y aislamiento de datos probados, almacenamiento transaccional y pagos firmados, auditoría de seguridad independiente y ninguna regresión de rendimiento o SEO. Ver [docs/ROADMAP.md](docs/ROADMAP.md).',
     examples_title='Ejemplos y prototipos',
     col_path='Carpeta', col_state='Estado', col_desc='Qué es',
     examples=[('examples/extensions/catalogue-demo', '✅ Ejemplo funcional', 'Escaparate de solo lectura, GET `/catalogue-demo`, sin clientes, carrito, pedido ni pago.'),
@@ -339,7 +339,7 @@ T['es'] = dict(
             'Agentes: Claude Code, Codex, ChatGPT y cualquier agente compatible con carpetas `SKILL.md`.',
             'El contenido de los skills está redactado en francés; funcionan con cualquier agente, hables en el idioma que hables.'],
     more_title='Ir más lejos',
-    more=[('docs/CATALOGUE_COMPLET.md', 'Catálogo completo (generado)'), ('docs/ROADMAP_57.md', 'Hoja de ruta y barreras de producción'),
+    more=[('docs/CATALOGUE_COMPLET.md', 'Catálogo completo (generado)'), ('docs/ROADMAP.md', 'Hoja de ruta y barreras de producción'),
           ('docs/CAPABILITY_MATRIX.md', 'Matriz de capacidades'), ('docs/AGENT_QUICKSTART.md', 'Inicio rápido para agentes'),
           ('AGENTS.md', 'Reglas para agentes'), ('CONTRIBUTING.md', 'Contribuir'), ('SECURITY.md', 'Informar de una vulnerabilidad')],
     license_title='Licencia',
@@ -357,8 +357,8 @@ T['es'] = dict(
 T['de'] = dict(
     lang_name='Deutsch',
     tagline='Agent Skills, die deinem KI-Agenten beibringen, schnelle, sichere, SEO- und GEO-fähige Websites und Anwendungen mit Éclair CMS zu bauen.',
-    banner_sub='57 Agent Skills · 8 Familien · Éclair CMS 2.0.x',
-    intro=('**Éclair Skills** ist eine Bibliothek mit **57 Agent Skills** für [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
+    banner_sub='200 Agent Skills · 18 Familien · Éclair CMS 2.0.x',
+    intro=('**Éclair Skills** ist eine Bibliothek mit **200 Agent Skills** für [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
            'Füge sie deinem Projekt hinzu, und dein Coding-Agent (Claude Code, Codex, ChatGPT oder jeder Agent, der `SKILL.md`-Ordner liest) improvisiert nicht mehr: '
            'Er folgt einer bewährten Methode, respektiert den CMS-Vertrag, rührt den Kern nie an und belegt seine Arbeit mit Tests.'),
     why_title='Warum Éclair Skills?',
@@ -367,7 +367,7 @@ T['de'] = dict(
          ('Sicher und schnell ab Werk', 'CSRF, Objektrechte, Escaping, keine personenbezogenen Daten im gemeinsamen Cache, gemessene Performance-Budgets.'),
          ('Ehrlich bei Grenzen', 'jeder Skill sagt, was Éclair 2.0 heute kann und was noch eine Kernfunktion braucht.')],
     notice_title='Zuerst lesen',
-    notice=('**57 Skills ≠ 57 PHP-Erweiterungen.** Ein Skill ist eine Anleitung für deinen Agenten (Anweisungen, Referenzen und zu schreibende Tests). '
+    notice=('**200 Skills ≠ 200 PHP-Erweiterungen.** Ein Skill ist eine Anleitung für deinen Agenten (Anweisungen, Referenzen und zu schreibende Tests). '
             'Er ist kein Plugin für eine Live-Website. Das einzige lauffähige Beispiel ist das schreibgeschützte `catalogue-demo`.'),
     how_title='So funktioniert es',
     how_intro='Du beschreibst dein Ziel in normaler Sprache. Der Agent findet den passenden Skill über dessen Beschreibung und folgt fünf Schritten:',
@@ -395,7 +395,7 @@ T['de'] = dict(
             ('Fachfamilien', 'Commerce, LMS, Community, Business-Apps und Integrationen: wähle, was dein Projekt braucht.'),
             ('Übergreifende Qualität', 'Design & UX sowie SEO & GEO gelten für jede Seite, egal in welchem Bereich.'),
             ('Deine Website', 'Das Ergebnis liegt in site/themes und site/extensions, validiert und getestet.')],
-    families_title='Die 8 Familien',
+    families_title='Die 18 Familien',
     fam=dict(foundation=('Grundlagen', 'Nativer v2-Vertrag, Tests und Sicherheit'),
              commerce=('Commerce Pro', 'Shop mit Transaktionen und Zahlungen, vor dem Einsatz geplant'),
              lms=('LMS', 'Kurse, Einschreibungen, Fortschritt, Zertifikate'),
@@ -416,7 +416,7 @@ T['de'] = dict(
     recipes_title='Rezepte: welche Skills für welches Projekt',
     recipes_intro='Beginne mit den Grundlagen und folge dann der Reihenfolge. Jeder Pfeil ist ein Schritt, den der Agent abschließt und testet, bevor er weitergeht.',
     recipes=[('Onlineshop', None), ('Online-Schule', None), ('Community / Forum', None), ('Website für lokales Unternehmen', None), ('WordPress-Migration & SEO/GEO', None)],
-    catalog_title='Vollständiger Katalog der 57 Skills',
+    catalog_title='Vollständiger Katalog der 200 Skills',
     catalog_intro='Klicke auf einen Skill, um seine `SKILL.md` zu öffnen. Die Statusspalte zeigt, was heute mit Éclair 2.0 lieferbar ist.',
     col_skill='Skill', col_what='Wobei er dem Agenten hilft', col_status='Status',
     mat=dict(native='Nativ v2', readonly='Nur-Lese-Prototyp möglich', design='Planung · Kern nötig', partial='Teilweise blockiert'),
@@ -426,12 +426,12 @@ T['de'] = dict(
             '🟡 **Teilweise blockiert**: einige Teile hängen von einer Änderung des Kernvertrags ab.'),
     maturity_title='Reifegrad: vom Agenten-Leitfaden zur Produktion',
     maturity_intro='Ein Skill ist der erste Schritt, nicht der letzte. Vier Stufen trennen einen Leitfaden von einer produktiven Anwendung:',
-    levels=[('Workflow', 'SKILL.md leitet die Planung, prüft Schnittstellen und vermeidet Fehler. Alle 57 Skills stehen hier.'),
+    levels=[('Workflow', 'SKILL.md leitet die Planung, prüft Schnittstellen und vermeidet Fehler. Alle 200 Skills stehen hier.'),
             ('Natives v2-Paket', 'Gültige extension.json, Nur-Lese- oder geschützter Admin-Code, offizieller Validator und native Tests.'),
             ('Fach-Engines', 'Konten, POST, Transaktionen, Webhooks, Sicherheitsaudit, Performance, Backup/Restore, CI.'),
             ('Produktion', 'Begrenzter Rollout, Monitoring, geprüfte Wiederherstellung, Überwachung, Rechtskonformität.')],
-    here='Alle 57 Skills',
-    gates_note='Bevor eine kommerzielle Anwendung aktiviert wird, müssen fünf Hürden genommen sein: exakte CMS-Kompatibilität, getestete Authentifizierung und Datentrennung, transaktionale Speicherung und signierte Zahlungen, unabhängiges Sicherheitsaudit sowie keine Performance- oder SEO-Regression. Siehe [docs/ROADMAP_57.md](docs/ROADMAP_57.md).',
+    here='Alle 200 Skills',
+    gates_note='Bevor eine kommerzielle Anwendung aktiviert wird, müssen fünf Hürden genommen sein: exakte CMS-Kompatibilität, getestete Authentifizierung und Datentrennung, transaktionale Speicherung und signierte Zahlungen, unabhängiges Sicherheitsaudit sowie keine Performance- oder SEO-Regression. Siehe [docs/ROADMAP.md](docs/ROADMAP.md).',
     examples_title='Beispiele und Prototypen',
     col_path='Ordner', col_state='Zustand', col_desc='Was es ist',
     examples=[('examples/extensions/catalogue-demo', '✅ Lauffähiges Beispiel', 'Schreibgeschütztes Schaufenster, GET `/catalogue-demo`, ohne Kunden, Warenkorb, Bestellung oder Zahlung.'),
@@ -453,7 +453,7 @@ T['de'] = dict(
             'Agenten: Claude Code, Codex, ChatGPT und jeder Agent, der `SKILL.md`-Ordner unterstützt.',
             'Die Skill-Inhalte sind auf Französisch verfasst; sie funktionieren mit jedem Agenten, egal in welcher Sprache du mit ihm sprichst.'],
     more_title='Weiterlesen',
-    more=[('docs/CATALOGUE_COMPLET.md', 'Vollständiger Katalog (generiert)'), ('docs/ROADMAP_57.md', 'Roadmap und Produktionshürden'),
+    more=[('docs/CATALOGUE_COMPLET.md', 'Vollständiger Katalog (generiert)'), ('docs/ROADMAP.md', 'Roadmap und Produktionshürden'),
           ('docs/CAPABILITY_MATRIX.md', 'Fähigkeitsmatrix'), ('docs/AGENT_QUICKSTART.md', 'Schnellstart für Agenten'),
           ('AGENTS.md', 'Regeln für Agenten'), ('CONTRIBUTING.md', 'Mitwirken'), ('SECURITY.md', 'Sicherheitslücke melden')],
     license_title='Lizenz',
@@ -471,8 +471,8 @@ T['de'] = dict(
 T['it'] = dict(
     lang_name='Italiano',
     tagline='Agent Skills che insegnano al tuo agente IA a creare siti e applicazioni veloci, sicuri e pronti per SEO e GEO su Éclair CMS.',
-    banner_sub='57 Agent Skills · 8 famiglie · Éclair CMS 2.0.x',
-    intro=('**Éclair Skills** è una libreria di **57 Agent Skills** per [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
+    banner_sub='200 Agent Skills · 18 famiglie · Éclair CMS 2.0.x',
+    intro=('**Éclair Skills** è una libreria di **200 Agent Skills** per [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
            'Aggiungile al tuo progetto e il tuo agente di codice (Claude Code, Codex, ChatGPT o qualsiasi agente che legge cartelle `SKILL.md`) smette di improvvisare: '
            'segue un metodo collaudato, rispetta il contratto del CMS, non tocca mai il core e dimostra il suo lavoro con i test.'),
     why_title='Perché Éclair Skills?',
@@ -481,7 +481,7 @@ T['it'] = dict(
          ('Sicuro e veloce di default', 'CSRF, permessi per oggetto, escaping, nessun dato personale in cache condivisa, budget di prestazioni misurati.'),
          ('Onesto sui limiti', 'ogni skill dice cosa Éclair 2.0 permette oggi e cosa richiede ancora una capacità del core.')],
     notice_title='Da leggere prima',
-    notice=('**57 skill ≠ 57 estensioni PHP.** Una skill è una guida per il tuo agente (istruzioni, riferimenti e test da scrivere). '
+    notice=('**200 skill ≠ 200 estensioni PHP.** Una skill è una guida per il tuo agente (istruzioni, riferimenti e test da scrivere). '
             'Non è un plugin da installare su un sito in produzione. L’unico esempio funzionante è `catalogue-demo`, in sola lettura.'),
     how_title='Come funziona',
     how_intro='Descrivi il tuo obiettivo con parole semplici. L’agente trova la skill giusta grazie alla sua descrizione e segue cinque passi:',
@@ -509,7 +509,7 @@ T['it'] = dict(
             ('Famiglie di dominio', 'Commercio, LMS, community, app di business e integrazioni: scegli quelle che servono al progetto.'),
             ('Qualità trasversale', 'Design e UX, SEO e GEO valgono per ogni pagina, qualunque sia il dominio.'),
             ('Il tuo sito', 'Il risultato vive in site/themes e site/extensions, validato e testato.')],
-    families_title='Le 8 famiglie',
+    families_title='Le 18 famiglie',
     fam=dict(foundation=('Fondamenta', 'Contratto nativo v2, test e sicurezza'),
              commerce=('Commerce Pro', 'Negozio transazionale e pagamenti, progettati prima del rilascio'),
              lms=('LMS', 'Corsi, iscrizioni, progressi, certificati'),
@@ -530,7 +530,7 @@ T['it'] = dict(
     recipes_title='Ricette: quali skill per quale progetto',
     recipes_intro='Parti dalle fondamenta e segui l’ordine indicato. Ogni freccia è un passo che l’agente completa e testa prima del successivo.',
     recipes=[('Negozio online', None), ('Scuola online', None), ('Community / forum', None), ('Sito per attività locale', None), ('Migrazione WordPress e SEO/GEO', None)],
-    catalog_title='Catalogo completo delle 57 skill',
+    catalog_title='Catalogo completo delle 200 skill',
     catalog_intro='Clicca su una skill per aprire il suo `SKILL.md`. La colonna stato indica cosa si può consegnare oggi su Éclair 2.0.',
     col_skill='Skill', col_what='Cosa aiuta a fare all’agente', col_status='Stato',
     mat=dict(native='Nativo v2', readonly='Prototipo in sola lettura possibile', design='Progetto · serve il core', partial='Parzialmente bloccato'),
@@ -540,12 +540,12 @@ T['it'] = dict(
             '🟡 **Parzialmente bloccato**: alcune parti dipendono da un’evoluzione del contratto del core.'),
     maturity_title='Maturità: dalla guida per l’agente alla produzione',
     maturity_intro='Una skill è il primo passo, non l’ultimo. Quattro livelli separano una guida da un’applicazione in produzione:',
-    levels=[('Workflow', 'SKILL.md guida la progettazione, verifica le interfacce ed evita errori. Tutte le 57 skill sono qui.'),
+    levels=[('Workflow', 'SKILL.md guida la progettazione, verifica le interfacce ed evita errori. Tutte le 200 skill sono qui.'),
             ('Pacchetto nativo v2', 'extension.json valido, codice in sola lettura o admin protetto, validatore ufficiale e test nativi.'),
             ('Motori di business', 'Account, POST, transazioni, webhook, audit di sicurezza, prestazioni, backup/ripristino, CI.'),
             ('Produzione', 'Rilascio limitato, monitoraggio, ripristino verificato, supervisione, conformità legale.')],
-    here='Tutte le 57 skill',
-    gates_note='Prima di attivare un’applicazione commerciale devono essere superate cinque soglie: compatibilità esatta del CMS, autenticazione e isolamento dei dati testati, archiviazione transazionale e pagamenti firmati, audit di sicurezza indipendente, nessuna regressione di prestazioni o SEO. Vedi [docs/ROADMAP_57.md](docs/ROADMAP_57.md).',
+    here='Tutte le 200 skill',
+    gates_note='Prima di attivare un’applicazione commerciale devono essere superate cinque soglie: compatibilità esatta del CMS, autenticazione e isolamento dei dati testati, archiviazione transazionale e pagamenti firmati, audit di sicurezza indipendente, nessuna regressione di prestazioni o SEO. Vedi [docs/ROADMAP.md](docs/ROADMAP.md).',
     examples_title='Esempi e prototipi',
     col_path='Cartella', col_state='Stato', col_desc='Che cos’è',
     examples=[('examples/extensions/catalogue-demo', '✅ Esempio funzionante', 'Vetrina in sola lettura, GET `/catalogue-demo`, senza clienti, carrello, ordine o pagamento.'),
@@ -567,7 +567,7 @@ T['it'] = dict(
             'Agenti: Claude Code, Codex, ChatGPT e qualsiasi agente compatibile con le cartelle `SKILL.md`.',
             'Il contenuto delle skill è scritto in francese; funzionano con qualsiasi agente, in qualunque lingua tu gli parli.'],
     more_title='Per approfondire',
-    more=[('docs/CATALOGUE_COMPLET.md', 'Catalogo completo (generato)'), ('docs/ROADMAP_57.md', 'Roadmap e soglie di produzione'),
+    more=[('docs/CATALOGUE_COMPLET.md', 'Catalogo completo (generato)'), ('docs/ROADMAP.md', 'Roadmap e soglie di produzione'),
           ('docs/CAPABILITY_MATRIX.md', 'Matrice delle capacità'), ('docs/AGENT_QUICKSTART.md', 'Avvio rapido per agenti'),
           ('AGENTS.md', 'Regole per gli agenti'), ('CONTRIBUTING.md', 'Contribuire'), ('SECURITY.md', 'Segnalare una vulnerabilità')],
     license_title='Licenza',
@@ -585,8 +585,8 @@ T['it'] = dict(
 T['pt'] = dict(
     lang_name='Português',
     tagline='Agent Skills que ensinam o seu agente de IA a criar sites e aplicações rápidos, seguros e prontos para SEO e GEO no Éclair CMS.',
-    banner_sub='57 Agent Skills · 8 famílias · Éclair CMS 2.0.x',
-    intro=('**Éclair Skills** é uma biblioteca de **57 Agent Skills** para o [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
+    banner_sub='200 Agent Skills · 18 famílias · Éclair CMS 2.0.x',
+    intro=('**Éclair Skills** é uma biblioteca de **200 Agent Skills** para o [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. '
            'Adicione-as ao seu projeto e o seu agente de código (Claude Code, Codex, ChatGPT ou qualquer agente que leia pastas `SKILL.md`) deixa de improvisar: '
            'segue um método comprovado, respeita o contrato do CMS, nunca toca no núcleo e prova o seu trabalho com testes.'),
     why_title='Porquê o Éclair Skills?',
@@ -595,7 +595,7 @@ T['pt'] = dict(
          ('Seguro e rápido por defeito', 'CSRF, permissões por objeto, escaping, nenhum dado pessoal em cache partilhada, orçamentos de desempenho medidos.'),
          ('Honesto quanto aos limites', 'cada skill diz o que o Éclair 2.0 permite hoje e o que ainda exige uma capacidade do núcleo.')],
     notice_title='Leia isto primeiro',
-    notice=('**57 skills ≠ 57 extensões PHP.** Uma skill é um guia para o seu agente (instruções, referências e testes a escrever). '
+    notice=('**200 skills ≠ 200 extensões PHP.** Uma skill é um guia para o seu agente (instruções, referências e testes a escrever). '
             'Não é um plugin para instalar num site em produção. O único exemplo funcional é o `catalogue-demo`, apenas de leitura.'),
     how_title='Como funciona',
     how_intro='Descreve o seu objetivo em linguagem simples. O agente encontra a skill certa pela descrição e segue cinco passos:',
@@ -623,7 +623,7 @@ T['pt'] = dict(
             ('Famílias de negócio', 'Comércio, LMS, comunidade, aplicações de negócio e integrações: escolha as que o projeto precisa.'),
             ('Qualidade transversal', 'Design e UX, SEO e GEO aplicam-se a todas as páginas, seja qual for o domínio.'),
             ('O seu site', 'O resultado vive em site/themes e site/extensions, validado e testado.')],
-    families_title='As 8 famílias',
+    families_title='As 18 famílias',
     fam=dict(foundation=('Fundações', 'Contrato nativo v2, testes e segurança'),
              commerce=('Commerce Pro', 'Loja transacional e pagamentos, concebidos antes da implementação'),
              lms=('LMS', 'Cursos, inscrições, progresso, certificados'),
@@ -644,7 +644,7 @@ T['pt'] = dict(
     recipes_title='Receitas: que skills para que projeto',
     recipes_intro='Comece pelas fundações e siga a ordem indicada. Cada seta é um passo que o agente conclui e testa antes do seguinte.',
     recipes=[('Loja online', None), ('Escola online', None), ('Comunidade / fórum', None), ('Site de negócio local', None), ('Migração WordPress e SEO/GEO', None)],
-    catalog_title='Catálogo completo das 57 skills',
+    catalog_title='Catálogo completo das 200 skills',
     catalog_intro='Clique numa skill para abrir o seu `SKILL.md`. A coluna estado indica o que pode ser entregue hoje no Éclair 2.0.',
     col_skill='Skill', col_what='O que ajuda o agente a fazer', col_status='Estado',
     mat=dict(native='Nativo v2', readonly='Protótipo só de leitura possível', design='Conceção · requer núcleo', partial='Parcialmente bloqueado'),
@@ -654,12 +654,12 @@ T['pt'] = dict(
             '🟡 **Parcialmente bloqueado**: algumas partes dependem de uma evolução do contrato do núcleo.'),
     maturity_title='Maturidade: do guia do agente à produção',
     maturity_intro='Uma skill é o primeiro passo, não o último. Quatro níveis separam um guia de uma aplicação em produção:',
-    levels=[('Workflow', 'SKILL.md orienta a conceção, verifica interfaces e evita erros. As 57 skills estão aqui.'),
+    levels=[('Workflow', 'SKILL.md orienta a conceção, verifica interfaces e evita erros. As 200 skills estão aqui.'),
             ('Pacote nativo v2', 'extension.json válido, código só de leitura ou admin protegido, validador oficial e testes nativos.'),
             ('Motores de negócio', 'Contas, POST, transações, webhooks, auditoria de segurança, desempenho, backup/restauro, CI.'),
             ('Produção', 'Implementação limitada, monitorização, restauro verificado, supervisão, conformidade legal.')],
-    here='As 57 skills',
-    gates_note='Antes de ativar uma aplicação comercial, cinco barreiras têm de ser superadas: compatibilidade exata do CMS, autenticação e isolamento de dados testados, armazenamento transacional e pagamentos assinados, auditoria de segurança independente e nenhuma regressão de desempenho ou SEO. Ver [docs/ROADMAP_57.md](docs/ROADMAP_57.md).',
+    here='As 200 skills',
+    gates_note='Antes de ativar uma aplicação comercial, cinco barreiras têm de ser superadas: compatibilidade exata do CMS, autenticação e isolamento de dados testados, armazenamento transacional e pagamentos assinados, auditoria de segurança independente e nenhuma regressão de desempenho ou SEO. Ver [docs/ROADMAP.md](docs/ROADMAP.md).',
     examples_title='Exemplos e protótipos',
     col_path='Pasta', col_state='Estado', col_desc='O que é',
     examples=[('examples/extensions/catalogue-demo', '✅ Exemplo funcional', 'Montra só de leitura, GET `/catalogue-demo`, sem clientes, carrinho, pedido nem pagamento.'),
@@ -681,7 +681,7 @@ T['pt'] = dict(
             'Agentes: Claude Code, Codex, ChatGPT e qualquer agente compatível com pastas `SKILL.md`.',
             'O conteúdo das skills está escrito em francês; funcionam com qualquer agente, seja qual for a língua em que fala com ele.'],
     more_title='Saber mais',
-    more=[('docs/CATALOGUE_COMPLET.md', 'Catálogo completo (gerado)'), ('docs/ROADMAP_57.md', 'Roteiro e barreiras de produção'),
+    more=[('docs/CATALOGUE_COMPLET.md', 'Catálogo completo (gerado)'), ('docs/ROADMAP.md', 'Roteiro e barreiras de produção'),
           ('docs/CAPABILITY_MATRIX.md', 'Matriz de capacidades'), ('docs/AGENT_QUICKSTART.md', 'Início rápido para agentes'),
           ('AGENTS.md', 'Regras para agentes'), ('CONTRIBUTING.md', 'Contribuir'), ('SECURITY.md', 'Comunicar uma vulnerabilidade')],
     license_title='Licença',

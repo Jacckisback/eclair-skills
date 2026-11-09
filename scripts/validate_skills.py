@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the 57-skill Agent Skills catalog structurally, using Python stdlib.
+"""Validate the Agent Skills catalog structurally, using Python stdlib.
 This is NOT a semantic audit or official Éclair validator.
 """
 import argparse
@@ -19,8 +19,12 @@ def validate(root: Path):
     existing={p.name for p in skill_dir.iterdir() if p.is_dir()} if skill_dir.is_dir() else set()
     if len(expected)!=len(catalog(root)):
         errors.append('Duplicate skill names in catalog')
-    if len(expected)!=57:
-        errors.append(f'Wrong skill count: {len(expected)} (expected 57)')
+    groups=json.loads((root/'catalog.json').read_text(encoding='utf-8'))['groups']
+    declared=sum(g['count'] for g in groups.values())
+    if len(expected)!=declared:
+        errors.append(f'Wrong skill count: {len(expected)} (families declare {declared})')
+    for s in catalog(root):
+        if s['category'] not in groups: errors.append(f"Unknown family for {s['name']}: {s['category']}")
     for unexpected in sorted(existing-expected): errors.append(f'Unexpected skill directory: {unexpected}')
     for n in sorted(expected):
         file=skill_dir/n/'SKILL.md'

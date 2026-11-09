@@ -1,49 +1,99 @@
 {
-  "catalog_version": "2.0.0",
+  "catalog_version": "2.1.0",
   "target_eclair": "2.0.x",
   "format": "Agent Skills SKILL.md",
-  "status": "workflow-library-not-ready-to-deploy-commerce-lms-forum",
-  "generated_for": "complete-original-57-skill-plan",
+  "status": "workflow-library-core-builtin-and-native-usable-transactional-modules-design-only",
+  "generated_for": "wordpress-alternative-catalogue",
   "groups": {
     "foundation": {
       "title": "Fondations",
       "description": "Contrat natif v2, tests et sécurité",
       "count": 8
     },
-    "commerce": {
-      "title": "Commerce Pro",
-      "description": "Boutique transactionnelle et paiement, conception avant déploiement",
-      "count": 10
+    "content": {
+      "title": "Contenu et édition",
+      "description": "Articles, pages, catégories, menus, recherche, flux",
+      "count": 14
     },
-    "lms": {
-      "title": "LMS",
-      "description": "Cours, inscriptions, progression, certifications",
-      "count": 7
+    "media": {
+      "title": "Médias",
+      "description": "Médiathèque, images, galeries, vidéo, audio, documents",
+      "count": 9
     },
-    "community": {
-      "title": "Forum et communauté",
-      "description": "Discussions, modération, profils et notifications",
-      "count": 6
-    },
-    "business": {
-      "title": "Applications métiers",
-      "description": "Réservations, abonnements, annuaires et outils métiers",
-      "count": 8
+    "components": {
+      "title": "Blocs et composants",
+      "description": "FAQ, onglets, tableaux, tarifs, sections, navigation",
+      "count": 14
     },
     "design": {
       "title": "Design et UX",
       "description": "Thèmes, blocs, accessibilité et rapidité",
       "count": 7
     },
+    "multilingual": {
+      "title": "Multilingue",
+      "description": "Langues, sélecteur, formats, adresses, traduction",
+      "count": 6
+    },
+    "forms": {
+      "title": "Formulaires",
+      "description": "Contact, devis, étapes, pièces jointes, sondages, calculs",
+      "count": 9
+    },
     "seo": {
       "title": "SEO, GEO et migration",
       "description": "Indexabilité, données structurées et WordPress",
-      "count": 5
+      "count": 11
+    },
+    "marketing": {
+      "title": "Marketing et audience",
+      "description": "Newsletter, pages d'atterrissage, mesure, partage, publicité",
+      "count": 12
+    },
+    "commerce": {
+      "title": "Commerce Pro",
+      "description": "Boutique transactionnelle et paiement, conception avant déploiement",
+      "count": 22
+    },
+    "lms": {
+      "title": "LMS",
+      "description": "Cours, inscriptions, progression, certifications",
+      "count": 10
+    },
+    "community": {
+      "title": "Forum et communauté",
+      "description": "Discussions, modération, profils et notifications",
+      "count": 10
+    },
+    "business": {
+      "title": "Applications métiers",
+      "description": "Réservations, abonnements, annuaires et outils métiers",
+      "count": 20
     },
     "integrations": {
       "title": "Intégrations et automatisations",
       "description": "API, webhooks, emails, IA, suivi",
-      "count": 6
+      "count": 15
+    },
+    "performance": {
+      "title": "Performance",
+      "description": "Cache, CDN, images, poids, signaux web essentiels",
+      "count": 7
+    },
+    "security": {
+      "title": "Sécurité et confidentialité",
+      "description": "Connexion, 2FA, spam, en-têtes, intégrité, données personnelles",
+      "count": 9
+    },
+    "admin": {
+      "title": "Administration et maintenance",
+      "description": "Comptes, sauvegardes, mises à jour, déménagement, journal",
+      "count": 10
+    },
+    "developer": {
+      "title": "Développement et outils",
+      "description": "API en lecture, Markdown, MCP, ligne de commande, portage",
+      "count": 7
     }
   },
   "skills": [
@@ -96,6 +146,498 @@
       "kind": "agent-skill"
     },
     {
+      "name": "eclair-blog-posts",
+      "category": "content",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-static-pages",
+      "category": "content",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-categories",
+      "category": "content",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-tags-taxonomies",
+      "category": "content",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-custom-content-types",
+      "category": "content",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-custom-fields",
+      "category": "content",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-comments",
+      "category": "content",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-editorial-workflow",
+      "category": "content",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-authors",
+      "category": "content",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-navigation-menus",
+      "category": "content",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-site-search",
+      "category": "content",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-rss-feeds",
+      "category": "content",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-related-posts",
+      "category": "content",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-table-of-contents",
+      "category": "content",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-media-library",
+      "category": "media",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-image-optimization",
+      "category": "media",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-image-galleries",
+      "category": "media",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-video-embeds",
+      "category": "media",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-audio-podcast",
+      "category": "media",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-file-downloads",
+      "category": "media",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-sliders-carousels",
+      "category": "media",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-lightbox",
+      "category": "media",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-pdf-documents",
+      "category": "media",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-accordions-faq",
+      "category": "components",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-tabs",
+      "category": "components",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-data-tables",
+      "category": "components",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-pricing-tables",
+      "category": "components",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-timelines",
+      "category": "components",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-countdowns",
+      "category": "components",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-team-members",
+      "category": "components",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-logo-walls",
+      "category": "components",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-cta-sections",
+      "category": "components",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-hero-sections",
+      "category": "components",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-headers-footers",
+      "category": "components",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-breadcrumbs",
+      "category": "components",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-pagination",
+      "category": "components",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-dark-mode",
+      "category": "components",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-design",
+      "category": "design",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-theme-builder",
+      "category": "design",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-blocks-library",
+      "category": "design",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-accessibility",
+      "category": "design",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-design-system",
+      "category": "design",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-responsive-ux",
+      "category": "design",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-performance-ux",
+      "category": "design",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-multilingual-content",
+      "category": "multilingual",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-language-switcher",
+      "category": "multilingual",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-rtl-support",
+      "category": "multilingual",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-locale-formats",
+      "category": "multilingual",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-translated-urls",
+      "category": "multilingual",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-translation-workflow",
+      "category": "multilingual",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-contact-forms",
+      "category": "forms",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-form-inbox",
+      "category": "forms",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-multi-step-forms",
+      "category": "forms",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-file-upload-forms",
+      "category": "forms",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-payment-forms",
+      "category": "forms",
+      "maturity": "public-read-only-prototype-possible",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-surveys-polls",
+      "category": "forms",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-quote-requests",
+      "category": "forms",
+      "maturity": "public-read-only-prototype-possible",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-conditional-forms",
+      "category": "forms",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-calculators",
+      "category": "forms",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-seo-audit",
+      "category": "seo",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-geo-optimization",
+      "category": "seo",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-wordpress-migration",
+      "category": "seo",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-structured-data",
+      "category": "seo",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-multilingual-seo",
+      "category": "seo",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-meta-tags",
+      "category": "seo",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-xml-sitemaps",
+      "category": "seo",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-redirects-manager",
+      "category": "seo",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-local-seo",
+      "category": "seo",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-social-previews",
+      "category": "seo",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-internal-linking",
+      "category": "seo",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-newsletter-signup",
+      "category": "marketing",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-email-campaigns",
+      "category": "marketing",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-popups-optins",
+      "category": "marketing",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-landing-pages",
+      "category": "marketing",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-ab-testing",
+      "category": "marketing",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-privacy-analytics",
+      "category": "marketing",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-social-sharing",
+      "category": "marketing",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-social-feeds",
+      "category": "marketing",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-testimonials",
+      "category": "marketing",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-affiliate-links",
+      "category": "marketing",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-ads-adsense",
+      "category": "marketing",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-announcement-bars",
+      "category": "marketing",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
       "name": "eclair-commerce-pro",
       "category": "commerce",
       "maturity": "design-workflow-requires-verified-core-capabilities",
@@ -104,13 +646,13 @@
     {
       "name": "eclair-product-catalog",
       "category": "commerce",
-      "maturity": "public-read-only-prototype-possible",
+      "maturity": "core-builtin-configuration-workflow",
       "kind": "agent-skill"
     },
     {
       "name": "eclair-product-variants",
       "category": "commerce",
-      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "maturity": "core-builtin-configuration-workflow",
       "kind": "agent-skill"
     },
     {
@@ -151,6 +693,78 @@
     },
     {
       "name": "eclair-commerce-analytics",
+      "category": "commerce",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-shop-setup",
+      "category": "commerce",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-payment-links",
+      "category": "commerce",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-merchant-feed",
+      "category": "commerce",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-subscriptions-billing",
+      "category": "commerce",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-digital-downloads",
+      "category": "commerce",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-wishlists",
+      "category": "commerce",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-product-reviews",
+      "category": "commerce",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-product-filters",
+      "category": "commerce",
+      "maturity": "public-read-only-prototype-possible",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-abandoned-cart",
+      "category": "commerce",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-gift-cards",
+      "category": "commerce",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-customer-accounts",
+      "category": "commerce",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-returns-refunds",
       "category": "commerce",
       "maturity": "design-workflow-requires-verified-core-capabilities",
       "kind": "agent-skill"
@@ -198,6 +812,24 @@
       "kind": "agent-skill"
     },
     {
+      "name": "eclair-assignments",
+      "category": "lms",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-live-classes",
+      "category": "lms",
+      "maturity": "public-read-only-prototype-possible",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-drip-content",
+      "category": "lms",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
       "name": "eclair-forum",
       "category": "community",
       "maturity": "design-workflow-requires-verified-core-capabilities",
@@ -229,6 +861,30 @@
     },
     {
       "name": "eclair-community-search",
+      "category": "community",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-private-messaging",
+      "category": "community",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-groups",
+      "category": "community",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-activity-feed",
+      "category": "community",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-gamification",
       "category": "community",
       "maturity": "design-workflow-requires-verified-core-capabilities",
       "kind": "agent-skill"
@@ -282,74 +938,74 @@
       "kind": "agent-skill"
     },
     {
-      "name": "eclair-design",
-      "category": "design",
+      "name": "eclair-restaurant-menu",
+      "category": "business",
       "maturity": "native-v2-workflow",
       "kind": "agent-skill"
     },
     {
-      "name": "eclair-theme-builder",
-      "category": "design",
+      "name": "eclair-recipes",
+      "category": "business",
       "maturity": "native-v2-workflow",
       "kind": "agent-skill"
     },
     {
-      "name": "eclair-blocks-library",
-      "category": "design",
+      "name": "eclair-hotel-rooms",
+      "category": "business",
+      "maturity": "public-read-only-prototype-possible",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-professional-services",
+      "category": "business",
       "maturity": "native-v2-workflow",
       "kind": "agent-skill"
     },
     {
-      "name": "eclair-accessibility",
-      "category": "design",
+      "name": "eclair-nonprofit-donations",
+      "category": "business",
+      "maturity": "public-read-only-prototype-possible",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-classifieds",
+      "category": "business",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-knowledge-base",
+      "category": "business",
       "maturity": "native-v2-workflow",
       "kind": "agent-skill"
     },
     {
-      "name": "eclair-design-system",
-      "category": "design",
+      "name": "eclair-helpdesk-tickets",
+      "category": "business",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-magazine-news",
+      "category": "business",
       "maturity": "native-v2-workflow",
       "kind": "agent-skill"
     },
     {
-      "name": "eclair-responsive-ux",
-      "category": "design",
+      "name": "eclair-portfolio",
+      "category": "business",
       "maturity": "native-v2-workflow",
       "kind": "agent-skill"
     },
     {
-      "name": "eclair-performance-ux",
-      "category": "design",
+      "name": "eclair-coupons-deals",
+      "category": "business",
       "maturity": "native-v2-workflow",
       "kind": "agent-skill"
     },
     {
-      "name": "eclair-seo-audit",
-      "category": "seo",
-      "maturity": "native-v2-workflow",
-      "kind": "agent-skill"
-    },
-    {
-      "name": "eclair-geo-optimization",
-      "category": "seo",
-      "maturity": "native-v2-workflow",
-      "kind": "agent-skill"
-    },
-    {
-      "name": "eclair-wordpress-migration",
-      "category": "seo",
-      "maturity": "native-v2-workflow",
-      "kind": "agent-skill"
-    },
-    {
-      "name": "eclair-structured-data",
-      "category": "seo",
-      "maturity": "partly-blocked-by-core-contract",
-      "kind": "agent-skill"
-    },
-    {
-      "name": "eclair-multilingual-seo",
-      "category": "seo",
+      "name": "eclair-glossary",
+      "category": "business",
       "maturity": "native-v2-workflow",
       "kind": "agent-skill"
     },
@@ -388,11 +1044,264 @@
       "category": "integrations",
       "maturity": "design-workflow-requires-verified-core-capabilities",
       "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-google-analytics",
+      "category": "integrations",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-search-console",
+      "category": "integrations",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-tag-manager",
+      "category": "integrations",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-email-marketing-providers",
+      "category": "integrations",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-automation-platforms",
+      "category": "integrations",
+      "maturity": "public-read-only-prototype-possible",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-maps-embeds",
+      "category": "integrations",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-social-login",
+      "category": "integrations",
+      "maturity": "design-workflow-requires-verified-core-capabilities",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-live-chat",
+      "category": "integrations",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-calendar-feeds",
+      "category": "integrations",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-page-cache",
+      "category": "performance",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-cdn",
+      "category": "performance",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-lazy-loading",
+      "category": "performance",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-asset-budget",
+      "category": "performance",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-core-web-vitals",
+      "category": "performance",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-fonts-loading",
+      "category": "performance",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-third-party-scripts",
+      "category": "performance",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-login-protection",
+      "category": "security",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-two-factor-auth",
+      "category": "security",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-anti-spam",
+      "category": "security",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-captcha",
+      "category": "security",
+      "maturity": "partly-blocked-by-core-contract",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-security-headers",
+      "category": "security",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-file-integrity",
+      "category": "security",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-cookie-consent",
+      "category": "security",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-privacy-requests",
+      "category": "security",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-incident-recovery",
+      "category": "security",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-team-accounts",
+      "category": "admin",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-backups-restore",
+      "category": "admin",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-updates-rollback",
+      "category": "admin",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-maintenance-mode",
+      "category": "admin",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-staging-deploy",
+      "category": "admin",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-site-migration",
+      "category": "admin",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-error-pages",
+      "category": "admin",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-site-settings",
+      "category": "admin",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-activity-log",
+      "category": "admin",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-scheduled-tasks",
+      "category": "admin",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-public-api",
+      "category": "developer",
+      "maturity": "public-read-only-prototype-possible",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-headless-content",
+      "category": "developer",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-mcp-connector",
+      "category": "developer",
+      "maturity": "core-builtin-configuration-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-cli-tools",
+      "category": "developer",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-debugging-logs",
+      "category": "developer",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-local-development",
+      "category": "developer",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
+    },
+    {
+      "name": "eclair-wp-plugin-porting",
+      "category": "developer",
+      "maturity": "native-v2-workflow",
+      "kind": "agent-skill"
     }
   ],
   "notes": [
-    "Foundation PR #19 is draft, not merged. Native eclair-extension/1 public GET only.",
-    "All 57 are agent skills, not 57 working PHP plugins.",
+    "All 200 entries are agent skills (guides), not 200 working PHP plugins.",
+    "Maturity core-builtin-configuration-workflow: the feature already exists in the Éclair core; the skill configures and checks it.",
+    "Extensions expose public GET routes only on Éclair 2.0; public POST (PR #19) is a draft, not merged.",
     "Catalogue demo is a read-only example, no commerce transactions."
   ]
 }

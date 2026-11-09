@@ -1,6 +1,6 @@
 ---
 name: eclair-community-profiles
-description: "Use when a user wants to proposer profils publics choisis séparés des données privées on Éclair CMS 2.x; design a profils de communauté workflow with native extension compatibility, security and acceptance gates."
+description: "Offer chosen public profiles kept separate from private data. Use on Éclair CMS 2.x when the user wants to: proposer profils publics choisis séparés des données privées. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Profils de communauté — Éclair CMS 2.x

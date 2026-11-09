@@ -1,6 +1,6 @@
 ---
 name: eclair-progress
-description: "Use when a user wants to mesurer des acquis sans pertes ni mises à jour incohérentes on Éclair CMS 2.x; design a suivi de progression workflow with native extension compatibility, security and acceptance gates."
+description: "Track learner progress without losses or inconsistent updates. Use on Éclair CMS 2.x when the user wants to: mesurer des acquis sans pertes ni mises à jour incohérentes. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Suivi de progression — Éclair CMS 2.x

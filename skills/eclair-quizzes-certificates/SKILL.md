@@ -1,6 +1,6 @@
 ---
 name: eclair-quizzes-certificates
-description: "Use when a user wants to créer évaluations, seuils de réussite et certificats contrôlés on Éclair CMS 2.x; design a quiz et attestations workflow with native extension compatibility, security and acceptance gates."
+description: "Create quizzes, pass marks and controlled certificates. Use on Éclair CMS 2.x when the user wants to: créer évaluations, seuils de réussite et certificats contrôlés. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Quiz et attestations — Éclair CMS 2.x

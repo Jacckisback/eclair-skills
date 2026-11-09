@@ -1,6 +1,6 @@
 ---
 name: eclair-lessons-media
-description: "Use when a user wants to fournir vidéos et documents protégés pour cours on Éclair CMS 2.x; design a médias pédagogiques workflow with native extension compatibility, security and acceptance gates."
+description: "Deliver protected videos and documents for courses. Use on Éclair CMS 2.x when the user wants to: fournir vidéos et documents protégés pour cours. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Médias pédagogiques — Éclair CMS 2.x

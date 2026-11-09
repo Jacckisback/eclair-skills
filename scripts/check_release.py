@@ -6,7 +6,7 @@ Checks that:
 - SHA256SUMS.json lists every file of the repository (except itself,
   SIGNATURE.json, the .git directory and ignored caches) with a matching
   SHA-256 digest, and no symbolic link is present;
-- catalog.json declares 57 skills in eight families, matching skills/.
+- catalog.json family counts match its skill list and the skills/ folders.
 
 Use --write to regenerate SHA256SUMS.json after an intentional change.
 This is NOT a security audit and does not qualify any example for production.
@@ -21,9 +21,6 @@ ROOT = Path(__file__).resolve().parents[1]
 SUMS = 'SHA256SUMS.json'
 SIGNATURE = 'SIGNATURE.json'
 SKIP_DIRS = {'.git', '__pycache__'}
-EXPECTED = {'foundation': 8, 'commerce': 10, 'lms': 7, 'community': 6,
-            'business': 8, 'design': 7, 'seo': 5, 'integrations': 6}
-
 
 def files(root):
     for p in sorted(root.rglob('*')):
@@ -67,15 +64,16 @@ def main():
     counts = {}
     for s in cat['skills']:
         counts[s['category']] = counts.get(s['category'], 0) + 1
-    if counts != EXPECTED:
-        errors.append(f'Unexpected family counts: {counts}')
+    declared = {k: g['count'] for k, g in cat['groups'].items()}
+    if counts != declared:
+        errors.append(f'Family counts differ from catalog groups: {counts} vs {declared}')
     dirs = {p.name for p in (ROOT / 'skills').iterdir() if p.is_dir()}
     if dirs != {s['name'] for s in cat['skills']}:
         errors.append('skills/ directories differ from catalog.json')
     if errors:
         print('FAIL:\n- ' + '\n- '.join(errors))
         return 1
-    print(f'PASS: release integrity — {len(current)} files hashed, 57 skills in 8 families, AGPL v3.0 LICENSE present')
+    print(f'PASS: release integrity — {len(current)} files hashed, {len(cat['skills'])} skills in {len(cat['groups'])} families, AGPL v3.0 LICENSE present')
     return 0
 
 

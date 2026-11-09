@@ -1,6 +1,6 @@
 ---
 name: eclair-seo-audit
-description: "Use when a user wants to vérifier indexabilité, canonical, robots, liens et performance on Éclair CMS 2.x; design a audit seo technique workflow with native extension compatibility, security and acceptance gates."
+description: "Check indexability, canonicals, robots, links and performance. Use on Éclair CMS 2.x when the user wants to: vérifier indexabilité, canonical, robots, liens et performance. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Audit SEO technique — Éclair CMS 2.x

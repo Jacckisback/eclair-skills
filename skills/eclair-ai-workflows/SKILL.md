@@ -1,6 +1,6 @@
 ---
 name: eclair-ai-workflows
-description: "Use when a user wants to automatiser aide éditoriale sans publication intempestive on Éclair CMS 2.x; design a workflows ia workflow with native extension compatibility, security and acceptance gates."
+description: "Automate editorial help with AI, never publishing without a human. Use on Éclair CMS 2.x when the user wants to: automatiser aide éditoriale sans publication intempestive. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Workflows IA — Éclair CMS 2.x

@@ -1,6 +1,6 @@
 ---
 name: eclair-lms
-description: "Use when a user wants to structurer une école en ligne modulaire on Éclair CMS 2.x; design a architecture lms workflow with native extension compatibility, security and acceptance gates."
+description: "Structure a modular online school (entry point of the family). Use on Éclair CMS 2.x when the user wants to: structurer une école en ligne modulaire. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Architecture LMS — Éclair CMS 2.x

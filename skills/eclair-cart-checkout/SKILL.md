@@ -1,6 +1,6 @@
 ---
 name: eclair-cart-checkout
-description: "Use when a user wants to concevoir une commande multi-lignes avec prix et stock cohérents on Éclair CMS 2.x; design a panier et tunnel de commande workflow with native extension compatibility, security and acceptance gates."
+description: "Design a multi-line cart and checkout with consistent prices and stock. Use on Éclair CMS 2.x when the user wants to: concevoir une commande multi-lignes avec prix et stock cohérents. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Panier et tunnel de commande — Éclair CMS 2.x
@@ -16,7 +16,7 @@ Utiliser ce skill pour **concevoir une commande multi-lignes avec prix et stock 
 ## Procédure spécifique
 4. **Parcours métier :** Séparer affichage et changement d’état; revalider chaque ligne sur le serveur; calculer les montants en unités monétaires entières; réserver le stock transactionnellement au bon moment. Dessiner les états et les erreurs avant d'écrire du code.
 5. **Emplacements :** conserver tout code propriétaire au site dans `site/extensions/<id>/`, l'apparence dans `site/themes/<id>/` ; enregistrer les données dans le préfixe `Store` fourni par `$ctx['data']`. Ne jamais éditer `app/`, `assets/`, `index.php` ou l'updater dans le cadre de ce skill.
-6. **Contrat actuel :** Panier, commandes et paiements ont besoin de POST publics, d’un stockage transactionnel fiable, de webhooks authentifiés et d’idempotence; Éclair 2.0 officiel ne fournit pas tout cela. La PR #19 est encore un brouillon : ne jamais utiliser une route POST non fusionnée comme preuve de compatibilité.
+6. **Contrat actuel :** Le noyau fournit déjà une boutique légère (fiches produit, variantes, catégories, liens de paiement d'un prestataire, flux marchand) : l'utiliser d'abord, sans la dupliquer. Au-delà, panier, commandes et paiements ont besoin de POST publics, d’un stockage transactionnel fiable, de webhooks authentifiés et d’idempotence; Éclair 2.0 officiel ne fournit pas tout cela. La PR #19 est encore un brouillon : ne jamais utiliser une route POST non fusionnée comme preuve de compatibilité.
 7. **Invariant de sécurité :** Aucune opération d’écriture publique avant route POST qualifiée, CSRF, quotas et droits vérifiés. Vérifier droits serveur sur chaque objet, échappement avec `e()`, validation des données, absence de secret et de PII dans le HTML public ou un cache partagé.
 8. **Preuves :** écrire test positif « Tester modification simultanée de panier, expiration et changement de prix » et test de rejet « Soumission double ou concurrente ne crée pas deux commandes payables pour la même clé ». Mesurer les régressions SEO/performance, documenter rollback et responsabilité des données.
 9. **Validation native :** `php tools/validate.php <dossier> --json`, `php tests/run.php` et `php tools/measure.php --check` sur le checkout officiel (si extension installable). Pour une fonctionnalité non supportée par le noyau actuel, fournir une RFC et un test bloquant, pas une assertion de réussite fictive.

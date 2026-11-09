@@ -51,7 +51,7 @@ def main():
     p.add_argument('--project',type=Path)
     p.add_argument('--category',action='append',default=[],help='Select a skill family, repeatable')
     p.add_argument('--skill',action='append',default=[],help='Select specific skill, repeatable')
-    p.add_argument('--all',action='store_true',help='Install all 57 skills')
+    p.add_argument('--all',action='store_true',help='Install every skill of the catalogue')
     p.add_argument('--list',action='store_true',help='List skills and groups without installing')
     p.add_argument('--force',action='store_true',help='Replace selected installed skills')
     a=p.parse_args()

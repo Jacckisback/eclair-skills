@@ -1,6 +1,6 @@
 ---
 name: eclair-product-variants
-description: "Use when a user wants to modéliser tailles, couleurs et configurations sans erreurs de prix on Éclair CMS 2.x; design a variantes et attributs workflow with native extension compatibility, security and acceptance gates."
+description: "Model sizes, colours and configurations without price errors. Use on Éclair CMS 2.x when the user wants to: modéliser tailles, couleurs et configurations sans erreurs de prix. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Variantes et attributs — Éclair CMS 2.x
@@ -16,7 +16,7 @@ Utiliser ce skill pour **modéliser tailles, couleurs et configurations sans err
 ## Procédure spécifique
 4. **Parcours métier :** Définir le nombre maximal de combinaisons; assurer unicité SKU; projeter variantes dans le rendu GET; préparer sélection validée au serveur lors du checkout. Dessiner les états et les erreurs avant d'écrire du code.
 5. **Emplacements :** conserver tout code propriétaire au site dans `site/extensions/<id>/`, l'apparence dans `site/themes/<id>/` ; enregistrer les données dans le préfixe `Store` fourni par `$ctx['data']`. Ne jamais éditer `app/`, `assets/`, `index.php` ou l'updater dans le cadre de ce skill.
-6. **Contrat actuel :** Panier, commandes et paiements ont besoin de POST publics, d’un stockage transactionnel fiable, de webhooks authentifiés et d’idempotence; Éclair 2.0 officiel ne fournit pas tout cela. La PR #19 est encore un brouillon : ne jamais utiliser une route POST non fusionnée comme preuve de compatibilité.
+6. **Contrat actuel :** Le noyau fournit déjà une boutique légère (fiches produit, variantes, catégories, liens de paiement d'un prestataire, flux marchand) : l'utiliser d'abord, sans la dupliquer. Au-delà, panier, commandes et paiements ont besoin de POST publics, d’un stockage transactionnel fiable, de webhooks authentifiés et d’idempotence; Éclair 2.0 officiel ne fournit pas tout cela. La PR #19 est encore un brouillon : ne jamais utiliser une route POST non fusionnée comme preuve de compatibilité.
 7. **Invariant de sécurité :** Ne jamais accepter prix, poids ou stock envoyés par le navigateur comme données fiables. Vérifier droits serveur sur chaque objet, échappement avec `e()`, validation des données, absence de secret et de PII dans le HTML public ou un cache partagé.
 8. **Preuves :** écrire test positif « Tester variantes absentes, épuisées et désactivées » et test de rejet « Deux combinaisons créent le même SKU => refus explicite avant publication ». Mesurer les régressions SEO/performance, documenter rollback et responsabilité des données.
 9. **Validation native :** `php tools/validate.php <dossier> --json`, `php tests/run.php` et `php tools/measure.php --check` sur le checkout officiel (si extension installable). Pour une fonctionnalité non supportée par le noyau actuel, fournir une RFC et un test bloquant, pas une assertion de réussite fictive.
@@ -32,4 +32,4 @@ Utiliser ce skill pour **modéliser tailles, couleurs et configurations sans err
 - Deux combinaisons créent le même SKU => refus explicite avant publication.
 - Les parcours non pris en charge par Éclair v2 sont explicitement signalés comme **non livrables en production**.
 
-**Statut de maturité de ce skill :** `design-workflow-requires-verified-core-capabilities`. Voir `references/acceptance.md` pour les cas d'essai reproductibles.
+**Statut de maturité de ce skill :** `core-builtin-configuration-workflow`. Voir `references/acceptance.md` pour les cas d'essai reproductibles.

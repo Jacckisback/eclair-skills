@@ -2,7 +2,7 @@
 
 *English summary at the end.*
 
-Date : 8 novembre 2026. Périmètre : ce dépôt (57 skills, scripts, exemples, CI). Le noyau Éclair CMS n’est pas audité ici.
+Date : 8 novembre 2026. Périmètre : ce dépôt (57 skills à cette date, 200 depuis la version 2.1, scripts, exemples, CI). Le noyau Éclair CMS n’est pas audité ici.
 
 ## 1. Ce qu’est un skill du point de vue de la sécurité
 

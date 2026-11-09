@@ -1,6 +1,6 @@
 ---
 name: eclair-course-builder
-description: "Use when a user wants to composer cours, sections et leçons versionnés on Éclair CMS 2.x; design a création de parcours workflow with native extension compatibility, security and acceptance gates."
+description: "Compose versioned courses, sections and lessons. Use on Éclair CMS 2.x when the user wants to: composer cours, sections et leçons versionnés. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Création de parcours — Éclair CMS 2.x

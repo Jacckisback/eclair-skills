@@ -1,6 +1,6 @@
 ---
 name: eclair-theme-builder
-description: "Use when a user wants to produire un thème éclair v2 compatible avec mise à jour on Éclair CMS 2.x; design a création de thème workflow with native extension compatibility, security and acceptance gates."
+description: "Produce an Éclair v2 theme that survives updates. Use on Éclair CMS 2.x when the user wants to: produire un thème éclair v2 compatible avec mise à jour. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Création de thème — Éclair CMS 2.x

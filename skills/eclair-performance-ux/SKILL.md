@@ -1,6 +1,6 @@
 ---
 name: eclair-performance-ux
-description: "Use when a user wants to mesurer et réduire poids et instabilité de pages on Éclair CMS 2.x; design a performance ux workflow with native extension compatibility, security and acceptance gates."
+description: "Measure and reduce page weight and layout instability. Use on Éclair CMS 2.x when the user wants to: mesurer et réduire poids et instabilité de pages. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Performance UX — Éclair CMS 2.x

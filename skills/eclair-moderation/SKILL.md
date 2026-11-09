@@ -1,6 +1,6 @@
 ---
 name: eclair-moderation
-description: "Use when a user wants to construire outils de retrait, signalement et appel on Éclair CMS 2.x; design a modération et signalements workflow with native extension compatibility, security and acceptance gates."
+description: "Build removal, reporting and appeal tools. Use on Éclair CMS 2.x when the user wants to: construire outils de retrait, signalement et appel. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Modération et signalements — Éclair CMS 2.x

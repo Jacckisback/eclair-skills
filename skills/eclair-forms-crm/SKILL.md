@@ -1,6 +1,6 @@
 ---
 name: eclair-forms-crm
-description: "Use when a user wants to collecter demandes et suivre leur traitement on Éclair CMS 2.x; design a formulaires et mini-crm workflow with native extension compatibility, security and acceptance gates."
+description: "Collect requests through forms and track their handling (mini-CRM). Use on Éclair CMS 2.x when the user wants to: collecter demandes et suivre leur traitement. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Formulaires et mini-CRM — Éclair CMS 2.x
@@ -16,7 +16,7 @@ Utiliser ce skill pour **collecter demandes et suivre leur traitement**. Il prod
 ## Procédure spécifique
 4. **Parcours métier :** Définir finalité et durée de conservation par formulaire; valider données serveur; protéger spam; cloisonner fichiers et droit de lecture. Dessiner les états et les erreurs avant d'écrire du code.
 5. **Emplacements :** conserver tout code propriétaire au site dans `site/extensions/<id>/`, l'apparence dans `site/themes/<id>/` ; enregistrer les données dans le préfixe `Store` fourni par `$ctx['data']`. Ne jamais éditer `app/`, `assets/`, `index.php` ou l'updater dans le cadre de ce skill.
-6. **Contrat actuel :** Les vitrines publiques sont possibles avec GET; réservations, paiements, candidatures, CRM et données personnelles exigent POST sécurisé, stockage adapté et droits vérifiés côté serveur.
+6. **Contrat actuel :** Le formulaire de contact natif et sa boîte de réception existent déjà dans le noyau : les utiliser d'abord. Les vitrines publiques sont possibles avec GET; réservations, paiements, candidatures, CRM et données personnelles exigent POST sécurisé, stockage adapté et droits vérifiés côté serveur.
 7. **Invariant de sécurité :** Un formulaire public ne doit pas autoriser injection email ni faire apparaître les données dans le cache. Vérifier droits serveur sur chaque objet, échappement avec `e()`, validation des données, absence de secret et de PII dans le HTML public ou un cache partagé.
 8. **Preuves :** écrire test positif « Tester spam, pièce jointe, doublon et suppression RGPD » et test de rejet « Un utilisateur sans droit ne peut pas exporter la base des contacts ». Mesurer les régressions SEO/performance, documenter rollback et responsabilité des données.
 9. **Validation native :** `php tools/validate.php <dossier> --json`, `php tests/run.php` et `php tools/measure.php --check` sur le checkout officiel (si extension installable). Pour une fonctionnalité non supportée par le noyau actuel, fournir une RFC et un test bloquant, pas une assertion de réussite fictive.

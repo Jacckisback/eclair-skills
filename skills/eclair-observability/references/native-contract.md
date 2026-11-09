@@ -1,4 +1,4 @@
-# Application du contrat natif au skill eclair-extension-builder
+# Application du contrat natif au skill eclair-observability
 
 Ce skill utilise exclusivement le contrat `eclair-extension/1` livré dans Éclair CMS 2.0.0 et non les API des anciens prototypes. Référence officielle : https://github.com/Jacckisback/eclair-cms/blob/main/docs/EXTENSION-CONTRACT.md
 

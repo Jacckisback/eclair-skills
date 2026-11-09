@@ -1,6 +1,6 @@
 ---
 name: eclair-job-board
-description: "Use when a user wants to publier annonces et candidatures respectueuses des données on Éclair CMS 2.x; design a offres d’emploi workflow with native extension compatibility, security and acceptance gates."
+description: "Publish job offers and applications that respect personal data. Use on Éclair CMS 2.x when the user wants to: publier annonces et candidatures respectueuses des données. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Offres d’emploi — Éclair CMS 2.x

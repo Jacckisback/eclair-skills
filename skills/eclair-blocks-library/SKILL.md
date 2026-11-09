@@ -1,6 +1,6 @@
 ---
 name: eclair-blocks-library
-description: "Use when a user wants to composer des blocs de contenu et extensions éditables on Éclair CMS 2.x; design a bibliothèque de blocs workflow with native extension compatibility, security and acceptance gates."
+description: "Compose editable content blocks and extensions. Use on Éclair CMS 2.x when the user wants to: composer des blocs de contenu et extensions éditables. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Bibliothèque de blocs — Éclair CMS 2.x

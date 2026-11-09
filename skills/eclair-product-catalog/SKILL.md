@@ -1,6 +1,6 @@
 ---
 name: eclair-product-catalog
-description: "Use when a user wants to construire un catalogue public rapide et indexable on Éclair CMS 2.x; design a catalogue produits workflow with native extension compatibility, security and acceptance gates."
+description: "Build a fast, indexable public product catalogue. Use on Éclair CMS 2.x when the user wants to: construire un catalogue public rapide et indexable. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Catalogue produits — Éclair CMS 2.x
@@ -16,7 +16,7 @@ Utiliser ce skill pour **construire un catalogue public rapide et indexable**. I
 ## Procédure spécifique
 4. **Parcours métier :** Prototyper d’abord une page publique GET cacheable; produire un schéma produit et son index; garder titres et descriptions source; définir pagination et canonical; préserver les slugs au fil des éditions. Dessiner les états et les erreurs avant d'écrire du code.
 5. **Emplacements :** conserver tout code propriétaire au site dans `site/extensions/<id>/`, l'apparence dans `site/themes/<id>/` ; enregistrer les données dans le préfixe `Store` fourni par `$ctx['data']`. Ne jamais éditer `app/`, `assets/`, `index.php` ou l'updater dans le cadre de ce skill.
-6. **Contrat actuel :** Panier, commandes et paiements ont besoin de POST publics, d’un stockage transactionnel fiable, de webhooks authentifiés et d’idempotence; Éclair 2.0 officiel ne fournit pas tout cela. La PR #19 est encore un brouillon : ne jamais utiliser une route POST non fusionnée comme preuve de compatibilité.
+6. **Contrat actuel :** Le noyau fournit déjà une boutique légère (fiches produit, variantes, catégories, liens de paiement d'un prestataire, flux marchand) : l'utiliser d'abord, sans la dupliquer. Au-delà, panier, commandes et paiements ont besoin de POST publics, d’un stockage transactionnel fiable, de webhooks authentifiés et d’idempotence; Éclair 2.0 officiel ne fournit pas tout cela. La PR #19 est encore un brouillon : ne jamais utiliser une route POST non fusionnée comme preuve de compatibilité.
 7. **Invariant de sécurité :** Le prix affiché n’est jamais pris comme source d’autorité lors d’une future commande. Vérifier droits serveur sur chaque objet, échappement avec `e()`, validation des données, absence de secret et de PII dans le HTML public ou un cache partagé.
 8. **Preuves :** écrire test positif « Tester catégories, listes vides, URL canonique, recherche et suppression soft » et test de rejet « Un produit supprimé ou privé ne doit pas demeurer dans le catalogue ni dans un ancien cache ». Mesurer les régressions SEO/performance, documenter rollback et responsabilité des données.
 9. **Validation native :** `php tools/validate.php <dossier> --json`, `php tests/run.php` et `php tools/measure.php --check` sur le checkout officiel (si extension installable). Pour une fonctionnalité non supportée par le noyau actuel, fournir une RFC et un test bloquant, pas une assertion de réussite fictive.
@@ -32,4 +32,4 @@ Utiliser ce skill pour **construire un catalogue public rapide et indexable**. I
 - Un produit supprimé ou privé ne doit pas demeurer dans le catalogue ni dans un ancien cache.
 - Les parcours non pris en charge par Éclair v2 sont explicitement signalés comme **non livrables en production**.
 
-**Statut de maturité de ce skill :** `public-read-only-prototype-possible`. Voir `references/acceptance.md` pour les cas d'essai reproductibles.
+**Statut de maturité de ce skill :** `core-builtin-configuration-workflow`. Voir `references/acceptance.md` pour les cas d'essai reproductibles.

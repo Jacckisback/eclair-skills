@@ -1,6 +1,6 @@
 ---
 name: eclair-lms-analytics
-description: "Use when a user wants to analyser complétion et engagement sans surveillance abusive on Éclair CMS 2.x; design a tableau de bord pédagogique workflow with native extension compatibility, security and acceptance gates."
+description: "Analyse completion and engagement without abusive monitoring. Use on Éclair CMS 2.x when the user wants to: analyser complétion et engagement sans surveillance abusive. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Tableau de bord pédagogique — Éclair CMS 2.x

@@ -1,6 +1,6 @@
 ---
 name: eclair-webhooks
-description: "Use when a user wants to relier applications externes par événements sûrs on Éclair CMS 2.x; design a webhooks entrants et sortants workflow with native extension compatibility, security and acceptance gates."
+description: "Connect external apps through safe, signed, idempotent events. Use on Éclair CMS 2.x when the user wants to: relier applications externes par événements sûrs. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Webhooks entrants et sortants — Éclair CMS 2.x

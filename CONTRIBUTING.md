@@ -6,6 +6,7 @@
 
 ```bash
 python3 scripts/validate_skills.py
+python3 scripts/build_skills.py           # after changing scripts/skill_specs_*.py (generated skills, catalog.json)
 python3 scripts/build_readmes.py          # after changing catalog.json or scripts/readme_data_*.py
 python3 scripts/check_release.py --write  # regenerate SHA256SUMS.json after an intentional change
 python3 scripts/check_release.py

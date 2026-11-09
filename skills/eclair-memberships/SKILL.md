@@ -1,6 +1,6 @@
 ---
 name: eclair-memberships
-description: "Use when a user wants to gérer niveaux membres, échéances et droits d’accès on Éclair CMS 2.x; design a abonnements et adhésions workflow with native extension compatibility, security and acceptance gates."
+description: "Manage membership levels, renewals and access rights. Use on Éclair CMS 2.x when the user wants to: gérer niveaux membres, échéances et droits d’accès. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Abonnements et adhésions — Éclair CMS 2.x

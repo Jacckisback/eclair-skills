@@ -1,6 +1,6 @@
 ---
 name: eclair-crm-integration
-description: "Use when a user wants to relier prospects/clients à un crm sans doublons on Éclair CMS 2.x; design a synchronisation crm workflow with native extension compatibility, security and acceptance gates."
+description: "Sync leads and customers with a CRM, without duplicates. Use on Éclair CMS 2.x when the user wants to: relier prospects/clients à un crm sans doublons. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Synchronisation CRM — Éclair CMS 2.x

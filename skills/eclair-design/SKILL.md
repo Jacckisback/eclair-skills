@@ -1,6 +1,6 @@
 ---
 name: eclair-design
-description: "Use when a user wants to créer des sites cohérents avec éclair design et le thème natif on Éclair CMS 2.x; design a direction artistique éclair workflow with native extension compatibility, security and acceptance gates."
+description: "Art direction: build coherent sites with Éclair Design and the native theme. Use on Éclair CMS 2.x when the user wants to: créer des sites cohérents avec éclair design et le thème natif. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Direction artistique Éclair — Éclair CMS 2.x

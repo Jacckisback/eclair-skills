@@ -1,6 +1,6 @@
 ---
 name: eclair-email-automation
-description: "Use when a user wants to envoyer confirmations et relances fiables on Éclair CMS 2.x; design a emails transactionnels workflow with native extension compatibility, security and acceptance gates."
+description: "Send reliable confirmations and reminders (transactional email). Use on Éclair CMS 2.x when the user wants to: envoyer confirmations et relances fiables. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Emails transactionnels — Éclair CMS 2.x

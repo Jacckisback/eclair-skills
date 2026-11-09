@@ -1,6 +1,6 @@
 ---
 name: eclair-enrollment-access
-description: "Use when a user wants to lier achat ou validation à une inscription et à ses autorisations on Éclair CMS 2.x; design a inscriptions aux cours workflow with native extension compatibility, security and acceptance gates."
+description: "Link a purchase or approval to an enrollment and its permissions. Use on Éclair CMS 2.x when the user wants to: lier achat ou validation à une inscription et à ses autorisations. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Inscriptions aux cours — Éclair CMS 2.x

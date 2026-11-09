@@ -1,6 +1,6 @@
 ---
 name: eclair-geo-optimization
-description: "Use when a user wants to faciliter lisibilité des pages pour moteurs et assistants ia on Éclair CMS 2.x; design a geo et agents ia workflow with native extension compatibility, security and acceptance gates."
+description: "Make pages easy to read for search engines and AI assistants (GEO). Use on Éclair CMS 2.x when the user wants to: faciliter lisibilité des pages pour moteurs et assistants ia. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # GEO et agents IA — Éclair CMS 2.x

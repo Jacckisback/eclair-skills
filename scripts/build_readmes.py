@@ -18,21 +18,44 @@ from xml.sax.saxutils import escape
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from readme_data_skills import LANGS, SKILLS  # noqa: E402
 from readme_data_text import T  # noqa: E402
+from readme_data_families import FAMILIES, CORE_STATUS, WORDPRESS, LAYER_LABELS  # noqa: E402
+import build_skills  # noqa: E402
+
+# Merge the generated skills (French line derived from the goal) and the new families.
+_SPECS = build_skills.specs()
+for _rows in _SPECS.values():
+    for _s in _rows:
+        _fr = _s['goal'][0].upper() + _s['goal'][1:] + '.'
+        SKILLS[_s['name']] = (_s['en'], _fr, _s['es'], _s['de'], _s['it'], _s['pt'])
+WP_EQUIV = {_s['name']: _s['wp'] for _rows in _SPECS.values() for _s in _rows}
+for _i, _lang in enumerate(LANGS):
+    for _key, _names in FAMILIES.items():
+        T[_lang]['fam'][_key] = _names[_i]
+    T[_lang]['mat']['core'] = CORE_STATUS[_i][0]
+    T[_lang]['legend'] = T[_lang]['legend'].replace(' — ', ' — ' + CORE_STATUS[_i][1], 1)
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = 'https://github.com/Jacckisback/eclair-skills'
-ORDER = ['foundation', 'commerce', 'lms', 'community', 'business', 'design', 'seo', 'integrations']
+ORDER = build_skills.ORDER
 COLORS = dict(foundation='#475569', commerce='#EA580C', lms='#2563EB', community='#7C3AED',
-              business='#0D9488', design='#DB2777', seo='#16A34A', integrations='#0891B2')
-EMOJI = dict(foundation='🧱', commerce='🛒', lms='🎓', community='💬', business='🗂️', design='🎨', seo='🔎', integrations='🔌')
-ENTRY = dict(foundation='eclair-architecture', commerce='eclair-commerce-pro', lms='eclair-lms', community='eclair-forum',
-             business='eclair-bookings', design='eclair-design', seo='eclair-seo-audit', integrations='eclair-webhooks')
+              business='#0D9488', design='#DB2777', seo='#16A34A', integrations='#0891B2',
+              content='#4F46E5', media='#C026D3', components='#9333EA', multilingual='#0284C7', forms='#D97706',
+              marketing='#E11D48', performance='#65A30D', security='#B91C1C', admin='#334155', developer='#0F766E')
+EMOJI = dict(foundation='🧱', commerce='🛒', lms='🎓', community='💬', business='🗂️', design='🎨', seo='🔎', integrations='🔌',
+             content='📝', media='🖼️', components='🧩', multilingual='🌍', forms='📮', marketing='📣',
+             performance='⚡', security='🛡️', admin='🛠️', developer='💻')
+LAYERS = [['commerce', 'lms', 'community', 'business', 'forms', 'marketing', 'integrations'],
+          ['content', 'media', 'components', 'design', 'multilingual'],
+          ['seo', 'performance', 'security'],
+          ['foundation', 'admin', 'developer']]
 MATURITY = {'workflow-native-v2': 'native', 'native-v2-workflow': 'native',
             'public-read-only-prototype-possible': 'readonly',
             'design-workflow-requires-verified-core-capabilities': 'design',
-            'partly-blocked-by-core-contract': 'partial'}
+            'partly-blocked-by-core-contract': 'partial',
+            'core-builtin-configuration-workflow': 'core'}
 COL_FAM = dict(en=('Family', 'Scope'), fr=('Famille', 'Portée'), es=('Familia', 'Alcance'), de=('Familie', 'Umfang'), it=('Famiglia', 'Ambito'), pt=('Família', 'Âmbito'))
-MAT_ICON = dict(native='🟢', readonly='🔵', design='🟠', partial='🟡')
+MAT_ORDER = ['core', 'native', 'readonly', 'partial', 'design']
+MAT_ICON = dict(core='🟣', native='🟢', readonly='🔵', design='🟠', partial='🟡')
 FONT = "font-family=\"'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif\""
 
 
@@ -81,14 +104,14 @@ def d_banner(t, cat):
          f'<rect width="{w}" height="{h}" rx="22" fill="url(#g)"/>',
          '<polygon points="96,58 52,196 100,196 78,322 168,160 116,160 146,58" fill="#FBBF24"/>',
          tspans(['Éclair Skills'], 200, 140, 0, font_size=74, font_weight=800, fill='#FFFFFF'),
-         tspans(wrap(t['tagline'], 52), 204, 190, 32, font_size=24, fill='#CBD5E1'),
+         tspans(wrap(t['tagline'], 48), 204, 190, 32, font_size=24, fill='#CBD5E1'),
          tspans([t['banner_sub']], 204, 330, 0, font_size=22, font_weight=700, fill='#FBBF24')]
     counts = {c: sum(1 for s in cat['skills'] if s['category'] == c) for c in ORDER}
     for i, c in enumerate(ORDER):
-        x, y = 900 + (i % 4) * 70, 80 + (i // 4) * 70
-        b.append(f'<rect x="{x}" y="{y}" width="60" height="60" rx="12" fill="{COLORS[c]}"/>')
-        b.append(tspans([str(counts[c])], x + 30, y + 40, 0, font_size=24, font_weight=800, fill='#FFFFFF', text_anchor='middle'))
-    b.append(tspans(['= 57'], 1040, 260, 0, font_size=40, font_weight=800, fill='#FFFFFF', text_anchor='middle'))
+        x, y = 868 + (i % 6) * 50, 70 + (i // 6) * 50
+        b.append(f'<rect x="{x}" y="{y}" width="44" height="44" rx="10" fill="{COLORS[c]}"/>')
+        b.append(tspans([str(counts[c])], x + 22, y + 29, 0, font_size=18, font_weight=800, fill='#FFFFFF', text_anchor='middle'))
+    b.append(tspans([f'= {len(cat["skills"])}'], 1015, 268, 0, font_size=40, font_weight=800, fill='#FFFFFF', text_anchor='middle'))
     return svg(w, h, ''.join(b), 'Éclair Skills — ' + t['tagline'])
 
 
@@ -139,48 +162,42 @@ def d_anatomy(t):
     return svg(w, h, ''.join(b), t['d_anat'])
 
 
-def d_assemble(t, cat):
-    w, h = 1200, 560
+def d_assemble(t, cat, lang):
+    w, h = 1200, 590
     b = [panel(w, h, t['d_asm'])]
     counts = {c: sum(1 for s in cat['skills'] if s['category'] == c) for c in ORDER}
-    mx, mw = 40, 820
-    b.append(f'<rect x="{mx}" y="84" width="{w - 80}" height="56" rx="12" fill="#16A34A"/>')
-    b.append(tspans(['🌐 ' + t['d_site']], w / 2, 119, 0, font_size=20, font_weight=700, fill='#FFFFFF', text_anchor='middle'))
-    dom = ['commerce', 'lms', 'community', 'business', 'integrations']
-    bw = (mw - 4 * 12) / 5
-    for i, c in enumerate(dom):
-        x = mx + i * (bw + 12)
-        b.append(f'<rect x="{x:.1f}" y="160" width="{bw:.1f}" height="170" rx="14" fill="{COLORS[c]}"/>')
-        b.append(tspans([str(counts[c])], x + bw / 2, 214, 0, font_size=40, font_weight=800, fill='#FFFFFF', text_anchor='middle'))
-        b.append(tspans(wrap(t['fam'][c][0], 15), x + bw / 2, 252, 21, font_size=16, font_weight=700, fill='#FFFFFF', text_anchor='middle'))
-    b.append(f'<rect x="{mx}" y="350" width="{mw}" height="90" rx="14" fill="{COLORS["foundation"]}"/>')
-    b.append(tspans([f'🧱 {t["fam"]["foundation"][0]} ({counts["foundation"]})'], mx + mw / 2, 384, 0, font_size=20, font_weight=700, fill='#FFFFFF', text_anchor='middle'))
-    tags = ['architecture', 'extension', 'storage', 'auth-roles', 'routing', 'cache', 'security', 'tests']
-    b.append(tspans([' · '.join(tags)], mx + mw / 2, 418, 0, font_size=15, fill='#E2E8F0', text_anchor='middle', font_family='monospace'))
-    for j, c in enumerate(['design', 'seo']):
-        x = mx + mw + 20 + j * 150
-        b.append(f'<rect x="{x}" y="160" width="140" height="280" rx="14" fill="{COLORS[c]}"/>')
-        b.append(tspans([str(counts[c])], x + 70, 214, 0, font_size=40, font_weight=800, fill='#FFFFFF', text_anchor='middle'))
-        b.append(tspans(wrap(t['fam'][c][0], 13), x + 70, 252, 21, font_size=16, font_weight=700, fill='#FFFFFF', text_anchor='middle'))
-        b.append(tspans(wrap(t['d_cross'], 14), x + 70, 360, 19, font_size=14, fill='#FCE7F3' if c == 'design' else '#DCFCE7', text_anchor='middle'))
-    b.append(f'<rect x="{mx}" y="460" width="{w - 80}" height="64" rx="12" fill="#0F172A"/>')
-    b.append(tspans(['🔒 ' + t['d_core']], w / 2, 499, 0, font_size=20, font_weight=700, fill='#FFFFFF', text_anchor='middle'))
+    labels = LAYER_LABELS[LANGS.index(lang)]
+    b.append(f'<rect x="40" y="84" width="{w - 80}" height="50" rx="12" fill="#16A34A"/>')
+    b.append(tspans(['🌐 ' + t['d_site']], w / 2, 116, 0, font_size=20, font_weight=700, fill='#FFFFFF', text_anchor='middle'))
+    x0, avail, gap, rh = 170, w - 40 - 170, 10, 82
+    for r, row in enumerate(LAYERS):
+        y = 148 + r * (rh + 10)
+        b.append(f'<rect x="40" y="{y}" width="120" height="{rh}" rx="12" fill="#E2E8F0"/>')
+        b.append(tspans([labels[r]], 100, y + rh / 2 + 6, 0, font_size=17, font_weight=700, fill='#0F172A', text_anchor='middle'))
+        bw = (avail - gap * (len(row) - 1)) / len(row)
+        chars = max(10, int((bw - 24) / 7.8))
+        for i, c in enumerate(row):
+            x = x0 + i * (bw + gap)
+            b.append(f'<rect x="{x:.1f}" y="{y}" width="{bw:.1f}" height="{rh}" rx="12" fill="{COLORS[c]}"/>')
+            b.append(tspans([str(counts[c])], x + 12, y + 29, 0, font_size=24, font_weight=800, fill='#FFFFFF'))
+            b.append(tspans(wrap(t['fam'][c][0], chars)[:3], x + 12, y + 48, 15, font_size=13, font_weight=700, fill='#FFFFFF'))
+    y = 148 + len(LAYERS) * (rh + 10)
+    b.append(f'<rect x="40" y="{y}" width="{w - 80}" height="56" rx="12" fill="#0F172A"/>')
+    b.append(tspans(['🔒 ' + t['d_core']], w / 2, y + 35, 0, font_size=20, font_weight=700, fill='#FFFFFF', text_anchor='middle'))
     return svg(w, h, ''.join(b), t['d_asm'])
 
 
 def d_families(t, cat):
-    w, h = 1200, 470
+    cols, tw, th, gap = 6, 177, 112, 11
+    rows = -(-len(ORDER) // cols)
+    w, h = 1200, 84 + rows * (th + gap) + 14
     b = [panel(w, h, t['families_title'])]
     counts = {c: sum(1 for s in cat['skills'] if s['category'] == c) for c in ORDER}
-    tw, th = 266, 176
     for i, c in enumerate(ORDER):
-        x, y = 40 + (i % 4) * (tw + 18), 80 + (i // 4) * (th + 18)
-        title, desc = t['fam'][c]
-        b.append(f'<rect x="{x}" y="{y}" width="{tw}" height="{th}" rx="16" fill="{COLORS[c]}"/>')
-        b.append(tspans([str(counts[c])], x + 20, y + 52, 0, font_size=40, font_weight=800, fill='#FFFFFF'))
-        b.append(tspans(wrap(title, 22), x + 20, y + 84, 22, font_size=18, font_weight=700, fill='#FFFFFF'))
-        n = len(wrap(title, 22))
-        b.append(tspans(wrap(desc, 32)[:3], x + 20, y + 84 + 22 * n + 4, 19, font_size=14, fill='#F1F5F9'))
+        x, y = 40 + (i % cols) * (tw + gap), 80 + (i // cols) * (th + gap)
+        b.append(f'<rect x="{x}" y="{y}" width="{tw}" height="{th}" rx="14" fill="{COLORS[c]}"/>')
+        b.append(tspans([str(counts[c])], x + 16, y + 40, 0, font_size=30, font_weight=800, fill='#FFFFFF'))
+        b.append(tspans(wrap(t['fam'][c][0], 19)[:3], x + 16, y + 64, 18, font_size=15, font_weight=700, fill='#FFFFFF'))
     return svg(w, h, ''.join(b), t['families_title'])
 
 
@@ -227,7 +244,7 @@ def readme(lang, cat):
     add(f'<p align="center">{lang_bar(lang)}</p>\n')
     add('<p align="center">'
         f'<a href="{REPO}/actions/workflows/validate.yml"><img src="{REPO}/actions/workflows/validate.yml/badge.svg" alt="CI"></a> '
-        '<img src="https://img.shields.io/badge/skills-57-F59E0B" alt="57 skills"> '
+        '<img src="https://img.shields.io/badge/skills-{n}-F59E0B" alt="{n} skills">'.format(n=len(cat['skills'])) + ' '
         '<img src="https://img.shields.io/badge/Éclair%20CMS-2.0.x-1E3A8A" alt="Éclair CMS 2.0.x"> '
         '<img src="https://img.shields.io/badge/contract-eclair--extension%2F1-0D9488" alt="eclair-extension/1"> '
         '<a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL--3.0--only-475569" alt="AGPL-3.0-only"></a>'
@@ -270,6 +287,16 @@ def readme(lang, cat):
         add(f'| {EMOJI[c]} | **{t["fam"][c][0]}** | {t["fam"][c][1]} | {len(by[c])} |')
     add(f'| | | | **{len(cat["skills"])}** |\n')
 
+    wp = WORDPRESS[li]
+    add(f'## {wp[0]}\n')
+    add(wp[1] + '\n')
+    add(f'| {wp[2]} | {wp[3]} |\n|---|---:|')
+    for m in MAT_ORDER:
+        n = sum(1 for s in cat['skills'] if MATURITY[s['maturity']] == m)
+        add(f'| {MAT_ICON[m]} {t["mat"][m]} | {n} |')
+    add('')
+    add(wp[4] + '\n')
+
     add(f'## {t["quick_title"]}\n')
     add(t['q_req'] + '\n')
     add(f'**1. {t["q_clone"]}**\n')
@@ -298,13 +325,12 @@ def readme(lang, cat):
     add(t['catalog_intro'] + '\n')
     add(t['legend'] + '\n')
     for c in ORDER:
-        add(f'### {EMOJI[c]} {t["fam"][c][0]} ({len(by[c])})\n')
-        add(f'_{t["fam"][c][1]}._\n')
+        add(f'<details{" open" if c == ORDER[0] else ""}>\n<summary><b>{EMOJI[c]} {t["fam"][c][0]} ({len(by[c])})</b> — {t["fam"][c][1]}</summary>\n')
         add(f'| {t["col_skill"]} | {t["col_what"]} | {t["col_status"]} |\n|---|---|---|')
         for s in by[c]:
             m = MATURITY[s['maturity']]
             add(f'| {skill_link(s["name"])} | {SKILLS[s["name"]][li]} | {MAT_ICON[m]} {t["mat"][m]} |')
-        add('')
+        add('\n</details>\n')
 
     add(f'## {t["maturity_title"]}\n')
     add(f'<p align="center"><img src="{a}/maturity.svg" alt="{escape(t["d_mat"])}" width="100%"></p>\n')
@@ -355,20 +381,38 @@ def readme(lang, cat):
     return '\n'.join(L) + '\n'
 
 
+def catalogue_doc(cat):
+    t = T['fr']
+    n = len(cat['skills'])
+    L = [f'# Catalogue complet — Éclair Skills v{cat["catalog_version"]}', '',
+         f'Généré par `scripts/build_readmes.py` à partir de `catalog.json`. **{n} Agent Skills = {n} guides pour agents, pas {n} extensions PHP.** Cible : Éclair CMS 2.0.x, contrat `eclair-extension/1`.', '',
+         t['legend'], '']
+    for c in ORDER:
+        rows = [s for s in cat['skills'] if s['category'] == c]
+        L += [f'## {EMOJI[c]} {t["fam"][c][0]} ({len(rows)})', '', f'{t["fam"][c][1]}.', '',
+              '| Skill | Ce qu’il aide l’agent à faire | Équivalent WordPress | Statut |', '|---|---|---|---|']
+        for s in rows:
+            m = MATURITY[s['maturity']]
+            L.append(f'| [`{s["name"]}`](../skills/{s["name"]}/SKILL.md) | {SKILLS[s["name"]][1]} | {WP_EQUIV.get(s["name"], "—")} | {MAT_ICON[m]} {t["mat"][m]} |')
+        L.append('')
+    L.append(f'**Total : {n} skills.**')
+    return '\n'.join(L) + '\n'
+
+
 def outputs():
     cat = json.loads((ROOT / 'catalog.json').read_text(encoding='utf-8'))
     names = [s['name'] for s in cat['skills']]
     missing = sorted(set(names) - set(SKILLS)) + sorted(set(SKILLS) - set(names))
     if missing:
         raise SystemExit(f'readme_data_skills.py out of sync with catalog.json: {missing}')
-    files = {}
+    files = {'docs/CATALOGUE_COMPLET.md': catalogue_doc(cat)}
     for lang in LANGS:
         t = T[lang]
         a = f'docs/assets/{lang}'
         files[f'{a}/banner.svg'] = d_banner(t, cat)
         files[f'{a}/how-it-works.svg'] = d_how(t)
         files[f'{a}/skill-anatomy.svg'] = d_anatomy(t)
-        files[f'{a}/how-skills-fit.svg'] = d_assemble(t, cat)
+        files[f'{a}/how-skills-fit.svg'] = d_assemble(t, cat, lang)
         files[f'{a}/families.svg'] = d_families(t, cat)
         files[f'{a}/maturity.svg'] = d_maturity(t)
         files[readme_name(lang)] = readme(lang, cat)

@@ -1,6 +1,6 @@
 ---
 name: eclair-structured-data
-description: "Use when a user wants to ajouter ou vérifier schema.org cohérent avec le contenu on Éclair CMS 2.x; design a données structurées workflow with native extension compatibility, security and acceptance gates."
+description: "Add or check schema.org data consistent with the visible content. Use on Éclair CMS 2.x when the user wants to: ajouter ou vérifier schema.org cohérent avec le contenu. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Données structurées — Éclair CMS 2.x

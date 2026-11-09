@@ -1,6 +1,6 @@
 ---
 name: eclair-community-search
-description: "Use when a user wants to chercher sujets et messages selon les permissions on Éclair CMS 2.x; design a recherche de forum workflow with native extension compatibility, security and acceptance gates."
+description: "Search topics and messages while respecting permissions. Use on Éclair CMS 2.x when the user wants to: chercher sujets et messages selon les permissions. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Recherche de forum — Éclair CMS 2.x

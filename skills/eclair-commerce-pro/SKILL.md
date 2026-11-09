@@ -1,6 +1,6 @@
 ---
 name: eclair-commerce-pro
-description: "Use when a user wants to concevoir une boutique complète, du catalogue à la commande livrée on Éclair CMS 2.x; design a architecture commerce pro workflow with native extension compatibility, security and acceptance gates."
+description: "Design a complete shop, from catalogue to delivered order (entry point of the family). Use on Éclair CMS 2.x when the user wants to: concevoir une boutique complète, du catalogue à la commande livrée. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Architecture Commerce Pro — Éclair CMS 2.x
@@ -16,7 +16,7 @@ Utiliser ce skill pour **concevoir une boutique complète, du catalogue à la co
 ## Procédure spécifique
 4. **Parcours métier :** Dessiner une machine d’états commande/payment, séparer lecture publique et écritures privées, choisir stockage transactionnel, formaliser connecteur PSP; identifier les points non fournis par Éclair v2. Dessiner les états et les erreurs avant d'écrire du code.
 5. **Emplacements :** conserver tout code propriétaire au site dans `site/extensions/<id>/`, l'apparence dans `site/themes/<id>/` ; enregistrer les données dans le préfixe `Store` fourni par `$ctx['data']`. Ne jamais éditer `app/`, `assets/`, `index.php` ou l'updater dans le cadre de ce skill.
-6. **Contrat actuel :** Panier, commandes et paiements ont besoin de POST publics, d’un stockage transactionnel fiable, de webhooks authentifiés et d’idempotence; Éclair 2.0 officiel ne fournit pas tout cela. La PR #19 est encore un brouillon : ne jamais utiliser une route POST non fusionnée comme preuve de compatibilité.
+6. **Contrat actuel :** Le noyau fournit déjà une boutique légère (fiches produit, variantes, catégories, liens de paiement d'un prestataire, flux marchand) : l'utiliser d'abord, sans la dupliquer. Au-delà, panier, commandes et paiements ont besoin de POST publics, d’un stockage transactionnel fiable, de webhooks authentifiés et d’idempotence; Éclair 2.0 officiel ne fournit pas tout cela. La PR #19 est encore un brouillon : ne jamais utiliser une route POST non fusionnée comme preuve de compatibilité.
 7. **Invariant de sécurité :** Aucun paiement n’est déclaré réussi depuis la seule redirection navigateur; le serveur valide un événement PSP authentifié. Vérifier droits serveur sur chaque objet, échappement avec `e()`, validation des données, absence de secret et de PII dans le HTML public ou un cache partagé.
 8. **Preuves :** écrire test positif « Simuler achat, confirmation webhook, réessai, remboursement, stock et annulation » et test de rejet « Même notification de paiement livrée deux fois => une seule transition de commande ». Mesurer les régressions SEO/performance, documenter rollback et responsabilité des données.
 9. **Validation native :** `php tools/validate.php <dossier> --json`, `php tests/run.php` et `php tools/measure.php --check` sur le checkout officiel (si extension installable). Pour une fonctionnalité non supportée par le noyau actuel, fournir une RFC et un test bloquant, pas une assertion de réussite fictive.

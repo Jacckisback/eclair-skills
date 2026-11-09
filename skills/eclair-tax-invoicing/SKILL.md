@@ -1,6 +1,6 @@
 ---
 name: eclair-tax-invoicing
-description: "Use when a user wants to construire les points de branchement fiscaux adaptés à la juridiction on Éclair CMS 2.x; design a tva et facturation workflow with native extension compatibility, security and acceptance gates."
+description: "Prepare VAT and invoicing hooks adapted to each jurisdiction (no universal rate). Use on Éclair CMS 2.x when the user wants to: construire les points de branchement fiscaux adaptés à la juridiction. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # TVA et facturation — Éclair CMS 2.x
@@ -16,7 +16,7 @@ Utiliser ce skill pour **construire les points de branchement fiscaux adaptés �
 ## Procédure spécifique
 4. **Parcours métier :** Lister juridictions et types de clients; consulter règles à jour et conseil comptable; figer base taxable/taux au moment de la commande; préparer exports de factures et avoirs. Dessiner les états et les erreurs avant d'écrire du code.
 5. **Emplacements :** conserver tout code propriétaire au site dans `site/extensions/<id>/`, l'apparence dans `site/themes/<id>/` ; enregistrer les données dans le préfixe `Store` fourni par `$ctx['data']`. Ne jamais éditer `app/`, `assets/`, `index.php` ou l'updater dans le cadre de ce skill.
-6. **Contrat actuel :** Panier, commandes et paiements ont besoin de POST publics, d’un stockage transactionnel fiable, de webhooks authentifiés et d’idempotence; Éclair 2.0 officiel ne fournit pas tout cela. La PR #19 est encore un brouillon : ne jamais utiliser une route POST non fusionnée comme preuve de compatibilité.
+6. **Contrat actuel :** Le noyau fournit déjà une boutique légère (fiches produit, variantes, catégories, liens de paiement d'un prestataire, flux marchand) : l'utiliser d'abord, sans la dupliquer. Au-delà, panier, commandes et paiements ont besoin de POST publics, d’un stockage transactionnel fiable, de webhooks authentifiés et d’idempotence; Éclair 2.0 officiel ne fournit pas tout cela. La PR #19 est encore un brouillon : ne jamais utiliser une route POST non fusionnée comme preuve de compatibilité.
 7. **Invariant de sécurité :** Ne jamais appliquer un taux TVA universel ou prétendre assurer conformité fiscale sans validation locale. Vérifier droits serveur sur chaque objet, échappement avec `e()`, validation des données, absence de secret et de PII dans le HTML public ou un cache partagé.
 8. **Preuves :** écrire test positif « Tester vente domestique, transfrontalière, remboursement et changement de taux » et test de rejet « Facture émise puis annulée ne doit pas être effacée ou renumérotée silencieusement ». Mesurer les régressions SEO/performance, documenter rollback et responsabilité des données.
 9. **Validation native :** `php tools/validate.php <dossier> --json`, `php tests/run.php` et `php tools/measure.php --check` sur le checkout officiel (si extension installable). Pour une fonctionnalité non supportée par le noyau actuel, fournir une RFC et un test bloquant, pas une assertion de réussite fictive.

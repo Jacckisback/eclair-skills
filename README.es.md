@@ -5,12 +5,12 @@
 
 <p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <b>Español</b> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt.md">Português</a></p>
 
-<p align="center"><a href="https://github.com/Jacckisback/eclair-skills/actions/workflows/validate.yml"><img src="https://github.com/Jacckisback/eclair-skills/actions/workflows/validate.yml/badge.svg" alt="CI"></a> <img src="https://img.shields.io/badge/skills-57-F59E0B" alt="57 skills"> <img src="https://img.shields.io/badge/Éclair%20CMS-2.0.x-1E3A8A" alt="Éclair CMS 2.0.x"> <img src="https://img.shields.io/badge/contract-eclair--extension%2F1-0D9488" alt="eclair-extension/1"> <a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL--3.0--only-475569" alt="AGPL-3.0-only"></a></p>
+<p align="center"><a href="https://github.com/Jacckisback/eclair-skills/actions/workflows/validate.yml"><img src="https://github.com/Jacckisback/eclair-skills/actions/workflows/validate.yml/badge.svg" alt="CI"></a> <img src="https://img.shields.io/badge/skills-200-F59E0B" alt="200 skills"> <img src="https://img.shields.io/badge/Éclair%20CMS-2.0.x-1E3A8A" alt="Éclair CMS 2.0.x"> <img src="https://img.shields.io/badge/contract-eclair--extension%2F1-0D9488" alt="eclair-extension/1"> <a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL--3.0--only-475569" alt="AGPL-3.0-only"></a></p>
 
-**Éclair Skills** es una biblioteca de **57 Agent Skills** para [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. Añádelos a tu proyecto y tu agente de código (Claude Code, Codex, ChatGPT o cualquier agente que lea carpetas `SKILL.md`) deja de improvisar: sigue un método probado, respeta el contrato del CMS, nunca toca el núcleo y demuestra su trabajo con pruebas.
+**Éclair Skills** es una biblioteca de **200 Agent Skills** para [Éclair CMS](https://github.com/Jacckisback/eclair-cms) 2.0.x. Añádelos a tu proyecto y tu agente de código (Claude Code, Codex, ChatGPT o cualquier agente que lea carpetas `SKILL.md`) deja de improvisar: sigue un método probado, respeta el contrato del CMS, nunca toca el núcleo y demuestra su trabajo con pruebas.
 
 > [!IMPORTANT]
-> **Lee esto primero** — **57 skills ≠ 57 extensiones PHP.** Un skill es una guía para tu agente (instrucciones, referencias y pruebas que escribir). No es un plugin que se instala en un sitio en producción. El único ejemplo funcional es `catalogue-demo`, de solo lectura.
+> **Lee esto primero** — **200 skills ≠ 200 extensiones PHP.** Un skill es una guía para tu agente (instrucciones, referencias y pruebas que escribir). No es un plugin que se instala en un sitio en producción. El único ejemplo funcional es `catalogue-demo`, de solo lectura.
 
 ## ¿Por qué Éclair Skills?
 
@@ -71,21 +71,45 @@ Los skills están pensados para combinarse. Piénsalos por capas:
 4. **Calidad transversal** — Diseño y UX, SEO y GEO se aplican a todas las páginas, sea cual sea el dominio.
 5. **Tu sitio** — El resultado vive en site/themes y site/extensions, validado y probado.
 
-## Las 8 familias
+## Las 18 familias
 
-<p align="center"><img src="docs/assets/es/families.svg" alt="Las 8 familias" width="100%"></p>
+<p align="center"><img src="docs/assets/es/families.svg" alt="Las 18 familias" width="100%"></p>
 
 | | Familia | Alcance | Skills |
 |---|---|---|---:|
 | 🧱 | **Fundamentos** | Contrato nativo v2, pruebas y seguridad | 8 |
-| 🛒 | **Commerce Pro** | Tienda transaccional y pagos, diseñados antes del despliegue | 10 |
-| 🎓 | **LMS** | Cursos, inscripciones, progreso, certificados | 7 |
-| 💬 | **Foro y comunidad** | Debates, moderación, perfiles, notificaciones | 6 |
-| 🗂️ | **Aplicaciones de negocio** | Reservas, suscripciones, directorios, herramientas | 8 |
+| 📝 | **Contenido y edición** | Artículos, páginas, categorías, menús, búsqueda, feeds | 14 |
+| 🖼️ | **Medios** | Biblioteca, imágenes, galerías, vídeo, audio, documentos | 9 |
+| 🧩 | **Bloques y componentes** | FAQ, pestañas, tablas, precios, secciones, navegación | 14 |
 | 🎨 | **Diseño y UX** | Temas, bloques, accesibilidad, velocidad | 7 |
-| 🔎 | **SEO, GEO y migración** | Indexabilidad, datos estructurados, WordPress | 5 |
-| 🔌 | **Integraciones y automatización** | API, webhooks, email, IA, supervisión | 6 |
-| | | | **57** |
+| 🌍 | **Multilingüe** | Idiomas, selector, formatos, URL, traducción | 6 |
+| 📮 | **Formularios** | Contacto, presupuestos, pasos, adjuntos, encuestas, cálculos | 9 |
+| 🔎 | **SEO, GEO y migración** | Indexabilidad, datos estructurados, WordPress | 11 |
+| 📣 | **Marketing y audiencia** | Newsletter, landing pages, medición, compartir, publicidad | 12 |
+| 🛒 | **Commerce Pro** | Tienda transaccional y pagos, diseñados antes del despliegue | 22 |
+| 🎓 | **LMS** | Cursos, inscripciones, progreso, certificados | 10 |
+| 💬 | **Foro y comunidad** | Debates, moderación, perfiles, notificaciones | 10 |
+| 🗂️ | **Aplicaciones de negocio** | Reservas, suscripciones, directorios, herramientas | 20 |
+| 🔌 | **Integraciones y automatización** | API, webhooks, email, IA, supervisión | 15 |
+| ⚡ | **Rendimiento** | Caché, CDN, imágenes, peso, Core Web Vitals | 7 |
+| 🛡️ | **Seguridad y privacidad** | Acceso, 2FA, spam, cabeceras, integridad, datos personales | 9 |
+| 🛠️ | **Administración y mantenimiento** | Cuentas, copias, actualizaciones, traslado, registro | 10 |
+| 💻 | **Desarrollo y herramientas** | API de lectura, Markdown, MCP, línea de comandos, portado | 7 |
+| | | | **200** |
+
+## ¿Vienes de WordPress?
+
+El catálogo cubre las funciones en las que se apoya la mayoría de los sitios WordPress: artículos, menús, formularios, SEO, copias de seguridad, tienda. Cada skill nombra su equivalente en WordPress y dice con honestidad lo que Éclair 2.0 puede entregar hoy:
+
+| Lo que Éclair 2.0 entrega hoy | Skills |
+|---|---:|
+| 🟣 Integrado en el núcleo | 46 |
+| 🟢 Nativo v2 | 72 |
+| 🔵 Prototipo de solo lectura posible | 9 |
+| 🟡 Parcialmente bloqueado | 15 |
+| 🟠 Diseño · requiere núcleo | 58 |
+
+Para sustituir un sitio WordPress, empieza por `eclair-wordpress-migration` (contenidos y URL) y `eclair-wp-plugin-porting` (un plugin cada vez). Los skills marcados con 🟠 son diseños: requieren capacidades que el núcleo aún no ofrece.
 
 ## Inicio rápido
 
@@ -149,15 +173,14 @@ Empieza por los fundamentos y sigue el orden indicado. Cada flecha es un paso qu
 
 [`eclair-wordpress-migration`](skills/eclair-wordpress-migration/SKILL.md) → [`eclair-routing`](skills/eclair-routing/SKILL.md) → [`eclair-seo-audit`](skills/eclair-seo-audit/SKILL.md) → [`eclair-structured-data`](skills/eclair-structured-data/SKILL.md) → [`eclair-multilingual-seo`](skills/eclair-multilingual-seo/SKILL.md) → [`eclair-geo-optimization`](skills/eclair-geo-optimization/SKILL.md) → [`eclair-performance-ux`](skills/eclair-performance-ux/SKILL.md) → [`eclair-accessibility`](skills/eclair-accessibility/SKILL.md)
 
-## Catálogo completo de los 57 skills
+## Catálogo completo de los 200 skills
 
 Haz clic en un skill para abrir su `SKILL.md`. La columna estado indica lo que se puede entregar hoy en Éclair 2.0.
 
-**Leyenda** — 🟢 **Nativo v2**: se puede construir hoy con el contrato nativo. 🔵 **Prototipo de solo lectura posible**: una versión pública GET es posible ya; las escrituras requieren más. 🟠 **Diseño · requiere núcleo**: diseño y pruebas completos ya, la producción exige capacidades aún ausentes en Éclair 2.0 (POST público, transacciones, cuentas de miembros…). 🟡 **Parcialmente bloqueado**: algunas partes dependen de un cambio del contrato del núcleo.
+**Leyenda** — 🟣 **Integrado en el núcleo**: ya forma parte de Éclair 2.0; el skill lo configura y lo verifica, sin extensión. 🟢 **Nativo v2**: se puede construir hoy con el contrato nativo. 🔵 **Prototipo de solo lectura posible**: una versión pública GET es posible ya; las escrituras requieren más. 🟠 **Diseño · requiere núcleo**: diseño y pruebas completos ya, la producción exige capacidades aún ausentes en Éclair 2.0 (POST público, transacciones, cuentas de miembros…). 🟡 **Parcialmente bloqueado**: algunas partes dependen de un cambio del contrato del núcleo.
 
-### 🧱 Fundamentos (8)
-
-_Contrato nativo v2, pruebas y seguridad._
+<details open>
+<summary><b>🧱 Fundamentos (8)</b> — Contrato nativo v2, pruebas y seguridad</summary>
 
 | Skill | Qué ayuda a hacer al agente | Estado |
 |---|---|---|
@@ -170,68 +193,71 @@ _Contrato nativo v2, pruebas y seguridad._
 | [`eclair-security-audit`](skills/eclair-security-audit/SKILL.md) | Auditar una extensión antes de activarla: cadena de suministro, acciones admin, datos de miembros. | 🟢 Nativo v2 |
 | [`eclair-test-suite`](skills/eclair-test-suite/SKILL.md) | Escribir pruebas de CI, regresión, seguridad y rendimiento: una prueba antes de publicar. | 🟢 Nativo v2 |
 
-### 🛒 Commerce Pro (10)
+</details>
 
-_Tienda transaccional y pagos, diseñados antes del despliegue._
-
-| Skill | Qué ayuda a hacer al agente | Estado |
-|---|---|---|
-| [`eclair-commerce-pro`](skills/eclair-commerce-pro/SKILL.md) | Diseñar una tienda completa, del catálogo al pedido entregado (punto de entrada de la familia). | 🟠 Diseño · requiere núcleo |
-| [`eclair-product-catalog`](skills/eclair-product-catalog/SKILL.md) | Crear un catálogo público de productos rápido e indexable. | 🔵 Prototipo de solo lectura posible |
-| [`eclair-product-variants`](skills/eclair-product-variants/SKILL.md) | Modelar tallas, colores y configuraciones sin errores de precio. | 🟠 Diseño · requiere núcleo |
-| [`eclair-cart-checkout`](skills/eclair-cart-checkout/SKILL.md) | Diseñar carrito y checkout multilínea con precios y stock coherentes. | 🟠 Diseño · requiere núcleo |
-| [`eclair-orders-payments`](skills/eclair-orders-payments/SKILL.md) | Implementar estados de pedido y pasarelas de pago (PSP) con webhooks firmados. | 🟠 Diseño · requiere núcleo |
-| [`eclair-tax-invoicing`](skills/eclair-tax-invoicing/SKILL.md) | Preparar los puntos de IVA y facturación adaptados a cada jurisdicción (sin tipo universal). | 🟠 Diseño · requiere núcleo |
-| [`eclair-inventory`](skills/eclair-inventory/SKILL.md) | Sincronizar el stock real entre productos, variantes y pedidos. | 🟠 Diseño · requiere núcleo |
-| [`eclair-shipping`](skills/eclair-shipping/SKILL.md) | Gestionar zonas, tarifas, seguimiento y estados de envío. | 🟠 Diseño · requiere núcleo |
-| [`eclair-discounts`](skills/eclair-discounts/SKILL.md) | Crear descuentos y cupones coherentes, nunca acumulados por error. | 🟠 Diseño · requiere núcleo |
-| [`eclair-commerce-analytics`](skills/eclair-commerce-analytics/SKILL.md) | Medir ventas y conversiones sin exponer datos de clientes. | 🟠 Diseño · requiere núcleo |
-
-### 🎓 LMS (7)
-
-_Cursos, inscripciones, progreso, certificados._
+<details>
+<summary><b>📝 Contenido y edición (14)</b> — Artículos, páginas, categorías, menús, búsqueda, feeds</summary>
 
 | Skill | Qué ayuda a hacer al agente | Estado |
 |---|---|---|
-| [`eclair-lms`](skills/eclair-lms/SKILL.md) | Estructurar una escuela online modular (punto de entrada de la familia). | 🟠 Diseño · requiere núcleo |
-| [`eclair-course-builder`](skills/eclair-course-builder/SKILL.md) | Componer cursos, secciones y lecciones versionados. | 🟠 Diseño · requiere núcleo |
-| [`eclair-lessons-media`](skills/eclair-lessons-media/SKILL.md) | Servir vídeos y documentos protegidos para los cursos. | 🟠 Diseño · requiere núcleo |
-| [`eclair-enrollment-access`](skills/eclair-enrollment-access/SKILL.md) | Vincular una compra o validación a una inscripción y sus permisos. | 🟠 Diseño · requiere núcleo |
-| [`eclair-progress`](skills/eclair-progress/SKILL.md) | Seguir el progreso sin pérdidas ni actualizaciones incoherentes. | 🟠 Diseño · requiere núcleo |
-| [`eclair-quizzes-certificates`](skills/eclair-quizzes-certificates/SKILL.md) | Crear evaluaciones, umbrales de aprobado y certificados controlados. | 🟠 Diseño · requiere núcleo |
-| [`eclair-lms-analytics`](skills/eclair-lms-analytics/SKILL.md) | Analizar finalización y compromiso sin vigilancia abusiva. | 🟠 Diseño · requiere núcleo |
+| [`eclair-blog-posts`](skills/eclair-blog-posts/SKILL.md) | Publicar y organizar artículos de blog con el editor de bloques nativo. | 🟣 Integrado en el núcleo |
+| [`eclair-static-pages`](skills/eclair-static-pages/SKILL.md) | Crear las páginas fijas del sitio (inicio, quiénes somos, servicios, contacto) y su estructura. | 🟣 Integrado en el núcleo |
+| [`eclair-categories`](skills/eclair-categories/SKILL.md) | Estructurar los contenidos en categorías pilar útiles para visitantes y SEO. | 🟣 Integrado en el núcleo |
+| [`eclair-tags-taxonomies`](skills/eclair-tags-taxonomies/SKILL.md) | Recuperar etiquetas o taxonomías personalizadas cuando el núcleo solo ofrece categorías. | 🟡 Parcialmente bloqueado |
+| [`eclair-custom-content-types`](skills/eclair-custom-content-types/SKILL.md) | Modelar contenidos de negocio (proyectos, inmuebles, eventos) sin tipos de contenido personalizados en el núcleo. | 🟡 Parcialmente bloqueado |
+| [`eclair-custom-fields`](skills/eclair-custom-fields/SKILL.md) | Añadir campos estructurados a bloques o ajustes de extensión. | 🟢 Nativo v2 |
+| [`eclair-comments`](skills/eclair-comments/SKILL.md) | Diseñar comentarios de artículos con moderación y antispam. | 🟠 Diseño · requiere núcleo |
+| [`eclair-editorial-workflow`](skills/eclair-editorial-workflow/SKILL.md) | Organizar borradores, revisión y calendario de publicación de un equipo. | 🟣 Integrado en el núcleo |
+| [`eclair-authors`](skills/eclair-authors/SKILL.md) | Presentar a los autores con biografía y experiencia verificables. | 🟣 Integrado en el núcleo |
+| [`eclair-navigation-menus`](skills/eclair-navigation-menus/SKILL.md) | Crear menús de navegación claros para cabecera y pie. | 🟣 Integrado en el núcleo |
+| [`eclair-site-search`](skills/eclair-site-search/SKILL.md) | Ofrecer una búsqueda interna rápida sin base de datos. | 🟢 Nativo v2 |
+| [`eclair-rss-feeds`](skills/eclair-rss-feeds/SKILL.md) | Verificar y aprovechar el feed RSS nativo del sitio. | 🟣 Integrado en el núcleo |
+| [`eclair-related-posts`](skills/eclair-related-posts/SKILL.md) | Proponer artículos relacionados pertinentes al final de la página. | 🟢 Nativo v2 |
+| [`eclair-table-of-contents`](skills/eclair-table-of-contents/SKILL.md) | Añadir un índice clicable a los contenidos largos. | 🟢 Nativo v2 |
 
-### 💬 Foro y comunidad (6)
+</details>
 
-_Debates, moderación, perfiles, notificaciones._
-
-| Skill | Qué ayuda a hacer al agente | Estado |
-|---|---|---|
-| [`eclair-forum`](skills/eclair-forum/SKILL.md) | Diseñar debates públicos y privados con moderación (punto de entrada de la familia). | 🟠 Diseño · requiere núcleo |
-| [`eclair-discussions-topics`](skills/eclair-discussions-topics/SKILL.md) | Gestionar creación, edición y estado de temas y respuestas. | 🟠 Diseño · requiere núcleo |
-| [`eclair-community-profiles`](skills/eclair-community-profiles/SKILL.md) | Ofrecer perfiles públicos elegidos, separados de los datos privados. | 🟠 Diseño · requiere núcleo |
-| [`eclair-moderation`](skills/eclair-moderation/SKILL.md) | Crear herramientas de retirada, denuncia y apelación. | 🟠 Diseño · requiere núcleo |
-| [`eclair-notifications`](skills/eclair-notifications/SKILL.md) | Notificar a los miembros sin spam ni fugas de datos. | 🟠 Diseño · requiere núcleo |
-| [`eclair-community-search`](skills/eclair-community-search/SKILL.md) | Buscar temas y mensajes respetando los permisos. | 🟠 Diseño · requiere núcleo |
-
-### 🗂️ Aplicaciones de negocio (8)
-
-_Reservas, suscripciones, directorios, herramientas._
+<details>
+<summary><b>🖼️ Medios (9)</b> — Biblioteca, imágenes, galerías, vídeo, audio, documentos</summary>
 
 | Skill | Qué ayuda a hacer al agente | Estado |
 |---|---|---|
-| [`eclair-bookings`](skills/eclair-bookings/SKILL.md) | Gestionar un recurso reservable sin reservas dobles. | 🟠 Diseño · requiere núcleo |
-| [`eclair-appointments-calendar`](skills/eclair-appointments-calendar/SKILL.md) | Gestionar citas e integrar calendarios externos. | 🟠 Diseño · requiere núcleo |
-| [`eclair-memberships`](skills/eclair-memberships/SKILL.md) | Gestionar niveles de socio, vencimientos y derechos de acceso. | 🟠 Diseño · requiere núcleo |
-| [`eclair-directory`](skills/eclair-directory/SKILL.md) | Crear fichas y filtros indexables de un directorio profesional. | 🔵 Prototipo de solo lectura posible |
-| [`eclair-events-ticketing`](skills/eclair-events-ticketing/SKILL.md) | Vender plazas, entradas y accesos para eventos. | 🟠 Diseño · requiere núcleo |
-| [`eclair-job-board`](skills/eclair-job-board/SKILL.md) | Publicar ofertas de empleo y candidaturas que respetan los datos. | 🟠 Diseño · requiere núcleo |
-| [`eclair-real-estate`](skills/eclair-real-estate/SKILL.md) | Crear un catálogo inmobiliario con búsqueda y contacto. | 🟠 Diseño · requiere núcleo |
-| [`eclair-forms-crm`](skills/eclair-forms-crm/SKILL.md) | Recoger solicitudes por formulario y seguir su gestión (mini-CRM). | 🟠 Diseño · requiere núcleo |
+| [`eclair-media-library`](skills/eclair-media-library/SKILL.md) | Organizar imágenes y archivos en la biblioteca de medios nativa. | 🟣 Integrado en el núcleo |
+| [`eclair-image-optimization`](skills/eclair-image-optimization/SKILL.md) | Aprovechar el WebP responsive y la carga diferida nativos. | 🟣 Integrado en el núcleo |
+| [`eclair-image-galleries`](skills/eclair-image-galleries/SKILL.md) | Crear galerías de fotos ligeras y accesibles. | 🟢 Nativo v2 |
+| [`eclair-video-embeds`](skills/eclair-video-embeds/SKILL.md) | Insertar vídeos sin ralentizar la página ni dejar cookies. | 🟣 Integrado en el núcleo |
+| [`eclair-audio-podcast`](skills/eclair-audio-podcast/SKILL.md) | Publicar episodios de audio con reproductor y feed de podcast. | 🟢 Nativo v2 |
+| [`eclair-file-downloads`](skills/eclair-file-downloads/SKILL.md) | Ofrecer archivos para descargar (PDF, plantillas, fichas). | 🟢 Nativo v2 |
+| [`eclair-sliders-carousels`](skills/eclair-sliders-carousels/SKILL.md) | Crear un carrusel sobrio que no perjudique la velocidad ni la accesibilidad. | 🟢 Nativo v2 |
+| [`eclair-lightbox`](skills/eclair-lightbox/SKILL.md) | Ampliar las imágenes al hacer clic con un visor ligero. | 🟢 Nativo v2 |
+| [`eclair-pdf-documents`](skills/eclair-pdf-documents/SKILL.md) | Publicar PDF legibles, accesibles e indexados. | 🟢 Nativo v2 |
 
-### 🎨 Diseño y UX (7)
+</details>
 
-_Temas, bloques, accesibilidad, velocidad._
+<details>
+<summary><b>🧩 Bloques y componentes (14)</b> — FAQ, pestañas, tablas, precios, secciones, navegación</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-accordions-faq`](skills/eclair-accordions-faq/SKILL.md) | Presentar preguntas y respuestas con el bloque FAQ nativo. | 🟣 Integrado en el núcleo |
+| [`eclair-tabs`](skills/eclair-tabs/SKILL.md) | Organizar un contenido en pestañas accesibles. | 🟢 Nativo v2 |
+| [`eclair-data-tables`](skills/eclair-data-tables/SKILL.md) | Presentar tablas legibles en móvil. | 🟣 Integrado en el núcleo |
+| [`eclair-pricing-tables`](skills/eclair-pricing-tables/SKILL.md) | Presentar ofertas y precios de forma clara y honesta. | 🟢 Nativo v2 |
+| [`eclair-timelines`](skills/eclair-timelines/SKILL.md) | Contar una historia o un proceso en etapas fechadas. | 🟢 Nativo v2 |
+| [`eclair-countdowns`](skills/eclair-countdowns/SKILL.md) | Mostrar una cuenta atrás hacia una fecha real. | 🟢 Nativo v2 |
+| [`eclair-team-members`](skills/eclair-team-members/SKILL.md) | Presentar al equipo con el bloque nativo. | 🟣 Integrado en el núcleo |
+| [`eclair-logo-walls`](skills/eclair-logo-walls/SKILL.md) | Mostrar logotipos de clientes o socios autorizados. | 🟢 Nativo v2 |
+| [`eclair-cta-sections`](skills/eclair-cta-sections/SKILL.md) | Colocar llamadas a la acción claras con bloques nativos. | 🟣 Integrado en el núcleo |
+| [`eclair-hero-sections`](skills/eclair-hero-sections/SKILL.md) | Componer una sección de apertura potente con el bloque nativo. | 🟣 Integrado en el núcleo |
+| [`eclair-headers-footers`](skills/eclair-headers-footers/SKILL.md) | Personalizar cabecera y pie mediante un tema del sitio. | 🟢 Nativo v2 |
+| [`eclair-breadcrumbs`](skills/eclair-breadcrumbs/SKILL.md) | Verificar las migas de pan nativas y su marcado. | 🟣 Integrado en el núcleo |
+| [`eclair-pagination`](skills/eclair-pagination/SKILL.md) | Paginar correctamente las listas de artículos y fichas. | 🟢 Nativo v2 |
+| [`eclair-dark-mode`](skills/eclair-dark-mode/SKILL.md) | Ofrecer un modo oscuro fiel a la identidad. | 🟢 Nativo v2 |
+
+</details>
+
+<details>
+<summary><b>🎨 Diseño y UX (7)</b> — Temas, bloques, accesibilidad, velocidad</summary>
 
 | Skill | Qué ayuda a hacer al agente | Estado |
 |---|---|---|
@@ -243,9 +269,41 @@ _Temas, bloques, accesibilidad, velocidad._
 | [`eclair-responsive-ux`](skills/eclair-responsive-ux/SKILL.md) | Optimizar navegación, formularios y maquetación en móvil. | 🟢 Nativo v2 |
 | [`eclair-performance-ux`](skills/eclair-performance-ux/SKILL.md) | Medir y reducir el peso y la inestabilidad de las páginas. | 🟢 Nativo v2 |
 
-### 🔎 SEO, GEO y migración (5)
+</details>
 
-_Indexabilidad, datos estructurados, WordPress._
+<details>
+<summary><b>🌍 Multilingüe (6)</b> — Idiomas, selector, formatos, URL, traducción</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-multilingual-content`](skills/eclair-multilingual-content/SKILL.md) | Publicar un sitio en varios idiomas con versiones enlazadas. | 🟡 Parcialmente bloqueado |
+| [`eclair-language-switcher`](skills/eclair-language-switcher/SKILL.md) | Añadir un selector de idioma claro y accesible. | 🟢 Nativo v2 |
+| [`eclair-rtl-support`](skills/eclair-rtl-support/SKILL.md) | Adaptar el tema al árabe o al hebreo. | 🟢 Nativo v2 |
+| [`eclair-locale-formats`](skills/eclair-locale-formats/SKILL.md) | Mostrar fechas, números, precios y direcciones en el formato de cada país. | 🟢 Nativo v2 |
+| [`eclair-translated-urls`](skills/eclair-translated-urls/SKILL.md) | Traducir las URL sin perder posicionamiento. | 🟡 Parcialmente bloqueado |
+| [`eclair-translation-workflow`](skills/eclair-translation-workflow/SKILL.md) | Organizar traducción, revisión y actualización de las versiones. | 🟢 Nativo v2 |
+
+</details>
+
+<details>
+<summary><b>📮 Formularios (9)</b> — Contacto, presupuestos, pasos, adjuntos, encuestas, cálculos</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-contact-forms`](skills/eclair-contact-forms/SKILL.md) | Configurar el formulario de contacto nativo y su bandeja de entrada. | 🟣 Integrado en el núcleo |
+| [`eclair-form-inbox`](skills/eclair-form-inbox/SKILL.md) | Gestionar los mensajes recibidos sin perder ninguno. | 🟣 Integrado en el núcleo |
+| [`eclair-multi-step-forms`](skills/eclair-multi-step-forms/SKILL.md) | Diseñar un formulario largo dividido en pasos. | 🟠 Diseño · requiere núcleo |
+| [`eclair-file-upload-forms`](skills/eclair-file-upload-forms/SKILL.md) | Diseñar la subida segura de archivos por los visitantes. | 🟠 Diseño · requiere núcleo |
+| [`eclair-payment-forms`](skills/eclair-payment-forms/SKILL.md) | Cobrar una señal, un donativo o un servicio sencillo mediante enlace de pago. | 🔵 Prototipo de solo lectura posible |
+| [`eclair-surveys-polls`](skills/eclair-surveys-polls/SKILL.md) | Diseñar encuestas y cuestionarios de satisfacción. | 🟠 Diseño · requiere núcleo |
+| [`eclair-quote-requests`](skills/eclair-quote-requests/SKILL.md) | Recoger solicitudes de presupuesto cualificadas. | 🔵 Prototipo de solo lectura posible |
+| [`eclair-conditional-forms`](skills/eclair-conditional-forms/SKILL.md) | Diseñar formularios cuyos campos dependen de las respuestas. | 🟠 Diseño · requiere núcleo |
+| [`eclair-calculators`](skills/eclair-calculators/SKILL.md) | Ofrecer un simulador de precio o medida sin recoger datos. | 🟢 Nativo v2 |
+
+</details>
+
+<details>
+<summary><b>🔎 SEO, GEO y migración (11)</b> — Indexabilidad, datos estructurados, WordPress</summary>
 
 | Skill | Qué ayuda a hacer al agente | Estado |
 |---|---|---|
@@ -254,10 +312,131 @@ _Indexabilidad, datos estructurados, WordPress._
 | [`eclair-wordpress-migration`](skills/eclair-wordpress-migration/SKILL.md) | Migrar desde WordPress conservando URL, contenidos y tráfico. | 🟢 Nativo v2 |
 | [`eclair-structured-data`](skills/eclair-structured-data/SKILL.md) | Añadir o verificar datos schema.org coherentes con el contenido. | 🟡 Parcialmente bloqueado |
 | [`eclair-multilingual-seo`](skills/eclair-multilingual-seo/SKILL.md) | Gestionar varios idiomas sin duplicados ni canonical erróneas (hreflang). | 🟢 Nativo v2 |
+| [`eclair-meta-tags`](skills/eclair-meta-tags/SKILL.md) | Redactar títulos y descripciones con el análisis SEO nativo. | 🟣 Integrado en el núcleo |
+| [`eclair-xml-sitemaps`](skills/eclair-xml-sitemaps/SKILL.md) | Verificar el sitemap nativo y declararlo a los buscadores. | 🟣 Integrado en el núcleo |
+| [`eclair-redirects-manager`](skills/eclair-redirects-manager/SKILL.md) | Gestionar las redirecciones 301 con el gestor nativo. | 🟣 Integrado en el núcleo |
+| [`eclair-local-seo`](skills/eclair-local-seo/SKILL.md) | Hacer visible un negocio local con los datos nativos. | 🟣 Integrado en el núcleo |
+| [`eclair-social-previews`](skills/eclair-social-previews/SKILL.md) | Cuidar la vista previa de las páginas compartidas en redes y mensajería. | 🟣 Integrado en el núcleo |
+| [`eclair-internal-linking`](skills/eclair-internal-linking/SKILL.md) | Enlazar las páginas entre sí para visitantes y buscadores. | 🟢 Nativo v2 |
 
-### 🔌 Integraciones y automatización (6)
+</details>
 
-_API, webhooks, email, IA, supervisión._
+<details>
+<summary><b>📣 Marketing y audiencia (12)</b> — Newsletter, landing pages, medición, compartir, publicidad</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-newsletter-signup`](skills/eclair-newsletter-signup/SKILL.md) | Recoger suscripciones a la newsletter cumpliendo las normas. | 🟡 Parcialmente bloqueado |
+| [`eclair-email-campaigns`](skills/eclair-email-campaigns/SKILL.md) | Diseñar campañas de email a partir de los contenidos del sitio. | 🟠 Diseño · requiere núcleo |
+| [`eclair-popups-optins`](skills/eclair-popups-optins/SKILL.md) | Mostrar un aviso promocional discreto y respetuoso. | 🟢 Nativo v2 |
+| [`eclair-landing-pages`](skills/eclair-landing-pages/SKILL.md) | Componer una página de aterrizaje enfocada con bloques nativos. | 🟣 Integrado en el núcleo |
+| [`eclair-ab-testing`](skills/eclair-ab-testing/SKILL.md) | Diseñar tests A/B compatibles con un sitio servido en caché. | 🟠 Diseño · requiere núcleo |
+| [`eclair-privacy-analytics`](skills/eclair-privacy-analytics/SKILL.md) | Medir la audiencia sin cookies ni perfilado. | 🟡 Parcialmente bloqueado |
+| [`eclair-social-sharing`](skills/eclair-social-sharing/SKILL.md) | Añadir enlaces para compartir sin scripts de terceros. | 🟢 Nativo v2 |
+| [`eclair-social-feeds`](skills/eclair-social-feeds/SKILL.md) | Mostrar tus últimas publicaciones sociales sin cargar el sitio. | 🟡 Parcialmente bloqueado |
+| [`eclair-testimonials`](skills/eclair-testimonials/SKILL.md) | Presentar testimonios auténticos de clientes. | 🟢 Nativo v2 |
+| [`eclair-affiliate-links`](skills/eclair-affiliate-links/SKILL.md) | Gestionar enlaces de afiliación con los avisos legales nativos. | 🟣 Integrado en el núcleo |
+| [`eclair-ads-adsense`](skills/eclair-ads-adsense/SKILL.md) | Mostrar publicidad conforme en los artículos. | 🟣 Integrado en el núcleo |
+| [`eclair-announcement-bars`](skills/eclair-announcement-bars/SKILL.md) | Mostrar una barra de anuncio temporal. | 🟢 Nativo v2 |
+
+</details>
+
+<details>
+<summary><b>🛒 Commerce Pro (22)</b> — Tienda transaccional y pagos, diseñados antes del despliegue</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-commerce-pro`](skills/eclair-commerce-pro/SKILL.md) | Diseñar una tienda completa, del catálogo al pedido entregado (punto de entrada de la familia). | 🟠 Diseño · requiere núcleo |
+| [`eclair-product-catalog`](skills/eclair-product-catalog/SKILL.md) | Crear un catálogo público de productos rápido e indexable. | 🟣 Integrado en el núcleo |
+| [`eclair-product-variants`](skills/eclair-product-variants/SKILL.md) | Modelar tallas, colores y configuraciones sin errores de precio. | 🟣 Integrado en el núcleo |
+| [`eclair-cart-checkout`](skills/eclair-cart-checkout/SKILL.md) | Diseñar carrito y checkout multilínea con precios y stock coherentes. | 🟠 Diseño · requiere núcleo |
+| [`eclair-orders-payments`](skills/eclair-orders-payments/SKILL.md) | Implementar estados de pedido y pasarelas de pago (PSP) con webhooks firmados. | 🟠 Diseño · requiere núcleo |
+| [`eclair-tax-invoicing`](skills/eclair-tax-invoicing/SKILL.md) | Preparar los puntos de IVA y facturación adaptados a cada jurisdicción (sin tipo universal). | 🟠 Diseño · requiere núcleo |
+| [`eclair-inventory`](skills/eclair-inventory/SKILL.md) | Sincronizar el stock real entre productos, variantes y pedidos. | 🟠 Diseño · requiere núcleo |
+| [`eclair-shipping`](skills/eclair-shipping/SKILL.md) | Gestionar zonas, tarifas, seguimiento y estados de envío. | 🟠 Diseño · requiere núcleo |
+| [`eclair-discounts`](skills/eclair-discounts/SKILL.md) | Crear descuentos y cupones coherentes, nunca acumulados por error. | 🟠 Diseño · requiere núcleo |
+| [`eclair-commerce-analytics`](skills/eclair-commerce-analytics/SKILL.md) | Medir ventas y conversiones sin exponer datos de clientes. | 🟠 Diseño · requiere núcleo |
+| [`eclair-shop-setup`](skills/eclair-shop-setup/SKILL.md) | Abrir la tienda ligera nativa con sus páginas legales. | 🟣 Integrado en el núcleo |
+| [`eclair-payment-links`](skills/eclair-payment-links/SKILL.md) | Vincular cada producto a un enlace de pago del proveedor. | 🟣 Integrado en el núcleo |
+| [`eclair-merchant-feed`](skills/eclair-merchant-feed/SKILL.md) | Difundir los productos en comparadores con el feed nativo. | 🟣 Integrado en el núcleo |
+| [`eclair-subscriptions-billing`](skills/eclair-subscriptions-billing/SKILL.md) | Diseñar suscripciones recurrentes gestionadas por el proveedor de pago. | 🟠 Diseño · requiere núcleo |
+| [`eclair-digital-downloads`](skills/eclair-digital-downloads/SKILL.md) | Diseñar la venta de archivos con entrega segura. | 🟠 Diseño · requiere núcleo |
+| [`eclair-wishlists`](skills/eclair-wishlists/SKILL.md) | Diseñar listas de favoritos para los visitantes. | 🟠 Diseño · requiere núcleo |
+| [`eclair-product-reviews`](skills/eclair-product-reviews/SKILL.md) | Diseñar reseñas de clientes verificadas y moderadas. | 🟠 Diseño · requiere núcleo |
+| [`eclair-product-filters`](skills/eclair-product-filters/SKILL.md) | Ayudar a encontrar un producto con filtros y ordenación. | 🔵 Prototipo de solo lectura posible |
+| [`eclair-abandoned-cart`](skills/eclair-abandoned-cart/SKILL.md) | Diseñar la recuperación de compras no finalizadas. | 🟠 Diseño · requiere núcleo |
+| [`eclair-gift-cards`](skills/eclair-gift-cards/SKILL.md) | Diseñar la venta y el uso de tarjetas regalo. | 🟠 Diseño · requiere núcleo |
+| [`eclair-customer-accounts`](skills/eclair-customer-accounts/SKILL.md) | Diseñar el área de cliente: pedidos, direcciones, facturas. | 🟠 Diseño · requiere núcleo |
+| [`eclair-returns-refunds`](skills/eclair-returns-refunds/SKILL.md) | Organizar devoluciones y reembolsos de forma clara. | 🟠 Diseño · requiere núcleo |
+
+</details>
+
+<details>
+<summary><b>🎓 LMS (10)</b> — Cursos, inscripciones, progreso, certificados</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-lms`](skills/eclair-lms/SKILL.md) | Estructurar una escuela online modular (punto de entrada de la familia). | 🟠 Diseño · requiere núcleo |
+| [`eclair-course-builder`](skills/eclair-course-builder/SKILL.md) | Componer cursos, secciones y lecciones versionados. | 🟠 Diseño · requiere núcleo |
+| [`eclair-lessons-media`](skills/eclair-lessons-media/SKILL.md) | Servir vídeos y documentos protegidos para los cursos. | 🟠 Diseño · requiere núcleo |
+| [`eclair-enrollment-access`](skills/eclair-enrollment-access/SKILL.md) | Vincular una compra o validación a una inscripción y sus permisos. | 🟠 Diseño · requiere núcleo |
+| [`eclair-progress`](skills/eclair-progress/SKILL.md) | Seguir el progreso sin pérdidas ni actualizaciones incoherentes. | 🟠 Diseño · requiere núcleo |
+| [`eclair-quizzes-certificates`](skills/eclair-quizzes-certificates/SKILL.md) | Crear evaluaciones, umbrales de aprobado y certificados controlados. | 🟠 Diseño · requiere núcleo |
+| [`eclair-lms-analytics`](skills/eclair-lms-analytics/SKILL.md) | Analizar finalización y compromiso sin vigilancia abusiva. | 🟠 Diseño · requiere núcleo |
+| [`eclair-assignments`](skills/eclair-assignments/SKILL.md) | Diseñar la entrega de tareas y su corrección. | 🟠 Diseño · requiere núcleo |
+| [`eclair-live-classes`](skills/eclair-live-classes/SKILL.md) | Anunciar y organizar clases en directo por videoconferencia. | 🔵 Prototipo de solo lectura posible |
+| [`eclair-drip-content`](skills/eclair-drip-content/SKILL.md) | Diseñar la apertura progresiva de las lecciones. | 🟠 Diseño · requiere núcleo |
+
+</details>
+
+<details>
+<summary><b>💬 Foro y comunidad (10)</b> — Debates, moderación, perfiles, notificaciones</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-forum`](skills/eclair-forum/SKILL.md) | Diseñar debates públicos y privados con moderación (punto de entrada de la familia). | 🟠 Diseño · requiere núcleo |
+| [`eclair-discussions-topics`](skills/eclair-discussions-topics/SKILL.md) | Gestionar creación, edición y estado de temas y respuestas. | 🟠 Diseño · requiere núcleo |
+| [`eclair-community-profiles`](skills/eclair-community-profiles/SKILL.md) | Ofrecer perfiles públicos elegidos, separados de los datos privados. | 🟠 Diseño · requiere núcleo |
+| [`eclair-moderation`](skills/eclair-moderation/SKILL.md) | Crear herramientas de retirada, denuncia y apelación. | 🟠 Diseño · requiere núcleo |
+| [`eclair-notifications`](skills/eclair-notifications/SKILL.md) | Notificar a los miembros sin spam ni fugas de datos. | 🟠 Diseño · requiere núcleo |
+| [`eclair-community-search`](skills/eclair-community-search/SKILL.md) | Buscar temas y mensajes respetando los permisos. | 🟠 Diseño · requiere núcleo |
+| [`eclair-private-messaging`](skills/eclair-private-messaging/SKILL.md) | Diseñar mensajes privados entre miembros. | 🟠 Diseño · requiere núcleo |
+| [`eclair-groups`](skills/eclair-groups/SKILL.md) | Diseñar grupos públicos o privados de miembros. | 🟠 Diseño · requiere núcleo |
+| [`eclair-activity-feed`](skills/eclair-activity-feed/SKILL.md) | Diseñar un muro de actividad de la comunidad. | 🟠 Diseño · requiere núcleo |
+| [`eclair-gamification`](skills/eclair-gamification/SKILL.md) | Diseñar puntos, insignias y clasificaciones motivadores. | 🟠 Diseño · requiere núcleo |
+
+</details>
+
+<details>
+<summary><b>🗂️ Aplicaciones de negocio (20)</b> — Reservas, suscripciones, directorios, herramientas</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-bookings`](skills/eclair-bookings/SKILL.md) | Gestionar un recurso reservable sin reservas dobles. | 🟠 Diseño · requiere núcleo |
+| [`eclair-appointments-calendar`](skills/eclair-appointments-calendar/SKILL.md) | Gestionar citas e integrar calendarios externos. | 🟠 Diseño · requiere núcleo |
+| [`eclair-memberships`](skills/eclair-memberships/SKILL.md) | Gestionar niveles de socio, vencimientos y derechos de acceso. | 🟠 Diseño · requiere núcleo |
+| [`eclair-directory`](skills/eclair-directory/SKILL.md) | Crear fichas y filtros indexables de un directorio profesional. | 🔵 Prototipo de solo lectura posible |
+| [`eclair-events-ticketing`](skills/eclair-events-ticketing/SKILL.md) | Vender plazas, entradas y accesos para eventos. | 🟠 Diseño · requiere núcleo |
+| [`eclair-job-board`](skills/eclair-job-board/SKILL.md) | Publicar ofertas de empleo y candidaturas que respetan los datos. | 🟠 Diseño · requiere núcleo |
+| [`eclair-real-estate`](skills/eclair-real-estate/SKILL.md) | Crear un catálogo inmobiliario con búsqueda y contacto. | 🟠 Diseño · requiere núcleo |
+| [`eclair-forms-crm`](skills/eclair-forms-crm/SKILL.md) | Recoger solicitudes por formulario y seguir su gestión (mini-CRM). | 🟠 Diseño · requiere núcleo |
+| [`eclair-restaurant-menu`](skills/eclair-restaurant-menu/SKILL.md) | Publicar la carta y los menús de un restaurante. | 🟢 Nativo v2 |
+| [`eclair-recipes`](skills/eclair-recipes/SKILL.md) | Publicar recetas claras y bien estructuradas. | 🟢 Nativo v2 |
+| [`eclair-hotel-rooms`](skills/eclair-hotel-rooms/SKILL.md) | Presentar habitaciones o alquileres y dirigir a la reserva. | 🔵 Prototipo de solo lectura posible |
+| [`eclair-professional-services`](skills/eclair-professional-services/SKILL.md) | Crear el sitio de un despacho o profesional regulado. | 🟢 Nativo v2 |
+| [`eclair-nonprofit-donations`](skills/eclair-nonprofit-donations/SKILL.md) | Presentar una asociación y recibir donativos mediante enlace de pago. | 🔵 Prototipo de solo lectura posible |
+| [`eclair-classifieds`](skills/eclair-classifieds/SKILL.md) | Diseñar un sitio de anuncios clasificados publicados por visitantes. | 🟠 Diseño · requiere núcleo |
+| [`eclair-knowledge-base`](skills/eclair-knowledge-base/SKILL.md) | Crear una documentación o un centro de ayuda. | 🟢 Nativo v2 |
+| [`eclair-helpdesk-tickets`](skills/eclair-helpdesk-tickets/SKILL.md) | Diseñar el seguimiento de solicitudes de soporte. | 🟠 Diseño · requiere núcleo |
+| [`eclair-magazine-news`](skills/eclair-magazine-news/SKILL.md) | Montar un sitio de noticias o una revista online. | 🟢 Nativo v2 |
+| [`eclair-portfolio`](skills/eclair-portfolio/SKILL.md) | Presentar trabajos con casos de estudio. | 🟢 Nativo v2 |
+| [`eclair-coupons-deals`](skills/eclair-coupons-deals/SKILL.md) | Publicar ofertas y códigos promocionales actualizados. | 🟢 Nativo v2 |
+| [`eclair-glossary`](skills/eclair-glossary/SKILL.md) | Crear un glosario de términos del sector. | 🟢 Nativo v2 |
+
+</details>
+
+<details>
+<summary><b>🔌 Integraciones y automatización (15)</b> — API, webhooks, email, IA, supervisión</summary>
 
 | Skill | Qué ayuda a hacer al agente | Estado |
 |---|---|---|
@@ -267,6 +446,82 @@ _API, webhooks, email, IA, supervisión._
 | [`eclair-crm-integration`](skills/eclair-crm-integration/SKILL.md) | Sincronizar leads y clientes con un CRM, sin duplicados. | 🟠 Diseño · requiere núcleo |
 | [`eclair-ai-workflows`](skills/eclair-ai-workflows/SKILL.md) | Automatizar la ayuda editorial con IA, sin publicar sin un humano. | 🟠 Diseño · requiere núcleo |
 | [`eclair-observability`](skills/eclair-observability/SKILL.md) | Supervisar salud, costes e incidencias de los módulos, con alertas. | 🟠 Diseño · requiere núcleo |
+| [`eclair-google-analytics`](skills/eclair-google-analytics/SKILL.md) | Conectar Google Analytics respetando el consentimiento y la política de seguridad. | 🟡 Parcialmente bloqueado |
+| [`eclair-search-console`](skills/eclair-search-console/SKILL.md) | Verificar el sitio en las herramientas de los buscadores y seguir su indexación. | 🟢 Nativo v2 |
+| [`eclair-tag-manager`](skills/eclair-tag-manager/SKILL.md) | Evaluar el uso de un gestor de etiquetas en un sitio estricto. | 🟡 Parcialmente bloqueado |
+| [`eclair-email-marketing-providers`](skills/eclair-email-marketing-providers/SKILL.md) | Conectar el sitio a un servicio de email marketing (Brevo, Mailchimp u otro). | 🟡 Parcialmente bloqueado |
+| [`eclair-automation-platforms`](skills/eclair-automation-platforms/SKILL.md) | Conectar el sitio a Make, Zapier o n8n. | 🔵 Prototipo de solo lectura posible |
+| [`eclair-maps-embeds`](skills/eclair-maps-embeds/SKILL.md) | Mostrar un mapa de acceso sin rastrear a los visitantes. | 🟡 Parcialmente bloqueado |
+| [`eclair-social-login`](skills/eclair-social-login/SKILL.md) | Diseñar el acceso de miembros con Google, Apple u otros. | 🟠 Diseño · requiere núcleo |
+| [`eclair-live-chat`](skills/eclair-live-chat/SKILL.md) | Ofrecer contacto inmediato sin un widget pesado. | 🟡 Parcialmente bloqueado |
+| [`eclair-calendar-feeds`](skills/eclair-calendar-feeds/SKILL.md) | Publicar un calendario al que se puede suscribir. | 🟢 Nativo v2 |
+
+</details>
+
+<details>
+<summary><b>⚡ Rendimiento (7)</b> — Caché, CDN, imágenes, peso, Core Web Vitals</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-page-cache`](skills/eclair-page-cache/SKILL.md) | Verificar que la caché estática nativa sirve cada página pública. | 🟣 Integrado en el núcleo |
+| [`eclair-cdn`](skills/eclair-cdn/SKILL.md) | Poner el sitio tras un CDN sin romper caché ni seguridad. | 🟢 Nativo v2 |
+| [`eclair-lazy-loading`](skills/eclair-lazy-loading/SKILL.md) | Controlar la carga diferida nativa de imágenes y vídeos. | 🟣 Integrado en el núcleo |
+| [`eclair-asset-budget`](skills/eclair-asset-budget/SKILL.md) | Mantener un presupuesto de peso para CSS, JavaScript e imágenes. | 🟢 Nativo v2 |
+| [`eclair-core-web-vitals`](skills/eclair-core-web-vitals/SKILL.md) | Medir y mejorar las Core Web Vitals en páginas reales. | 🟢 Nativo v2 |
+| [`eclair-fonts-loading`](skills/eclair-fonts-loading/SKILL.md) | Elegir y cargar las fuentes sin ralentizar ni depender de terceros. | 🟣 Integrado en el núcleo |
+| [`eclair-third-party-scripts`](skills/eclair-third-party-scripts/SKILL.md) | Decidir qué scripts de terceros añadir y a qué coste. | 🟡 Parcialmente bloqueado |
+
+</details>
+
+<details>
+<summary><b>🛡️ Seguridad y privacidad (9)</b> — Acceso, 2FA, spam, cabeceras, integridad, datos personales</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-login-protection`](skills/eclair-login-protection/SKILL.md) | Verificar las protecciones nativas de la página de acceso. | 🟣 Integrado en el núcleo |
+| [`eclair-two-factor-auth`](skills/eclair-two-factor-auth/SKILL.md) | Activar la doble autenticación nativa para todo el equipo. | 🟣 Integrado en el núcleo |
+| [`eclair-anti-spam`](skills/eclair-anti-spam/SKILL.md) | Limitar el spam de formularios sin rastrear a los visitantes. | 🟣 Integrado en el núcleo |
+| [`eclair-captcha`](skills/eclair-captcha/SKILL.md) | Elegir una protección antibots compatible con la política de seguridad. | 🟡 Parcialmente bloqueado |
+| [`eclair-security-headers`](skills/eclair-security-headers/SKILL.md) | Controlar las cabeceras de seguridad y la política de contenido nativas. | 🟣 Integrado en el núcleo |
+| [`eclair-file-integrity`](skills/eclair-file-integrity/SKILL.md) | Detectar cualquier cambio de código con el control de integridad nativo. | 🟣 Integrado en el núcleo |
+| [`eclair-cookie-consent`](skills/eclair-cookie-consent/SKILL.md) | Seguir sin banner cuando sea posible y cumplir cuando se añade un rastreador. | 🟢 Nativo v2 |
+| [`eclair-privacy-requests`](skills/eclair-privacy-requests/SKILL.md) | Tramitar las solicitudes de acceso y supresión de datos personales. | 🟢 Nativo v2 |
+| [`eclair-incident-recovery`](skills/eclair-incident-recovery/SKILL.md) | Reaccionar con método ante un hackeo o una fuga. | 🟢 Nativo v2 |
+
+</details>
+
+<details>
+<summary><b>🛠️ Administración y mantenimiento (10)</b> — Cuentas, copias, actualizaciones, traslado, registro</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-team-accounts`](skills/eclair-team-accounts/SKILL.md) | Crear las cuentas del equipo con los derechos estrictamente necesarios. | 🟣 Integrado en el núcleo |
+| [`eclair-backups-restore`](skills/eclair-backups-restore/SKILL.md) | Planificar las copias de seguridad nativas y demostrar que se sabe restaurar. | 🟣 Integrado en el núcleo |
+| [`eclair-updates-rollback`](skills/eclair-updates-rollback/SKILL.md) | Aplicar con seguridad las actualizaciones firmadas del núcleo. | 🟣 Integrado en el núcleo |
+| [`eclair-maintenance-mode`](skills/eclair-maintenance-mode/SKILL.md) | Mostrar una página de mantenimiento limpia durante los trabajos. | 🟢 Nativo v2 |
+| [`eclair-staging-deploy`](skills/eclair-staging-deploy/SKILL.md) | Probar los cambios en una copia antes de publicarlos. | 🟢 Nativo v2 |
+| [`eclair-site-migration`](skills/eclair-site-migration/SKILL.md) | Trasladar un sitio Éclair sin perder contenidos ni posicionamiento. | 🟣 Integrado en el núcleo |
+| [`eclair-error-pages`](skills/eclair-error-pages/SKILL.md) | Cuidar las páginas 404 y de error para retener a los visitantes. | 🟢 Nativo v2 |
+| [`eclair-site-settings`](skills/eclair-site-settings/SKILL.md) | Ajustar identidad, datos de contacto, idioma y apariencia del sitio. | 🟣 Integrado en el núcleo |
+| [`eclair-activity-log`](skills/eclair-activity-log/SKILL.md) | Seguir quién hizo qué gracias al registro nativo. | 🟣 Integrado en el núcleo |
+| [`eclair-scheduled-tasks`](skills/eclair-scheduled-tasks/SKILL.md) | Automatizar procesos periódicos con las tareas de extensión. | 🟢 Nativo v2 |
+
+</details>
+
+<details>
+<summary><b>💻 Desarrollo y herramientas (7)</b> — API de lectura, Markdown, MCP, línea de comandos, portado</summary>
+
+| Skill | Qué ayuda a hacer al agente | Estado |
+|---|---|---|
+| [`eclair-public-api`](skills/eclair-public-api/SKILL.md) | Exponer datos públicos del sitio en JSON. | 🔵 Prototipo de solo lectura posible |
+| [`eclair-headless-content`](skills/eclair-headless-content/SKILL.md) | Reutilizar los contenidos fuera del sitio con las versiones Markdown y los feeds nativos. | 🟢 Nativo v2 |
+| [`eclair-mcp-connector`](skills/eclair-mcp-connector/SKILL.md) | Conectar un asistente de IA al sitio mediante el conector MCP nativo. | 🟣 Integrado en el núcleo |
+| [`eclair-cli-tools`](skills/eclair-cli-tools/SKILL.md) | Usar las herramientas del repositorio para validar, probar y medir. | 🟢 Nativo v2 |
+| [`eclair-debugging-logs`](skills/eclair-debugging-logs/SKILL.md) | Diagnosticar un fallo sin exponer información sensible. | 🟢 Nativo v2 |
+| [`eclair-local-development`](skills/eclair-local-development/SKILL.md) | Montar un entorno local idéntico a producción. | 🟢 Nativo v2 |
+| [`eclair-wp-plugin-porting`](skills/eclair-wp-plugin-porting/SKILL.md) | Sustituir un plugin de WordPress por su equivalente en Éclair. | 🟢 Nativo v2 |
+
+</details>
 
 ## Madurez: de la guía del agente a la producción
 
@@ -274,13 +529,13 @@ _API, webhooks, email, IA, supervisión._
 
 Un skill es el primer paso, no el último. Cuatro niveles separan una guía de una aplicación en producción:
 
-1. **Workflow** — SKILL.md guía el diseño, comprueba interfaces y evita errores. Los 57 skills están aquí.
+1. **Workflow** — SKILL.md guía el diseño, comprueba interfaces y evita errores. Los 200 skills están aquí.
 2. **Paquete nativo v2** — extension.json válido, código de solo lectura o admin protegido, validador oficial y pruebas nativas.
 3. **Motores de negocio** — Cuentas, POST, transacciones, webhooks, auditoría de seguridad, rendimiento, copia/restauración, CI.
 4. **Producción** — Despliegue limitado, monitorización, restauración verificada, supervisión, cumplimiento legal.
 
 > [!WARNING]
-> Antes de activar una aplicación comercial deben superarse cinco barreras: compatibilidad exacta del CMS, autenticación y aislamiento de datos probados, almacenamiento transaccional y pagos firmados, auditoría de seguridad independiente y ninguna regresión de rendimiento o SEO. Ver [docs/ROADMAP_57.md](docs/ROADMAP_57.md).
+> Antes de activar una aplicación comercial deben superarse cinco barreras: compatibilidad exacta del CMS, autenticación y aislamiento de datos probados, almacenamiento transaccional y pagos firmados, auditoría de seguridad independiente y ninguna regresión de rendimiento o SEO. Ver [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Ejemplos y prototipos
 
@@ -345,7 +600,7 @@ php scripts/verify_signature.php
 ## Ir más lejos
 
 - [Catálogo completo (generado)](docs/CATALOGUE_COMPLET.md)
-- [Hoja de ruta y barreras de producción](docs/ROADMAP_57.md)
+- [Hoja de ruta y barreras de producción](docs/ROADMAP.md)
 - [Matriz de capacidades](docs/CAPABILITY_MATRIX.md)
 - [Inicio rápido para agentes](docs/AGENT_QUICKSTART.md)
 - [Reglas para agentes](AGENTS.md)

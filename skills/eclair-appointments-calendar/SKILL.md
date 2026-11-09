@@ -1,6 +1,6 @@
 ---
 name: eclair-appointments-calendar
-description: "Use when a user wants to prendre rendez-vous et intégrer calendriers externes on Éclair CMS 2.x; design a rendez-vous et calendrier workflow with native extension compatibility, security and acceptance gates."
+description: "Take appointments and connect external calendars. Use on Éclair CMS 2.x when the user wants to: prendre rendez-vous et intégrer calendriers externes. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Rendez-vous et calendrier — Éclair CMS 2.x

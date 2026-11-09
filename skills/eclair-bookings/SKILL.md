@@ -1,6 +1,6 @@
 ---
 name: eclair-bookings
-description: "Use when a user wants to gérer une ressource réservable sans doubles réservations on Éclair CMS 2.x; design a réservations métier workflow with native extension compatibility, security and acceptance gates."
+description: "Manage a bookable resource with no double bookings. Use on Éclair CMS 2.x when the user wants to: gérer une ressource réservable sans doubles réservations. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Réservations métier — Éclair CMS 2.x

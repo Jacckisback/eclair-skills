@@ -1,6 +1,6 @@
 ---
 name: eclair-directory
-description: "Use when a user wants to créer fiches et filtres indexables on Éclair CMS 2.x; design a annuaire professionnel workflow with native extension compatibility, security and acceptance gates."
+description: "Create indexable listings and filters for a professional directory. Use on Éclair CMS 2.x when the user wants to: créer fiches et filtres indexables. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Annuaire professionnel — Éclair CMS 2.x

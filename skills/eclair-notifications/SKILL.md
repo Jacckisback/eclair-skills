@@ -1,6 +1,6 @@
 ---
 name: eclair-notifications
-description: "Use when a user wants to informer sans spam ni fuite de données on Éclair CMS 2.x; design a notifications de communauté workflow with native extension compatibility, security and acceptance gates."
+description: "Notify members without spam or data leaks. Use on Éclair CMS 2.x when the user wants to: informer sans spam ni fuite de données. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Notifications de communauté — Éclair CMS 2.x

@@ -1,6 +1,6 @@
 ---
 name: eclair-discussions-topics
-description: "Use when a user wants to gérer création, édition et état des discussions on Éclair CMS 2.x; design a sujets et réponses workflow with native extension compatibility, security and acceptance gates."
+description: "Manage creation, editing and state of topics and replies. Use on Éclair CMS 2.x when the user wants to: gérer création, édition et état des discussions. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Sujets et réponses — Éclair CMS 2.x

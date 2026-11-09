@@ -1,6 +1,6 @@
 ---
 name: eclair-forum
-description: "Use when a user wants to concevoir des discussions publiques et privées avec modération on Éclair CMS 2.x; design a architecture forum workflow with native extension compatibility, security and acceptance gates."
+description: "Design public and private discussions with moderation (entry point of the family). Use on Éclair CMS 2.x when the user wants to: concevoir des discussions publiques et privées avec modération. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Architecture Forum — Éclair CMS 2.x

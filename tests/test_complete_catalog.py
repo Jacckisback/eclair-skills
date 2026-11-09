@@ -6,20 +6,21 @@ from install_skills import choose,install
 from validate_skills import validate
 
 class CatalogTests(unittest.TestCase):
-    def test_all_57_skills(self):
+    def test_all_skills(self):
         self.assertEqual(validate(ROOT),[])
         cat=json.loads((ROOT/'catalog.json').read_text())
-        self.assertEqual(len(cat['skills']),57)
-        self.assertEqual({k:v['count'] for k,v in cat['groups'].items()},
-            {'foundation':8,'commerce':10,'lms':7,'community':6,'business':8,'design':7,'seo':5,'integrations':6})
+        self.assertEqual(len(cat['skills']),200)
+        self.assertEqual(len(cat['groups']),18)
+        self.assertEqual(sum(v['count'] for v in cat['groups'].values()),200)
+        self.assertEqual(len({s['name'] for s in cat['skills']}),200)
     def test_family_install_subset(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);install(ROOT,root,categories=['commerce'])
             names={p.name for p in (root/'.agents/skills').iterdir()}
-            self.assertEqual(len(names),10)
+            self.assertEqual(len(names),22)
             self.assertIn('eclair-commerce-pro',names)
             install(ROOT,root,categories=['seo'])
-            self.assertEqual(len(list((root/'.agents/skills').iterdir())),15)
+            self.assertEqual(len(list((root/'.agents/skills').iterdir())),33)
             with self.assertRaises(FileExistsError):install(ROOT,root,categories=['commerce'])
     def test_collision_is_atomic(self):
         with tempfile.TemporaryDirectory() as d:

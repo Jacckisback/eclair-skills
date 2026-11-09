@@ -1,6 +1,6 @@
 ---
 name: eclair-events-ticketing
-description: "Use when a user wants to commercialiser places, billets et admissions on Éclair CMS 2.x; design a événements et billets workflow with native extension compatibility, security and acceptance gates."
+description: "Sell seats, tickets and admissions for events. Use on Éclair CMS 2.x when the user wants to: commercialiser places, billets et admissions. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Événements et billets — Éclair CMS 2.x

@@ -1,6 +1,6 @@
 ---
 name: eclair-accessibility
-description: "Use when a user wants to auditer et corriger une interface éclair accessible on Éclair CMS 2.x; design a accessibilité wcag workflow with native extension compatibility, security and acceptance gates."
+description: "Audit and fix an accessible interface (WCAG). Use on Éclair CMS 2.x when the user wants to: auditer et corriger une interface éclair accessible. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Accessibilité WCAG — Éclair CMS 2.x

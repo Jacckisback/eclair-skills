@@ -1,6 +1,6 @@
 ---
 name: eclair-observability
-description: "Use when a user wants to surveiller santé, coûts et incidents des modules on Éclair CMS 2.x; design a observabilité et alertes workflow with native extension compatibility, security and acceptance gates."
+description: "Monitor health, costs and incidents of modules, with alerts. Use on Éclair CMS 2.x when the user wants to: surveiller santé, coûts et incidents des modules. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Observabilité et alertes — Éclair CMS 2.x

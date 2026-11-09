@@ -1,6 +1,6 @@
 ---
 name: eclair-wordpress-migration
-description: "Use when a user wants to préserver les urls, contenus et trafic en migrant vers éclair 2 on Éclair CMS 2.x; design a migration wordpress workflow with native extension compatibility, security and acceptance gates."
+description: "Migrate from WordPress while preserving URLs, content and traffic. Use on Éclair CMS 2.x when the user wants to: préserver les urls, contenus et trafic en migrant vers éclair 2. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Migration WordPress — Éclair CMS 2.x

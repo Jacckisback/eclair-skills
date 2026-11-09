@@ -1,6 +1,6 @@
 ---
 name: eclair-real-estate
-description: "Use when a user wants to construire catalogue de biens avec recherche et contact on Éclair CMS 2.x; design a annonces immobilières workflow with native extension compatibility, security and acceptance gates."
+description: "Build a property catalogue with search and contact. Use on Éclair CMS 2.x when the user wants to: construire catalogue de biens avec recherche et contact. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Annonces immobilières — Éclair CMS 2.x

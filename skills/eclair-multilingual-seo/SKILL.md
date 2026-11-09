@@ -1,6 +1,6 @@
 ---
 name: eclair-multilingual-seo
-description: "Use when a user wants to gérer plusieurs langues sans duplication ni mauvaises canonical on Éclair CMS 2.x; design a seo multilingue workflow with native extension compatibility, security and acceptance gates."
+description: "Run several languages without duplicates or wrong canonicals (hreflang). Use on Éclair CMS 2.x when the user wants to: gérer plusieurs langues sans duplication ni mauvaises canonical. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # SEO multilingue — Éclair CMS 2.x
