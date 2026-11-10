@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Install Éclair Agent Skills by family or name into .agents/skills (Codex convention)."""
 import argparse
+import re
 import shutil
 from pathlib import Path
 from validate_skills import catalog,validate
@@ -20,13 +21,23 @@ def choose(root, categories=None, names=None):
         return [x['name'] for x in entries]
     return [x['name'] for x in entries if x['category'] in family or x['name'] in requested]
 
-def install(root:Path,project:Path,force=False,categories=None,names=None):
+def source_dir(root:Path,lang='fr'):
+    lang=(lang or 'fr').lower()
+    if lang=='fr':return root/'skills'
+    d=root/'translations'/lang
+    if not re.fullmatch(r'[a-z]{2}',lang) or not d.is_dir():
+        available=['fr']+sorted(p.name for p in (root/'translations').iterdir() if p.is_dir()) if (root/'translations').is_dir() else ['fr']
+        raise ValueError(f'Unknown language {lang!r}; available: '+', '.join(available))
+    return d
+
+def install(root:Path,project:Path,force=False,categories=None,names=None,lang='fr'):
     root=root.resolve();project=project.resolve()
     if not project.is_dir():raise ValueError('Project directory does not exist')
     if project==root or project in root.parents:raise ValueError('Destination inside source library not allowed')
     issues=validate(root)
     if issues:raise ValueError('Invalid library: '+'; '.join(issues))
     selected=choose(root,categories,names)
+    src=source_dir(root,lang)
     target=project/'.agents'/'skills'
     # Existing symlink traversal is rejected for all path components.
     for component in [project/'.agents',target]:
@@ -42,7 +53,7 @@ def install(root:Path,project:Path,force=False,categories=None,names=None):
     for n in selected:
         dst=target/n
         if dst.exists():shutil.rmtree(dst)
-        shutil.copytree(root/'skills'/n,dst)
+        shutil.copytree(src/n,dst)
     return target
 
 def main():
@@ -53,6 +64,7 @@ def main():
     p.add_argument('--skill',action='append',default=[],help='Select specific skill, repeatable')
     p.add_argument('--all',action='store_true',help='Install every skill of the catalogue')
     p.add_argument('--list',action='store_true',help='List skills and groups without installing')
+    p.add_argument('--lang',default='fr',help='Language of the installed skills: fr (default), en, es, de, it, pt')
     p.add_argument('--force',action='store_true',help='Replace selected installed skills')
     a=p.parse_args()
     if a.all and (a.category or a.skill):p.error('--all cannot be combined with filters')
@@ -62,7 +74,7 @@ def main():
             return
         if a.project is None:p.error('--project is required except with --list')
         selected=choose(a.root.resolve(),a.category,a.skill)
-        output=install(a.root,a.project,a.force,a.category,a.skill)
-        print(f'Installed {len(selected)} skills to {output}')
+        output=install(a.root,a.project,a.force,a.category,a.skill,a.lang)
+        print(f'Installed {len(selected)} skills ({a.lang}) to {output}')
     except (OSError,ValueError) as exc:p.error(str(exc))
 if __name__=='__main__':main()

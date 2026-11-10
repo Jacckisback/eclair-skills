@@ -227,8 +227,9 @@ def lang_bar(cur):
     return ' · '.join(parts)
 
 
-def skill_link(name):
-    return f'[`{name}`](skills/{name}/SKILL.md)'
+def skill_link(name, lang='fr'):
+    base = 'skills' if lang == 'fr' else f'translations/{lang}'
+    return f'[`{name}`]({base}/{name}/SKILL.md)'
 
 
 def readme(lang, cat):
@@ -308,6 +309,7 @@ def readme(lang, cat):
         f'python3 scripts/install_skills.py --project /path/to/my-site --category commerce   {t["cmt_family"]}\n'
         f'python3 scripts/install_skills.py --project /path/to/my-site --skill eclair-wordpress-migration   {t["cmt_skill"]}\n'
         f'python3 scripts/install_skills.py --project /path/to/my-site --all   {t["cmt_all"]}\n'
+        f'python3 scripts/install_skills.py --project /path/to/my-site --all --lang {lang}   {t["cmt_lang"]}\n'
         '```\n')
     add(t['q_install_note'] + '\n')
     add(f'**4. {t["q_agent"]}**\n')
@@ -319,7 +321,7 @@ def readme(lang, cat):
     add(t['recipes_intro'] + '\n')
     for title, skills in t['recipes']:
         add(f'**{title}**\n')
-        add(' → '.join(skill_link(s) for s in skills) + '\n')
+        add(' → '.join(skill_link(s, lang) for s in skills) + '\n')
 
     add(f'## {t["catalog_title"]}\n')
     add(t['catalog_intro'] + '\n')
@@ -329,7 +331,7 @@ def readme(lang, cat):
         add(f'| {t["col_skill"]} | {t["col_what"]} | {t["col_status"]} |\n|---|---|---|')
         for s in by[c]:
             m = MATURITY[s['maturity']]
-            add(f'| {skill_link(s["name"])} | {SKILLS[s["name"]][li]} | {MAT_ICON[m]} {t["mat"][m]} |')
+            add(f'| {skill_link(s["name"], lang)} | {SKILLS[s["name"]][li]} | {MAT_ICON[m]} {t["mat"][m]} |')
         add('\n</details>\n')
 
     add(f'## {t["maturity_title"]}\n')

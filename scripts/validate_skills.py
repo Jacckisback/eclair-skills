@@ -13,8 +13,19 @@ def catalog(root: Path):
     return c['skills']
 
 def validate(root: Path):
+    errors=_validate_dir(root, root/'skills')
+    tr=root/'translations'
+    if tr.is_dir():
+        for lang_dir in sorted(p for p in tr.iterdir() if p.is_dir()):
+            errors+=[f'[{lang_dir.name}] {e}' for e in _validate_dir(root, lang_dir)]
+            for sk in sorted(p for p in lang_dir.iterdir() if p.is_dir()):
+                src={f.relative_to(root/'skills'/sk.name).as_posix() for f in (root/'skills'/sk.name).rglob('*') if f.is_file()}
+                dst={f.relative_to(sk).as_posix() for f in sk.rglob('*') if f.is_file()}
+                if src!=dst: errors.append(f'[{lang_dir.name}] {sk.name}: files differ from the French skill: {sorted(src^dst)}')
+    return errors
+
+def _validate_dir(root: Path, skill_dir: Path):
     errors=[]
-    skill_dir=root/'skills'
     expected={s['name'] for s in catalog(root)}
     existing={p.name for p in skill_dir.iterdir() if p.is_dir()} if skill_dir.is_dir() else set()
     if len(expected)!=len(catalog(root)):

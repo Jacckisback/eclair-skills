@@ -22,6 +22,19 @@ class CatalogTests(unittest.TestCase):
             install(ROOT,root,categories=['seo'])
             self.assertEqual(len(list((root/'.agents/skills').iterdir())),33)
             with self.assertRaises(FileExistsError):install(ROOT,root,categories=['commerce'])
+    def test_translated_install(self):
+        langs=json.loads((ROOT/'catalog.json').read_text())['languages']['translations']
+        self.assertEqual(langs,['en','es','de','it','pt'])
+        for lang in langs:
+            with tempfile.TemporaryDirectory() as d:
+                root=Path(d);install(ROOT,root,names=['eclair-contact-forms','eclair-architecture'],lang=lang)
+                fr=(ROOT/'skills/eclair-contact-forms/SKILL.md').read_text()
+                tr=(root/'.agents/skills/eclair-contact-forms/SKILL.md').read_text()
+                self.assertNotEqual(fr,tr)
+                self.assertIn('name: eclair-contact-forms',tr)
+                self.assertTrue((root/'.agents/skills/eclair-architecture/references/core-map.md').is_file())
+        with tempfile.TemporaryDirectory() as d:
+            with self.assertRaises(ValueError):install(ROOT,Path(d),names=['eclair-forum'],lang='xx')
     def test_collision_is_atomic(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);install(ROOT,root,names=['eclair-seo-audit'])

@@ -1,13 +1,22 @@
 #!/usr/bin/env python3
-"""Generate the catalogue-driven skills and keep shared references in sync.
+"""Generate the catalogue-driven skills in every language and keep shared references in sync.
 
-    python3 scripts/build_skills.py          # write generated skills, core-map.md, catalog.json
-    python3 scripts/build_skills.py --check  # fail if anything is out of date
+    python3 scripts/build_skills.py                  # write everything
+    python3 scripts/build_skills.py --check          # fail if anything is out of date
+    python3 scripts/build_skills.py --export-source DIR   # French source chunks for translators
 
-- Skills listed in scripts/skill_specs_*.py are fully generated (SKILL.md + references/).
-- The original hand-written skills are never regenerated; only their shared
-  references/core-map.md is synchronised, so every skill sees the same core snapshot.
-- catalog.json is the single source of truth for names, families and maturity.
+Sources
+- scripts/skill_specs_*.py and scripts/skill_specs_legacy.json: French fields of each skill.
+- i18n/fr/templates.json: French skeletons and shared sentences.
+- i18n/<lang>/templates.json and i18n/<lang>/skills_*.json: translations (en, es, de, it, pt).
+
+Outputs
+- skills/<name>/                 French (default language, source of truth)
+- translations/<lang>/<name>/    the same skill in another language
+- catalog.json                   names, families, maturity
+
+The eight foundation skills are hand-written: only their shared references/core-map.md is
+generated here; their translations live as plain files under translations/<lang>/.
 Standard library only.
 """
 import argparse
@@ -19,34 +28,24 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skill_specs_a, skill_specs_b, skill_specs_c  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '2.1.0'
-CORE_COMMIT = '6567d7642ea2227a598c4988e970d43e2e5e0e4f'
-CORE_DATE = '9 novembre 2026'
+VERSION = '2.2.0'
+LANGS = ('fr', 'en', 'es', 'de', 'it', 'pt')
+TRANSLATED = LANGS[1:]
 
-# Family order and French metadata (existing families keep their catalog.json titles).
+# Family order; French titles and scopes of the families added in 2.1 (older ones live in catalog.json).
 ORDER = ['foundation', 'content', 'media', 'components', 'design', 'multilingual', 'forms', 'seo', 'marketing',
          'commerce', 'lms', 'community', 'business', 'integrations', 'performance', 'security', 'admin', 'developer']
 NEW_GROUPS = {
-    'content': ('Contenu et édition', 'Articles, pages, catégories, menus, recherche, flux',
-                "Les contenus et leur publication passent par l'administration ou le connecteur MCP, en brouillon ; les types de contenu personnalisés et les écritures de visiteurs (commentaires) ne sont pas ouverts aux extensions en 2.0."),
-    'media': ('Médias', 'Médiathèque, images, galeries, vidéo, audio, documents',
-              "Le noyau optimise et ré-encode les images ; tout lecteur ou visionneuse tiers se heurte à la politique de contenu native ; les fichiers privés ou payants ne peuvent pas être servis par une adresse publique."),
-    'components': ('Blocs et composants', 'FAQ, onglets, tableaux, tarifs, sections, navigation',
-                   "Les blocs du noyau couvrent l'essentiel ; un bloc supplémentaire passe par une extension déclarant ses champs ; l'apparence passe par un thème de site, jamais par une modification du noyau."),
-    'multilingual': ('Multilingue', 'Langues, sélecteur, formats, adresses, traduction',
-                     "Les langues du site public sont celles prises en charge par le noyau (à lire dans les capacités) ; la liaison fine entre versions et la traduction des adresses dépendent du contrat du noyau."),
-    'forms': ('Formulaires', 'Contact, devis, étapes, pièces jointes, sondages, calculs',
-              "Seul le formulaire de contact natif reçoit des envois de visiteurs en 2.0 ; tout autre formulaire avec envoi au serveur exige une route POST publique non ouverte aux extensions."),
-    'marketing': ('Marketing et audience', 'Newsletter, pages d\'atterrissage, mesure, partage, publicité',
-                  "Affiliation et publicité sont natives ; inscriptions, campagnes et scripts de mesure tiers dépendent d'un service externe, du consentement et de la politique de contenu native."),
-    'performance': ('Performance', 'Cache, CDN, images, poids, signaux web essentiels',
-                    "Cache statique, images responsives et script unique sont natifs ; le travail consiste à ne pas les dégrader et à mesurer, jamais à promettre un score."),
-    'security': ('Sécurité et confidentialité', 'Connexion, 2FA, spam, en-têtes, intégrité, données personnelles',
-                 "Les protections sont natives et ne doivent jamais être relâchées ; un skill ne lit, n'affiche et ne déplace aucun secret ; toute exception passe par la personne responsable."),
-    'admin': ('Administration et maintenance', 'Comptes, sauvegardes, mises à jour, déménagement, journal',
-              "Sauvegarde, restauration, mise à jour signée et journal sont natifs ; les actions sensibles exigent le droit Sécurité et le mot de passe de la personne, jamais d'un agent seul."),
-    'developer': ('Développement et outils', 'API en lecture, Markdown, MCP, ligne de commande, portage',
-                  "Les extensions n'ouvrent que des routes GET publiques et des pages d'administration protégées ; pas de filtre de rendu, pas d'API d'écriture publique en 2.0."),
+    'content': ('Contenu et édition', 'Articles, pages, catégories, menus, recherche, flux'),
+    'media': ('Médias', 'Médiathèque, images, galeries, vidéo, audio, documents'),
+    'components': ('Blocs et composants', 'FAQ, onglets, tableaux, tarifs, sections, navigation'),
+    'multilingual': ('Multilingue', 'Langues, sélecteur, formats, adresses, traduction'),
+    'forms': ('Formulaires', 'Contact, devis, étapes, pièces jointes, sondages, calculs'),
+    'marketing': ('Marketing et audience', 'Newsletter, pages d\'atterrissage, mesure, partage, publicité'),
+    'performance': ('Performance', 'Cache, CDN, images, poids, signaux web essentiels'),
+    'security': ('Sécurité et confidentialité', 'Connexion, 2FA, spam, en-têtes, intégrité, données personnelles'),
+    'admin': ('Administration et maintenance', 'Comptes, sauvegardes, mises à jour, déménagement, journal'),
+    'developer': ('Développement et outils', 'API en lecture, Markdown, MCP, ligne de commande, portage'),
 }
 MATURITY = {
     'C': 'core-builtin-configuration-workflow',
@@ -55,85 +54,14 @@ MATURITY = {
     'D': 'design-workflow-requires-verified-core-capabilities',
     'P': 'partly-blocked-by-core-contract',
 }
-STATUS = {
-    'C': "Cette fonction est **déjà intégrée au noyau Éclair 2.0** : le skill guide sa configuration et sa vérification, sans écrire d'extension.",
-    'N': "Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches).",
-    'R': "La **partie publique en lecture est réalisable aujourd'hui** ; les écritures par les visiteurs demandent davantage que le contrat actuel.",
-    'D': "Cette fonction **exige des capacités absentes du noyau 2.0** : le skill livre conception, maquette sûre et tests, pas une mise en production.",
-    'P': "Cette fonction est **en partie bloquée par le contrat du noyau** : le skill livre ce qui est natif et documente l'écart.",
-}
-CONTRACT = {
-    'C': "La fonction existe dans le noyau : la régler par l'administration ou, en brouillon, par le connecteur MCP. Ne pas la dupliquer dans une extension et ne jamais modifier le noyau pour l'adapter ; si un besoin dépasse ce que le noyau offre, le signaler comme un écart.",
-    'N': "Réalisable avec `eclair-extension/1` et le contrat de thème : routes GET publiques cacheables, pages d'administration protégées, blocs et réglages déclaratifs, tâches planifiées, actifs. Vérifier d'abord qu'un bloc ou un réglage natif ne suffit pas.",
-    'R': "La lecture publique (GET, cacheable) est réalisable aujourd'hui. Toute écriture par un visiteur exige une route POST publique que le noyau 2.0 n'ouvre pas aux extensions (PR #19 en brouillon, non fusionnée) : ne pas la simuler.",
-    'D': "Cette fonction demande des écritures de visiteurs, des comptes publics, des transactions ou des événements signés que `eclair-extension/1` ne fournit pas en 2.0. Livrer la conception, une maquette GET sûre et des tests bloquants ; ne jamais annoncer une mise en production.",
-    'P': "Une partie dépend d'un point d'accroche absent du contrat 2.0 (types de contenu, contribution SEO ou JSON-LD, politique de contenu par fonction, filtre de rendu). Livrer la partie native et documenter précisément l'écart, sans contournement.",
-}
-DELIVERABLE = {
-    'C': "- Réglages et contenus préparés par l'administration ou en brouillon par le MCP ; **aucune extension** tant que le natif suffit.",
-    'N': "- Paquet `extension.json`/`extension.php` ou paquet de thème validé, seulement si un bloc ou un réglage natif ne suffit pas.",
-    'R': "- Paquet en lecture seule (routes GET) validé, et plan écrit pour la partie en écriture, clairement marquée non livrée.",
-    'D': "- Dossier de conception, maquette GET sûre si utile, tests bloquants et demande d'évolution du noyau ; **pas de paquet de production**.",
-    'P': "- Paquet ou réglages pour la partie native, et note d'écart précise pour la partie bloquée.",
-}
-
-CORE_MAP = f"""# Éclair CMS 2.0.x — carte du noyau vérifiée
-
-Référence : dépôt public `Jacckisback/eclair-cms`, branche `main` vérifiée le {CORE_DATE}, commit de référence `{CORE_COMMIT}`. **Un agent doit toujours revérifier le checkout réel et `GET /<admin>/api/capabilities`** : cette note est un instantané, non une garantie de compatibilité future.
-
-## 1. Déjà intégré au noyau : configurer, ne pas reconstruire
-
-Avant d'écrire la moindre extension, vérifier si le besoin est couvert nativement :
-
-- **Contenus** : pages et articles en blocs, catégories, menus, auteurs, brouillons, planning éditorial ; blocs `paragraph`, `heading`, `list`, `quote`, `image`, `video`, `table`, `code`, `button`, `callout`, `divider`, `hero`, `features`, `faq`, `team`, `contact`.
-- **Médias** : images redimensionnées, ré-encodées et converties en WebP responsive, dimensions explicites, chargement différé.
-- **Formulaire de contact** et boîte de réception des messages (droit `messages`).
-- **SEO et GEO** : titres et descriptions avec analyse en direct, JSON-LD (organisation ou entreprise locale, article, FAQ, fil d'Ariane), sitemap avec images et `hreflang`, flux RSS, Open Graph avec image de partage, redirections 301 et gestionnaire de redirections, IndexNow, `llms.txt`, version Markdown de chaque page, politique pour les robots d'IA.
-- **Vitesse** : cache statique de chaque page publique, CSS intégré, un seul script public, aucun cookie public.
-- **Sécurité** : double authentification, limites de tentatives, Content-Security-Policy stricte, contenus assainis, contrôle d'intégrité, journal, mises à jour signées avec retour arrière.
-- **Sauvegardes** : téléchargement et envoi planifié vers un stockage distant, restauration.
-- **Boutique légère** : fiches produit, variantes, catégories, liens de paiement d'un prestataire, flux marchand ; **pas de panier, de commande ni de compte client**.
-- **Fonctions livrées** : affiliation, publicité, planning, import WordPress, reprise d'un ancien site, suivi des robots d'IA.
-- **Assistant IA et connecteur MCP** : brouillons et propositions seulement, jamais de publication ni de suppression.
-- **Apparence** : thèmes et directions artistiques, aperçu avant enregistrement.
-
-## 2. Où un skill peut écrire
-
-- Code noyau : `eclair/app/`, `eclair/assets/`, `eclair/index.php` — **ne jamais éditer** pour livrer une fonctionnalité de site.
-- Fonctions du site : `site/extensions/<id>/` avec `extension.json`, `extension.php`, `lib/`, `assets/`, `lang/`.
-- Thèmes du site : `site/themes/<id>/` avec `theme.json`.
-- Données d'une extension : `Eclair\\Store`, préfixe `$ctx['data']` (`data/ext/<id>/`), secrets dans `data/ext/<id>/secrets.php`.
-- Contenus et réglages : par l'administration ou le connecteur MCP uniquement.
-
-## 3. Contrat `eclair-extension/1`
-
-- Routes publiques d'une extension : **GET uniquement**, déclarées dans le manifeste, cacheables ou non.
-- Administration : GET/POST sous `/<admin>/x/<id>/...`, droits du noyau (`content`, `media`, `menus`, `categories`, `messages`, `redirects`, `settings`, `users`, `security`) et protection CSRF.
-- Blocs et réglages déclaratifs validés par le noyau ; tâches planifiées (au plus une fois par heure) ; migrations idempotentes ; actifs publiés.
-- Le code d'une extension est **de confiance, sans bac à sable** : l'import et l'activation exigent une personne autorisée.
-- Validation : `php tools/validate.php <dossier> --json`, puis `php tests/run.php` et `php tools/measure.php --check` dans un checkout du noyau.
-
-## 4. Limites connues de la 2.0
-
-- Pas de route POST publique pour les extensions (PR #19 en brouillon, non fusionnée), donc pas d'inscription, de commentaire, de commande ou de dépôt par un visiteur hors formulaire de contact natif.
-- Pas d'identité publique (client, élève, membre) dans le contrat natif.
-- Pas de type de contenu propre à une extension ; pas de contribution SEO ou JSON-LD par extension ; pas de politique de contenu (CSP) par extension ; pas de filtre général de rendu.
-- Étiquettes, commentaires et types de contenu personnalisés de WordPress ne sont pas repris par l'import.
-- Les anciens prototypes Éclair Devkit v0.x visaient le noyau 1.14 et **ne s'appliquent pas** à la 2.0.
-
-Sources officielles :
-- https://github.com/Jacckisback/eclair-cms/blob/main/docs/EXTENSION-CONTRACT.md
-- https://github.com/Jacckisback/eclair-cms/blob/main/docs/THEME-CONTRACT.md
-- https://github.com/Jacckisback/eclair-cms/blob/main/docs/SKILLS-GUIDE.md
-- https://github.com/Jacckisback/eclair-cms/blob/main/docs/ARCHITECTURE-2.md
-- https://github.com/Jacckisback/eclair-cms/blob/main/docs/schemas/extension.schema.json
-"""
-
 FIELDS = ('name', 'mat', 'title', 'goal', 'wp', 'model', 'procedure', 'invariant', 'pos', 'neg', 'en', 'es', 'de', 'it', 'pt')
+TEXT_FIELDS = ('title', 'goal', 'wp', 'model', 'procedure', 'invariant', 'pos', 'neg')
+DESC_FRAME = ("{one_liner} Use on Éclair CMS 2.x when the user wants to: {goal}. "
+              "Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin.")
 
 
 def specs():
-    """Generated skills by family, in catalogue order."""
+    """Skills generated since 2.1, by family (French fields + one-line catalogue descriptions)."""
     out = {}
     for mod in (skill_specs_a, skill_specs_b, skill_specs_c):
         for cat, rows in mod.SPECS.items():
@@ -144,163 +72,159 @@ def specs():
     return out
 
 
-def description(s):
-    return (f"{s['en']} Use on Éclair CMS 2.x when the user wants to: {s['goal']}. "
-            f"Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin.")
+def legacy():
+    """The 49 template skills of 2.0, by family (French fields)."""
+    return json.loads((ROOT / 'scripts/skill_specs_legacy.json').read_text(encoding='utf-8'))
 
 
-def skill_md(s, family_title):
+def one_liners():
+    """name -> {lang: one-line description} for every templated skill."""
+    from readme_data_skills import LANGS as RL, SKILLS
+    out = {name: dict(zip(RL, vals)) for name, vals in SKILLS.items()}
+    for rows in specs().values():
+        for s in rows:
+            out[s['name']] = {'en': s['en'], 'fr': s['goal'][0].upper() + s['goal'][1:] + '.',
+                              'es': s['es'], 'de': s['de'], 'it': s['it'], 'pt': s['pt']}
+    return out
+
+
+def family_titles():
+    """family -> {lang: title}."""
+    from readme_data_text import T
+    from readme_data_families import FAMILIES
+    order = ('en', 'fr', 'es', 'de', 'it', 'pt')
+    out = {k: {lang: T[lang]['fam'][k][0] for lang in order} for k in T['en']['fam']}
+    for k, names in FAMILIES.items():
+        out[k] = {lang: names[i][0] for i, lang in enumerate(order)}
+    return out
+
+
+def fill(tpl, **kw):
+    for k, v in kw.items():
+        tpl = tpl.replace('{' + k + '}', v)
+    return tpl
+
+
+def load_lang(lang):
+    """Templates and per-skill text fields of one language, or None if not translated yet."""
+    d = ROOT / 'i18n' / lang
+    tp = d / 'templates.json'
+    if not tp.is_file() or (lang != 'fr' and not (d / 'foundation').is_dir()):
+        return None
+    tpl = json.loads(tp.read_text(encoding='utf-8'))
+    fields = {}
+    if lang != 'fr':
+        for f in sorted(d.glob('skills_*.json')):
+            fields.update(json.loads(f.read_text(encoding='utf-8')))
+    return tpl, fields
+
+
+def all_templated():
+    """[(family, spec, is_legacy)] in catalogue order."""
+    gen, leg = specs(), legacy()
+    out = []
+    for key in ORDER:
+        out += [(key, s, True) for s in leg.get(key, [])]
+        out += [(key, s, False) for s in gen.get(key, [])]
+    return out
+
+
+def render(lang, tpl, family, s, text, is_legacy, liners, fam_titles):
     m = s['mat']
-    return f"""---
-name: {s['name']}
-description: "{description(s).replace('"', "'")}"
----
-
-# {s['title']} — Éclair CMS 2.x
-
-## Déclencheur et résultat attendu
-Utiliser ce skill pour **{s['goal']}**. {STATUS[m]} Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
-
-**Équivalent WordPress :** {s['wp']}. Famille : {family_title}.
-
-## Diagnostic obligatoire avant modification
-1. Lire `references/core-map.md` (ce que le noyau fait déjà) et `references/native-contract.md` ; vérifier la version réelle du CMS et les capacités dans `GET /<admin>/api/capabilities` (si l'accès est autorisé).
-2. Lire `references/family-contract.md` et `references/acceptance.md`. Ne jamais copier l'ancien système de packs v0.x ni du code PHP de WordPress dans Éclair 2.
-3. Identifier le modèle de données : **{s['model']}**. Documenter ce qui est public, ce qui est privé et d'où vient chaque donnée.
-
-## Procédure spécifique
-4. **Parcours :** {s['procedure']}. Décrire les états et les erreurs avant d'écrire du code.
-5. **Emplacements :** code propre au site dans `site/extensions/<id>/`, apparence dans `site/themes/<id>/`, données sous `$ctx['data']`, contenus et réglages par l'administration ou le MCP. Ne jamais éditer `app/`, `assets/`, `index.php` ni l'updater.
-6. **Contrat actuel :** {CONTRACT[m]}
-7. **Invariant de sécurité :** {s['invariant']}. Vérifier aussi les droits côté serveur, l'échappement avec `e()`, la validation des données et l'absence de secret ou de donnée personnelle dans le HTML public ou un cache partagé.
-8. **Preuves :** écrire le test positif « {s['pos']} » et le test de refus « {s['neg']} ». Mesurer les régressions de SEO et de performance, documenter le retour arrière.
-9. **Validation native :** `php tools/validate.php <dossier> --json`, `php tests/run.php` et `php tools/measure.php --check` sur un checkout officiel pour tout paquet produit. Pour une partie non prise en charge par le noyau, fournir une note d'écart et un test bloquant, jamais une réussite fictive.
-
-## Livrables obligatoires
-- Mini-spécification : objectif, utilisateurs, parcours, états, données, mesures.
-- Matrice d'autorisations et de cache : route, méthode, session, visibilité, indexation.
-{DELIVERABLE[m]}
-- Tests des cas positifs et des refus, procédure de désactivation qui conserve les données, note de compatibilité.
-
-## Critères d'acceptation
-- {s['pos']}.
-- {s['neg']}.
-- Rien n'est publié, activé ni mis en production sans une personne autorisée ; aucun score, classement ou citation par une IA n'est promis.
-- Les parties non prises en charge par Éclair 2.0 sont explicitement signalées comme **non livrables en production**.
-
-**Statut de maturité de ce skill :** `{MATURITY[m]}`. Voir `references/acceptance.md` pour les cas d'essai reproductibles.
-"""
-
-
-def native_contract(s):
-    return f"""# Application du contrat natif au skill {s['name']}
-
-Ce skill utilise exclusivement ce que livre Éclair CMS 2.0.x : les fonctions du noyau, le contrat de thème et le contrat `eclair-extension/1`. Référence officielle : https://github.com/Jacckisback/eclair-cms/blob/main/docs/EXTENSION-CONTRACT.md
-
-## Position de ce skill
-
-{CONTRACT[s['mat']]}
-
-## Garde-fou pratique
-
-Sur un vrai checkout, relire `eclair/index.php`, exécuter `php tools/validate.php` sur tout paquet produit et `php tests/run.php`. Si la demande dépasse les fonctions natives, les routes GET publiques, les pages d'administration protégées, les blocs, les réglages et `Store`, produire une demande d'évolution distincte ; **ne jamais simuler sa disponibilité**.
-"""
-
-
-def family_contract(title, limitation):
-    return f"""# Contrat de la famille {title}
-
-Cible : **Éclair CMS 2.0.x**, extension **`eclair-extension/1`**, identifiants et version découverts avant toute modification.
-
-**Capacités natives à privilégier :** fonctions déjà intégrées au noyau (voir `core-map.md`), thèmes dans `site/themes/`, extensions dans `site/extensions/`, données `Store` sous `$ctx['data']`, routes GET publiques et GET/POST d'administration protégées, tâches planifiées, migrations, validation `tools/validate.php`, suite PHP, mesures.
-
-**Limitations de production :** {limitation}
-
-**Politique agent :** utiliser d'abord le natif, générer le minimum de code, garder le noyau intact, refuser de présenter une maquette comme une fonctionnalité en service ; demander une évolution du noyau quand elle est nécessaire. Les changements à forte portée (paiement, contenu privé, e-mails, données personnelles ou de santé) exigent des tests réels et une validation humaine avant activation.
-
-**Points de sécurité :** contrôler chaque objet et chaque écriture ; protéger formulaires, secrets, signatures et données personnelles ; vérifier erreurs et retour arrière ; ne garder en cache public que du HTML sans donnée d'utilisateur. Ne pas confondre `eclair-extension/1` et les API expérimentales antérieures.
-"""
-
-
-def acceptance(s):
-    return f"""# Plan de validation — {s['title']}
-
-## Modèle de données
-{s['model']}.
-
-## Mise en œuvre attendue
-{s['procedure']}.
-
-## Tests à prévoir
-1. Nominal : {s['pos']}.
-2. Contrôle de refus : {s['neg']}.
-3. Invariant : {s['invariant']}.
-4. GET/HEAD : cache public uniquement sans état de session ni donnée sensible ; canonical, statut HTTP, SEO et GEO inchangés ou améliorés.
-5. POST : jamais de cache partagé ; CSRF, TLS, permissions, limitation des tentatives, idempotence. Ne pas exécuter si le noyau ne le prend pas en charge officiellement.
-6. Activation et désactivation : les contenus sont conservés et les routes publiques retirées sans fuite.
-7. Contrôles : validateur natif, tests PHP et HTTP, budgets ; consigner les commandes lancées, leurs résultats et ce qui n'a pas été testé.
-
-## Preuve de disponibilité
-État de la fonction ou de l'extension, journaux de CI, matrice des tests, procédure de retour arrière, et refus de toute promesse non vérifiée.
-"""
+    fam = fam_titles[family][lang]
+    contract = tpl['family_line'][family] if is_legacy else tpl['contract'][m]
+    # French keeps the English one-liner so the description triggers in both languages.
+    one = liners[s['name']]['en' if lang == 'fr' else lang]
+    desc = fill(DESC_FRAME, one_liner=one, goal=text['goal']).replace('"', "'")
+    common = dict(name=s['name'], title=text['title'], goal=text['goal'], model=text['model'], procedure=text['procedure'],
+                  invariant=text['invariant'], pos=text['pos'], neg=text['neg'], contract=contract, family=fam)
+    return {
+        'SKILL.md': fill(tpl['skill_md'], description=desc, status=tpl['status'][m], deliverable=tpl['deliverable'][m],
+                         maturity=MATURITY[m], wp_line=fill(tpl['wp_line'], wp=text['wp'], family=fam), **common),
+        'references/native-contract.md': fill(tpl['native_contract'], **common),
+        'references/family-contract.md': fill(tpl['family_contract'], family=fam, limitation=tpl['limitation'][family]),
+        'references/acceptance.md': fill(tpl['acceptance'], **common),
+        'references/core-map.md': tpl['core_map'],
+    }
 
 
 def outputs():
     cat = json.loads((ROOT / 'catalog.json').read_text(encoding='utf-8'))
-    generated = specs()
-    gen_names = {s['name'] for rows in generated.values() for s in rows}
-    # Keep hand-written skills, drop previously generated entries, then append.
-    kept = [s for s in cat['skills'] if s['name'] not in gen_names]
-    if len({s['name'] for s in kept}) + len(gen_names) != len(kept) + sum(len(r) for r in generated.values()):
+    templated = all_templated()
+    names = [s['name'] for _f, s, _l in templated]
+    if len(set(names)) != len(names):
         raise SystemExit('Duplicate skill names between specs')
+    foundation = [s for s in cat['skills'] if s['category'] == 'foundation']
     groups = dict(cat['groups'])
-    for key, (title, desc, _lim) in NEW_GROUPS.items():
+    for key, (title, desc) in NEW_GROUPS.items():
         groups.setdefault(key, {})
         groups[key].update(title=title, description=desc)
-    skills = []
-    for key in ORDER:
-        skills += [s for s in kept if s['category'] == key]
-        skills += [{'name': s['name'], 'category': key, 'maturity': MATURITY[s['mat']], 'kind': 'agent-skill'}
-                   for s in generated.get(key, [])]
-    if len(skills) != len(kept) + len(gen_names):
-        raise SystemExit('A skill belongs to a family missing from ORDER')
+    skills = list(foundation) + [{'name': s['name'], 'category': f, 'maturity': MATURITY[s['mat']], 'kind': 'agent-skill'}
+                                 for f, s, _l in templated]
     for key in ORDER:
         groups[key]['count'] = sum(1 for s in skills if s['category'] == key)
     cat['groups'] = {k: groups[k] for k in ORDER}
     cat['skills'] = skills
     cat['catalog_version'] = VERSION
+    cat['languages'] = {'default': 'fr', 'translations': [lang for lang in TRANSLATED if load_lang(lang)]}
     cat['generated_for'] = 'wordpress-alternative-catalogue'
     cat['status'] = 'workflow-library-core-builtin-and-native-usable-transactional-modules-design-only'
     cat['notes'] = [
         f'All {len(skills)} entries are agent skills (guides), not {len(skills)} working PHP plugins.',
         'Maturity core-builtin-configuration-workflow: the feature already exists in the Éclair core; the skill configures and checks it.',
         'Extensions expose public GET routes only on Éclair 2.0; public POST (PR #19) is a draft, not merged.',
+        'skills/ is French (source); translations/<lang>/ holds the same skills in en, es, de, it, pt.',
         'Catalogue demo is a read-only example, no commerce transactions.',
     ]
     files = {'catalog.json': json.dumps(cat, indent=2, ensure_ascii=False) + '\n'}
-    for s in skills:
-        files[f"skills/{s['name']}/references/core-map.md"] = CORE_MAP
-    for key, rows in generated.items():
-        g = cat['groups'][key]
-        limitation = NEW_GROUPS[key][2] if key in NEW_GROUPS else None
-        for s in rows:
-            base = f"skills/{s['name']}"
-            files[f'{base}/SKILL.md'] = skill_md(s, g['title'])
-            files[f'{base}/references/native-contract.md'] = native_contract(s)
-            files[f'{base}/references/acceptance.md'] = acceptance(s)
-            if limitation is None:
-                # Existing family: reuse its hand-written family contract.
-                ref = next(k['name'] for k in kept if k['category'] == key)
-                files[f'{base}/references/family-contract.md'] = (ROOT / 'skills' / ref / 'references/family-contract.md').read_text(encoding='utf-8')
+    liners, fam_titles = one_liners(), family_titles()
+    for lang in LANGS:
+        loaded = load_lang(lang)
+        if loaded is None:
+            continue
+        tpl, fields = loaded
+        base = 'skills' if lang == 'fr' else f'translations/{lang}'
+        for s in foundation:
+            files[f"{base}/{s['name']}/references/core-map.md"] = tpl['core_map']
+        if lang != 'fr':
+            # Hand-written foundation skills: translated files, deduplicated in i18n/<lang>/foundation/.
+            fmap = json.loads((ROOT / 'i18n/foundation-map.json').read_text(encoding='utf-8'))
+            for path, key in fmap.items():
+                src = ROOT / 'i18n' / lang / 'foundation' / key
+                if not src.is_file():
+                    raise SystemExit(f'i18n/{lang}/foundation: missing {key}')
+                files[f'{base}/{path}'] = src.read_text(encoding='utf-8')
+        for family, s, is_legacy in templated:
+            if lang == 'fr':
+                text = {k: s[k] for k in TEXT_FIELDS}
             else:
-                files[f'{base}/references/family-contract.md'] = family_contract(g['title'], limitation)
+                text = fields.get(s['name'])
+                if not text or any(not str(text.get(k, '')).strip() for k in TEXT_FIELDS):
+                    raise SystemExit(f'i18n/{lang}: missing or incomplete translation for {s["name"]}')
+            for rel, content in render(lang, tpl, family, s, text, is_legacy, liners, fam_titles).items():
+                files[f"{base}/{s['name']}/{rel}"] = content
     return files
+
+
+def export_source(dest, chunks=2):
+    """Write the French fields to translate, split into chunks keyed by skill name."""
+    dest.mkdir(parents=True, exist_ok=True)
+    rows = [s for _f, s, _l in all_templated()]
+    size = -(-len(rows) // chunks)
+    for i in range(chunks):
+        part = {s['name']: {k: s[k] for k in TEXT_FIELDS} for s in rows[i * size:(i + 1) * size]}
+        (dest / f'skills_{i + 1}.json').write_text(json.dumps(part, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
+    print(f'Exported {len(rows)} skills in {chunks} chunks to {dest}')
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--check', action='store_true')
+    ap.add_argument('--export-source', type=Path)
     args = ap.parse_args()
+    if args.export_source:
+        export_source(args.export_source)
+        return 0
     files = outputs()
     stale = []
     for rel, content in files.items():

@@ -109,7 +109,7 @@ T['en'] = dict(
     compat=['Éclair CMS **2.0.x**, extension contract `eclair-extension/1`.',
             'PHP **8.1+** for the examples (CI on 8.1 and 8.3). Python **3** standard library for the scripts.',
             'Agents: Claude Code, Codex, ChatGPT and any agent that supports `SKILL.md` folders.',
-            'Skill contents are written in French; they work with any agent whatever the language you speak to it.'],
+            'Every skill exists in six languages: French (source, in `skills/`) and English, Spanish, German, Italian and Portuguese (in `translations/<lang>/`). Install the one you want with `--lang`.'],
     more_title='Go further',
     more=[('docs/CATALOGUE_COMPLET.md', 'Full catalogue (generated)'), ('docs/ROADMAP.md', 'Roadmap and production gates'),
           ('docs/CAPABILITY_MATRIX.md', 'Capability matrix'), ('docs/AGENT_QUICKSTART.md', 'Agent quick start'),
@@ -223,7 +223,7 @@ T['fr'] = dict(
     compat=['Éclair CMS **2.0.x**, contrat d’extensions `eclair-extension/1`.',
             'PHP **8.1+** pour les exemples (CI en 8.1 et 8.3). Python **3**, bibliothèque standard, pour les scripts.',
             'Agents : Claude Code, Codex, ChatGPT et tout agent compatible avec les dossiers `SKILL.md`.',
-            'Le contenu des skills est rédigé en français ; ils fonctionnent avec tout agent, quelle que soit la langue dans laquelle vous lui parlez.'],
+            'Chaque skill existe en six langues : français (source, dans `skills/`), anglais, espagnol, allemand, italien et portugais (dans `translations/<langue>/`). Installez celle que vous voulez avec `--lang`.'],
     more_title='Aller plus loin',
     more=[('docs/CATALOGUE_COMPLET.md', 'Catalogue complet (généré)'), ('docs/ROADMAP.md', 'Feuille de route et barrières de production'),
           ('docs/CAPABILITY_MATRIX.md', 'Matrice des capacités'), ('docs/AGENT_QUICKSTART.md', 'Démarrage rapide pour agents'),
@@ -337,7 +337,7 @@ T['es'] = dict(
     compat=['Éclair CMS **2.0.x**, contrato de extensiones `eclair-extension/1`.',
             'PHP **8.1+** para los ejemplos (CI en 8.1 y 8.3). Python **3**, biblioteca estándar, para los scripts.',
             'Agentes: Claude Code, Codex, ChatGPT y cualquier agente compatible con carpetas `SKILL.md`.',
-            'El contenido de los skills está redactado en francés; funcionan con cualquier agente, hables en el idioma que hables.'],
+            'Cada skill existe en seis idiomas: francés (fuente, en `skills/`), inglés, español, alemán, italiano y portugués (en `translations/<idioma>/`). Instala el que quieras con `--lang`.'],
     more_title='Ir más lejos',
     more=[('docs/CATALOGUE_COMPLET.md', 'Catálogo completo (generado)'), ('docs/ROADMAP.md', 'Hoja de ruta y barreras de producción'),
           ('docs/CAPABILITY_MATRIX.md', 'Matriz de capacidades'), ('docs/AGENT_QUICKSTART.md', 'Inicio rápido para agentes'),
@@ -451,7 +451,7 @@ T['de'] = dict(
     compat=['Éclair CMS **2.0.x**, Erweiterungsvertrag `eclair-extension/1`.',
             'PHP **8.1+** für die Beispiele (CI auf 8.1 und 8.3). Python **3** Standardbibliothek für die Skripte.',
             'Agenten: Claude Code, Codex, ChatGPT und jeder Agent, der `SKILL.md`-Ordner unterstützt.',
-            'Die Skill-Inhalte sind auf Französisch verfasst; sie funktionieren mit jedem Agenten, egal in welcher Sprache du mit ihm sprichst.'],
+            'Jeder Skill liegt in sechs Sprachen vor: Französisch (Quelle, in `skills/`) sowie Englisch, Spanisch, Deutsch, Italienisch und Portugiesisch (in `translations/<Sprache>/`). Die gewünschte Sprache mit `--lang` installieren.'],
     more_title='Weiterlesen',
     more=[('docs/CATALOGUE_COMPLET.md', 'Vollständiger Katalog (generiert)'), ('docs/ROADMAP.md', 'Roadmap und Produktionshürden'),
           ('docs/CAPABILITY_MATRIX.md', 'Fähigkeitsmatrix'), ('docs/AGENT_QUICKSTART.md', 'Schnellstart für Agenten'),
@@ -565,7 +565,7 @@ T['it'] = dict(
     compat=['Éclair CMS **2.0.x**, contratto di estensioni `eclair-extension/1`.',
             'PHP **8.1+** per gli esempi (CI su 8.1 e 8.3). Python **3**, libreria standard, per gli script.',
             'Agenti: Claude Code, Codex, ChatGPT e qualsiasi agente compatibile con le cartelle `SKILL.md`.',
-            'Il contenuto delle skill è scritto in francese; funzionano con qualsiasi agente, in qualunque lingua tu gli parli.'],
+            'Ogni skill esiste in sei lingue: francese (sorgente, in `skills/`), inglese, spagnolo, tedesco, italiano e portoghese (in `translations/<lingua>/`). Installa quella che vuoi con `--lang`.'],
     more_title='Per approfondire',
     more=[('docs/CATALOGUE_COMPLET.md', 'Catalogo completo (generato)'), ('docs/ROADMAP.md', 'Roadmap e soglie di produzione'),
           ('docs/CAPABILITY_MATRIX.md', 'Matrice delle capacità'), ('docs/AGENT_QUICKSTART.md', 'Avvio rapido per agenti'),
@@ -679,7 +679,7 @@ T['pt'] = dict(
     compat=['Éclair CMS **2.0.x**, contrato de extensões `eclair-extension/1`.',
             'PHP **8.1+** para os exemplos (CI em 8.1 e 8.3). Python **3**, biblioteca padrão, para os scripts.',
             'Agentes: Claude Code, Codex, ChatGPT e qualquer agente compatível com pastas `SKILL.md`.',
-            'O conteúdo das skills está escrito em francês; funcionam com qualquer agente, seja qual for a língua em que fala com ele.'],
+            'Cada skill existe em seis línguas: francês (fonte, em `skills/`), inglês, espanhol, alemão, italiano e português (em `translations/<língua>/`). Instale a que quiser com `--lang`.'],
     more_title='Saber mais',
     more=[('docs/CATALOGUE_COMPLET.md', 'Catálogo completo (gerado)'), ('docs/ROADMAP.md', 'Roteiro e barreiras de produção'),
           ('docs/CAPABILITY_MATRIX.md', 'Matriz de capacidades'), ('docs/AGENT_QUICKSTART.md', 'Início rápido para agentes'),
@@ -703,3 +703,7 @@ for _lang in ('fr', 'es', 'de', 'it', 'pt'):
 _SIG = {'en': ('Verify the signature before installing', 'Every release is signed with the Éclair CMS maintainer’s Ed25519 key (the same public key as the CMS updater: `H+pk0ph+U+csV7aoGTUZp8hsWBrjvtxavotdKqJuYEs=`). One signature covers `SHA256SUMS.json`, which lists the SHA-256 of every file. Requires PHP with sodium (standard since PHP 7.2).', '`✓ Authentic` means every skill is exactly the one the maintainer signed. Any other result: do not install. Details in [docs/SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md).'), 'fr': ('Vérifier la signature avant d’installer', 'Chaque version est signée avec la clé Ed25519 du mainteneur d’Éclair CMS (la même clé publique que celle du système de mise à jour du CMS : `H+pk0ph+U+csV7aoGTUZp8hsWBrjvtxavotdKqJuYEs=`). Une seule signature couvre `SHA256SUMS.json`, qui liste l’empreinte SHA-256 de chaque fichier. Nécessite PHP avec sodium (standard depuis PHP 7.2).', '`✓ Authentic` signifie que chaque skill est exactement celui signé par le mainteneur. Tout autre résultat : ne pas installer. Détails dans [docs/SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md).'), 'es': ('Verificar la firma antes de instalar', 'Cada versión está firmada con la clave Ed25519 del mantenedor de Éclair CMS (la misma clave pública que el actualizador del CMS: `H+pk0ph+U+csV7aoGTUZp8hsWBrjvtxavotdKqJuYEs=`). Una sola firma cubre `SHA256SUMS.json`, que enumera el SHA-256 de cada archivo. Requiere PHP con sodium (estándar desde PHP 7.2).', '`✓ Authentic` significa que cada skill es exactamente el firmado por el mantenedor. Cualquier otro resultado: no instalar. Detalles en [docs/SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md).'), 'de': ('Signatur vor der Installation prüfen', 'Jede Version ist mit dem Ed25519-Schlüssel des Éclair-CMS-Maintainers signiert (derselbe öffentliche Schlüssel wie beim CMS-Updater: `H+pk0ph+U+csV7aoGTUZp8hsWBrjvtxavotdKqJuYEs=`). Eine Signatur deckt `SHA256SUMS.json` ab, das den SHA-256 jeder Datei auflistet. Benötigt PHP mit sodium (Standard seit PHP 7.2).', '`✓ Authentic` bedeutet: jeder Skill ist genau der vom Maintainer signierte. Jedes andere Ergebnis: nicht installieren. Details in [docs/SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md).'), 'it': ('Verificare la firma prima di installare', 'Ogni versione è firmata con la chiave Ed25519 del maintainer di Éclair CMS (la stessa chiave pubblica dell’aggiornamento del CMS: `H+pk0ph+U+csV7aoGTUZp8hsWBrjvtxavotdKqJuYEs=`). Una sola firma copre `SHA256SUMS.json`, che elenca lo SHA-256 di ogni file. Richiede PHP con sodium (standard da PHP 7.2).', '`✓ Authentic` significa che ogni skill è esattamente quella firmata dal maintainer. Qualsiasi altro risultato: non installare. Dettagli in [docs/SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md).'), 'pt': ('Verificar a assinatura antes de instalar', 'Cada versão é assinada com a chave Ed25519 do mantenedor do Éclair CMS (a mesma chave pública do atualizador do CMS: `H+pk0ph+U+csV7aoGTUZp8hsWBrjvtxavotdKqJuYEs=`). Uma única assinatura cobre `SHA256SUMS.json`, que lista o SHA-256 de cada ficheiro. Requer PHP com sodium (padrão desde o PHP 7.2).', '`✓ Authentic` significa que cada skill é exatamente a assinada pelo mantenedor. Qualquer outro resultado: não instalar. Detalhes em [docs/SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md).')}
 for _lang, (_a, _b, _c) in _SIG.items():
     T[_lang].update(sig_title=_a, sig_text=_b, sig_after=_c)
+
+# Comment of the --lang example in the quick start.
+for _lang, _c in dict(en='# in English', fr='# en français (par défaut)', es='# en español', de='# auf Deutsch', it='# in italiano', pt='# em português').items():
+    T[_lang]['cmt_lang'] = _c

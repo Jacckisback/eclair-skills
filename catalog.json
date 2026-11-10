@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.1.0",
+  "catalog_version": "2.2.0",
   "target_eclair": "2.0.x",
   "format": "Agent Skills SKILL.md",
   "status": "workflow-library-core-builtin-and-native-usable-transactional-modules-design-only",
@@ -1302,6 +1302,11 @@
     "All 200 entries are agent skills (guides), not 200 working PHP plugins.",
     "Maturity core-builtin-configuration-workflow: the feature already exists in the Éclair core; the skill configures and checks it.",
     "Extensions expose public GET routes only on Éclair 2.0; public POST (PR #19) is a draft, not merged.",
+    "skills/ is French (source); translations/<lang>/ holds the same skills in en, es, de, it, pt.",
     "Catalogue demo is a read-only example, no commerce transactions."
-  ]
+  ],
+  "languages": {
+    "default": "fr",
+    "translations": []
+  }
 }
