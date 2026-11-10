@@ -1,0 +1,3 @@
+actor,action,resource,condition,decision,http_status,test_case
+visitor,read,public-page,always,allow,200,guest-public
+student,read,other-student-progress,not-owner,deny,403,student-idor

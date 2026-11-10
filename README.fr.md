@@ -135,6 +135,7 @@ python3 scripts/install_skills.py --list
 python3 scripts/install_skills.py --project /path/to/my-site --category commerce   # une famille
 python3 scripts/install_skills.py --project /path/to/my-site --skill eclair-wordpress-migration   # un skill
 python3 scripts/install_skills.py --project /path/to/my-site --all   # tout
+python3 scripts/install_skills.py --project /path/to/my-site --all --lang fr   # en français (par défaut)
 ```
 
 L’installateur copie les skills dans votre projet. Il n’écrase jamais un skill existant, sauf avec `--force` après relecture.
@@ -595,7 +596,7 @@ php scripts/verify_signature.php
 - Éclair CMS **2.0.x**, contrat d’extensions `eclair-extension/1`.
 - PHP **8.1+** pour les exemples (CI en 8.1 et 8.3). Python **3**, bibliothèque standard, pour les scripts.
 - Agents : Claude Code, Codex, ChatGPT et tout agent compatible avec les dossiers `SKILL.md`.
-- Le contenu des skills est rédigé en français ; ils fonctionnent avec tout agent, quelle que soit la langue dans laquelle vous lui parlez.
+- Chaque skill existe en six langues : français (source, dans `skills/`), anglais, espagnol, allemand, italien et portugais (dans `translations/<langue>/`). Installez celle que vous voulez avec `--lang`.
 
 ## Aller plus loin
 

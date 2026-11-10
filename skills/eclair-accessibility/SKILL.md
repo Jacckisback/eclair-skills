@@ -1,12 +1,12 @@
 ---
 name: eclair-accessibility
-description: "Audit and fix an accessible interface (WCAG). Use on Éclair CMS 2.x when the user wants to: auditer et corriger une interface éclair accessible. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
+description: "Audit and fix an accessible interface (WCAG). Use on Éclair CMS 2.x when the user wants to: auditer et corriger une interface Éclair accessible. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Accessibilité WCAG — Éclair CMS 2.x
 
 ## Déclencheur et résultat attendu
-Utiliser ce skill pour **auditer et corriger une interface éclair accessible**. Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches). Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
+Utiliser ce skill pour **auditer et corriger une interface Éclair accessible**. Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches). Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
 
 **Équivalent WordPress :** WP Accessibility, One Click Accessibility. Famille : Design et UX.
 

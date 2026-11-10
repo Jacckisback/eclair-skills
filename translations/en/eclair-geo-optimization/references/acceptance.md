@@ -1,0 +1,19 @@
+# Validation plan — GEO and AI agents
+
+## Data model
+Verifiable content, provenance, semantics, llms.txt, Markdown, Schema.org.
+
+## Expected implementation
+Audit structure, factual answers, sources and consistency of the Markdown; check AI robots without over-promising.
+
+## Tests to plan
+1. Nominal: Test the Markdown version, structured citations and robots.txt.
+2. Refusal check: The facts displayed for robots and humans remain consistent and up to date.
+3. Invariant: Do not confuse internal GEO score, citability and guaranteed ranking.
+4. GET/HEAD: public cache only without session state or sensitive data; canonical, HTTP status, SEO and GEO unchanged or improved.
+5. POST: never any shared cache; CSRF, TLS, permissions, attempt limiting, idempotency. Do not run if the core does not officially support it.
+6. Activation and deactivation: content is preserved and public routes are removed without any leak.
+7. Checks: native validator, PHP and HTTP tests, budgets; record the commands run, their results and what was not tested.
+
+## Proof of availability
+Status of the feature or extension, CI logs, test matrix, rollback procedure, and refusal of any unverified promise.

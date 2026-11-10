@@ -511,7 +511,7 @@
  },
  "eclair-crm-integration": {
   "title": "Sincronización CRM",
-  "goal": "conectar prospectos/clientes con un crm sin duplicados",
+  "goal": "conectar prospectos/clientes con un CRM sin duplicados",
   "wp": "Extensiones de HubSpot o Salesforce",
   "model": "Contacto, empresa, consentimiento, mapping, clave externa, procedencia",
   "procedure": "Mapear campos estrictos, diferenciar actualizaciones direccionales y fusión, proporcionar conciliación y exportación/supresión",

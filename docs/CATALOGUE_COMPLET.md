@@ -1,4 +1,4 @@
-# Catalogue complet — Éclair Skills v2.1.0
+# Catalogue complet — Éclair Skills v2.2.0
 
 Généré par `scripts/build_readmes.py` à partir de `catalog.json`. **200 Agent Skills = 200 guides pour agents, pas 200 extensions PHP.** Cible : Éclair CMS 2.0.x, contrat `eclair-extension/1`.
 

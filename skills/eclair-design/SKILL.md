@@ -1,12 +1,12 @@
 ---
 name: eclair-design
-description: "Art direction: build coherent sites with Éclair Design and the native theme. Use on Éclair CMS 2.x when the user wants to: créer des sites cohérents avec éclair design et le thème natif. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
+description: "Art direction: build coherent sites with Éclair Design and the native theme. Use on Éclair CMS 2.x when the user wants to: créer des sites cohérents avec Éclair Design et le thème natif. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Direction artistique Éclair — Éclair CMS 2.x
 
 ## Déclencheur et résultat attendu
-Utiliser ce skill pour **créer des sites cohérents avec éclair design et le thème natif**. Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches). Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
+Utiliser ce skill pour **créer des sites cohérents avec Éclair Design et le thème natif**. Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches). Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
 
 **Équivalent WordPress :** Thèmes et personnalisateur de WordPress. Famille : Design et UX.
 

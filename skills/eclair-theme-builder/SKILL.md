@@ -1,12 +1,12 @@
 ---
 name: eclair-theme-builder
-description: "Produce an Éclair v2 theme that survives updates. Use on Éclair CMS 2.x when the user wants to: produire un thème éclair v2 compatible avec mise à jour. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
+description: "Produce an Éclair v2 theme that survives updates. Use on Éclair CMS 2.x when the user wants to: produire un thème Éclair v2 compatible avec mise à jour. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Création de thème — Éclair CMS 2.x
 
 ## Déclencheur et résultat attendu
-Utiliser ce skill pour **produire un thème éclair v2 compatible avec mise à jour**. Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches). Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
+Utiliser ce skill pour **produire un thème Éclair v2 compatible avec mise à jour**. Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches). Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
 
 **Équivalent WordPress :** Thèmes enfants et thèmes blocs. Famille : Design et UX.
 

@@ -1,0 +1,3 @@
+path,method,owner,auth,permission,cache_policy,seo_policy,status,collision_checked
+/example,GET,example,public,read,public,canonical,200,no
+/account,GET,example,required,account.read,no-store,noindex,200,no

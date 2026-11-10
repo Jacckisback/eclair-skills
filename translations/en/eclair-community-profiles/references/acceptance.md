@@ -1,0 +1,19 @@
+# Validation plan — Community profiles
+
+## Data model
+Unique username, avatar, visibility preferences, reputation and roles.
+
+## Expected implementation
+Distinguish internal ID and username; impose avatar limits and moderation; expose only consented fields; handle renames and safe redirects.
+
+## Tests to plan
+1. Nominal: Test username collision and account deletion.
+2. Refusal check: A visitor cannot infer an email from an error message or a profile API.
+3. Invariant: Email, session, IP, address and recovery information remain private.
+4. GET/HEAD: public cache only without session state or sensitive data; canonical, HTTP status, SEO and GEO unchanged or improved.
+5. POST: never any shared cache; CSRF, TLS, permissions, attempt limiting, idempotency. Do not run if the core does not officially support it.
+6. Activation and deactivation: content is preserved and public routes are removed without any leak.
+7. Checks: native validator, PHP and HTTP tests, budgets; record the commands run, their results and what was not tested.
+
+## Proof of availability
+Status of the feature or extension, CI logs, test matrix, rollback procedure, and refusal of any unverified promise.

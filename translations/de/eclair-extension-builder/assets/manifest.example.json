@@ -1,0 +1,64 @@
+{
+  "schema": "eclair-extension/1",
+  "id": "skill-sample",
+  "name": "Skill Sample",
+  "description": "Exemple simple de fonction native Éclair 2.0 pour les agents.",
+  "version": "0.1.0",
+  "requires": {
+    "eclair": ">=2.0.0",
+    "php": ">=8.1"
+  },
+  "depends": {},
+  "provides": [
+    "skill-demo"
+  ],
+  "entry": "extension.php",
+  "routes": {
+    "public": [
+      {
+        "method": "GET",
+        "path": "/skills-demo",
+        "handler": "page",
+        "cache": true
+      }
+    ],
+    "admin": [
+      {
+        "method": "GET",
+        "path": "",
+        "handler": "adminPage",
+        "right": "settings"
+      }
+    ]
+  },
+  "nav": [
+    {
+      "label": "Skill Sample",
+      "path": "",
+      "icon": "spark",
+      "right": "settings"
+    }
+  ],
+  "settings": [
+    {
+      "key": "title",
+      "type": "text",
+      "label": "Titre public",
+      "default": "Éclair Skills",
+      "max": 80
+    }
+  ],
+  "migrations": [
+    "001-init"
+  ],
+  "data": {
+    "schema": 1
+  },
+  "provenance": {
+    "source": "local-devkit",
+    "license": "AGPL-3.0-only"
+  },
+  "files": {
+    "extension.php": "a3eae06644486d3a69a491f28070bbf785424733ffe9d97eb5bf05cf599b0d7a"
+  }
+}

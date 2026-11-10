@@ -1,4 +1,4 @@
-# Éclair Skills v2.1.0 — consignes pour les agents
+# Éclair Skills v2.2.0 — consignes pour les agents
 
 - **Découvrir** version/contrats (`GET /<admin>/api/capabilities` si autorisé); consulter `catalog.json` et le skill déclenché.
 - **Préserver le noyau** : ne toucher ni `app/`, `assets/`, `index.php`, updater, authentification ou SEO intégré dans une tâche de création de site. Les modifications structurelles demandent une PR spécifique et tests complets.

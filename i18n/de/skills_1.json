@@ -1,0 +1,962 @@
+{
+ "eclair-blog-posts": {
+  "title": "Blogartikel",
+  "goal": "Blogartikel mit dem nativen Block-Editor veröffentlichen und ordnen",
+  "wp": "Native Beiträge von WordPress",
+  "model": "Artikel, Auszug, Hauptbild, Kategorie, Autor, Datum, Status Entwurf oder veröffentlicht",
+  "procedure": "Die Artikel über die Administration oder den MCP-Connector als Entwurf anlegen, Titel, Auszug, Bild und Kategorie prüfen, dann eine Person veröffentlichen lassen",
+  "invariant": "Niemals anstelle der berechtigten Person einen Inhalt veröffentlichen oder löschen",
+  "pos": "Einen vollständigen Entwurf anlegen, ihn veröffentlichen lassen, dann Darstellung, RSS-Feed und Sitemap prüfen",
+  "neg": "Ein Entwurf erscheint weder auf der öffentlichen Website noch in der Sitemap noch im Feed"
+ },
+ "eclair-static-pages": {
+  "title": "Seiten der Website",
+  "goal": "die festen Seiten der Website (Startseite, Über uns, Leistungen, Kontakt) und ihre Seitenstruktur anlegen",
+  "wp": "Native Seiten von WordPress",
+  "model": "Seite, Adresse, Blöcke, übergeordnete Seite, Status, Menüeintrag",
+  "procedure": "Die benötigten Seiten auflisten, die Adressen vor dem Schreiben festlegen, jede Seite aus Blöcken aufbauen und die Seiten untereinander verlinken",
+  "invariant": "Niemals die Adresse einer veröffentlichten Seite ohne geprüfte Weiterleitung ändern",
+  "pos": "Die vollständige Seitenstruktur anlegen und jede Adresse, das Menü und die Brotkrumennavigation kontrollieren",
+  "neg": "Eine umbenannte Seite antwortet mit einer einzigen 301-Weiterleitung, niemals mit einem 404-Fehler"
+ },
+ "eclair-categories": {
+  "title": "Kategorien",
+  "goal": "die Inhalte in Säulenkategorien gliedern, die Besuchern und dem SEO nützen",
+  "wp": "Native Kategorien von WordPress",
+  "model": "Kategorie, Adresse, Beschreibung, zugeordnete Inhalte",
+  "procedure": "Wenige stabile Kategorien festlegen, ihre Beschreibung verfassen, jeden Inhalt einer Hauptkategorie zuordnen",
+  "invariant": "Keine leeren oder doppelten Kategorien anlegen, die die Website verwässern",
+  "pos": "Die Kategorien anlegen, die Inhalte zuordnen und die Kategorieseiten samt Paginierung prüfen",
+  "neg": "Eine Kategorie ohne veröffentlichten Inhalt wird in der Navigation nicht angeboten"
+ },
+ "eclair-tags-taxonomies": {
+  "title": "Schlagwörter und Taxonomien",
+  "goal": "Schlagwörter oder benutzerdefinierte Taxonomien übernehmen, wenn der Kern nur Kategorien bietet",
+  "wp": "Schlagwörter und benutzerdefinierte Taxonomien von WordPress",
+  "model": "Begriff, Taxonomietyp, verknüpfte Inhalte, Archivadresse",
+  "procedure": "Die vorhandenen Taxonomien inventarisieren, diejenigen zusammenführen, die sich mit den Kategorien doppeln, für den Rest Sammelseiten per GET vorschlagen und die alten Archive weiterleiten",
+  "invariant": "Keine Hunderte von dürftigen, indexierbaren Archiven erzeugen",
+  "pos": "Einen Satz von Schlagwörtern in Kategorien oder Sammelseiten umwandeln und die Weiterleitungen prüfen",
+  "neg": "Ein altes, gelöschtes Schlagwortarchiv leitet ohne Kette auf die nächstliegende Seite weiter"
+ },
+ "eclair-custom-content-types": {
+  "title": "Benutzerdefinierte Inhaltstypen",
+  "goal": "Fachinhalte (Referenzen, Immobilien, Veranstaltungen) ohne benutzerdefinierten Inhaltstyp im Kern modellieren",
+  "wp": "Custom Post Types (CPT UI, ACF)",
+  "model": "Fachdatensatz, Felder, Liste, Adresse, Status",
+  "procedure": "Zwischen Seiten mit eigenen Blöcken und einer Erweiterung mit eigener Speicherung und GET-Routen wählen, die Adressen festlegen, Liste und Detailansicht vorsehen",
+  "invariant": "Niemals aus einer Erweiterung heraus in die Inhaltsdateien des Kerns schreiben",
+  "pos": "Einen Datensatztyp per Erweiterung anlegen, mit Liste und Detail per GET, dann das Paket validieren",
+  "neg": "Ein nicht veröffentlichter Datensatz wird weder in der Liste noch über seine direkte Adresse ausgeliefert"
+ },
+ "eclair-custom-fields": {
+  "title": "Benutzerdefinierte Felder",
+  "goal": "strukturierte Felder zu Blöcken oder Erweiterungseinstellungen hinzufügen",
+  "wp": "Advanced Custom Fields, Meta Box",
+  "model": "Feld, deklarierter Typ, validierter Wert, tragender Block oder tragende Einstellung",
+  "procedure": "Die Felder im Manifest deklarieren (vom Kern unterstützte Typen), den Kern validieren und speichern lassen, mit Escaping ausgeben",
+  "invariant": "Jeder angezeigte Wert läuft durch e(); kein Feld enthält ein Geheimnis",
+  "pos": "Einen Block mit Text-, Zahlen- und Auswahlfeldern deklarieren, dann Validierung und Ausgabe prüfen",
+  "neg": "Ein Wert außerhalb des Formats wird vom Kern abgelehnt und erreicht niemals die Ausgabe"
+ },
+ "eclair-comments": {
+  "title": "Kommentare",
+  "goal": "Artikelkommentare mit Moderation und Spamschutz konzipieren",
+  "wp": "Native Kommentare, Akismet",
+  "model": "Kommentar, Autor, Moderationsstatus, Artikel, Datum",
+  "procedure": "Moderationswarteschlange, Spamschutzregeln, rechtliche Hinweise und Anzeige aus dem Cache festlegen; bis dahin einen externen Dienst oder eine Kontaktaufnahme vorschlagen",
+  "invariant": "Kein Kommentar wird ohne Moderation angezeigt; keine E-Mail-Adresse wird öffentlich gemacht",
+  "pos": "Einreichen, Moderieren, Veröffentlichen und Löschen eines Kommentars simulieren",
+  "neg": "Ein wartender oder abgelehnter Kommentar erscheint niemals in einer Seite aus dem Cache"
+ },
+ "eclair-editorial-workflow": {
+  "title": "Redaktioneller Workflow",
+  "goal": "Entwürfe, Korrekturlesen und Veröffentlichungskalender eines Teams organisieren",
+  "wp": "Edit Flow, PublishPress, native Planung",
+  "model": "Entwurf, Autor, Korrekturleser, geplantes Datum, Status, Planungseintrag",
+  "procedure": "Anhand der nativen Rechte festlegen, wer schreibt und wer veröffentlicht, den Redaktionsplan und die Entwürfe nutzen, vor jeder Veröffentlichung eine menschliche Durchsicht beibehalten",
+  "invariant": "Ein Agent oder ein Redakteur ohne Veröffentlichungsrecht stellt nichts online",
+  "pos": "Einen Inhalt von der Idee zum Entwurf und dann zur Veröffentlichung durch eine befugte Person führen",
+  "neg": "Ein auf Inhalte beschränktes Konto kann weder die Einstellungen ändern noch anstelle einer anderen Rolle veröffentlichen"
+ },
+ "eclair-authors": {
+  "title": "Autoren und Autorenzeilen",
+  "goal": "die Autoren mit überprüfbarer Biografie und Expertise vorstellen",
+  "wp": "Autorenprofile, Autorenboxen",
+  "model": "Autor, Biografie, Funktion, Links, gezeichnete Inhalte",
+  "procedure": "Die echten Profile vervollständigen, jeden Artikel mit seinem Autor verknüpfen, die Autorenseite und die vom Kern erzeugten strukturierten Daten prüfen",
+  "invariant": "Niemals einen Autor, einen Abschluss oder eine Erfahrung erfinden",
+  "pos": "Ein Profil ausfüllen und Autorenzeile, Autorenseite und Markup prüfen",
+  "neg": "Ein deaktiviertes Konto oder eines ohne veröffentlichten Inhalt stellt keine Autorenseite bereit"
+ },
+ "eclair-navigation-menus": {
+  "title": "Navigationsmenüs",
+  "goal": "klare Menüs für Kopf- und Fußbereich aufbauen",
+  "wp": "Native Menüs von WordPress",
+  "model": "Menü, Eintrag, Reihenfolge, Ziel, Position",
+  "procedure": "Das Hauptmenü auf die wesentlichen Nutzerwege beschränken, den Rest im Fußbereich unterbringen, Tastatur und Mobilgerät testen",
+  "invariant": "Kein Menülink zeigt auf einen Entwurf oder eine ungewollte externe Adresse",
+  "pos": "Die Menüs zusammenstellen und per Tastatur und auf dem Mobilgerät durchgehen",
+  "neg": "Eine zurückgezogene Seite verschwindet aus dem Menü oder wird gemeldet, niemals aus der Navigation heraus als 404 ausgeliefert"
+ },
+ "eclair-site-search": {
+  "title": "Suche auf der Website",
+  "goal": "eine schnelle interne Suche ohne Datenbank anbieten",
+  "wp": "Native Suche, Relevanssi, SearchWP",
+  "model": "Index der veröffentlichten Inhalte, Titel, Auszug, Adresse",
+  "procedure": "Per geplanter Aufgabe einen statischen Index der öffentlichen Inhalte erzeugen, ihn per cachefähigem GET ausliefern und im Browser suchen, mit einer Ausweichseite ohne JavaScript",
+  "invariant": "Der Index enthält nur öffentliche Inhalte; keine Besucheranfrage wird mit der Identität des Besuchers protokolliert",
+  "pos": "Einen vorhandenen, einen fehlenden und einen Begriff mit Akzenten suchen und die Antwortzeit prüfen",
+  "neg": "Ein Entwurf oder eine private Seite erscheint niemals im Index"
+ },
+ "eclair-rss-feeds": {
+  "title": "RSS-Feeds",
+  "goal": "den nativen RSS-Feed der Website prüfen und zur Geltung bringen",
+  "wp": "Native Feeds von WordPress",
+  "model": "Feed, Einträge, Datum, vollständiger Inhalt oder Auszug",
+  "procedure": "Den vom Kern erzeugten Feed kontrollieren, ihn in den Seiten deklarieren, ihn Abonnenten und Aggregatoren anbieten",
+  "invariant": "Der Feed enthält nur veröffentlichte Inhalte",
+  "pos": "Den Feed mit einem Reader und einem Validator validieren",
+  "neg": "Ein zurückgezogener Inhalt verschwindet bei der Neugenerierung aus dem Feed"
+ },
+ "eclair-related-posts": {
+  "title": "Verwandte Inhalte",
+  "goal": "am Seitenende passende verwandte Artikel vorschlagen",
+  "wp": "YARPP, Jetpack Related Posts",
+  "model": "Inhalt, Kategorie, gemeinsame Wörter, berechnete Linkliste",
+  "procedure": "Die Zuordnungen bei der Veröffentlichung oder per Aufgabe berechnen, sie über einen statischen, cachefähigen Block ausgeben, auf wenige Links begrenzen",
+  "invariant": "Keine Zuordnung zeigt auf einen nicht veröffentlichten Inhalt",
+  "pos": "Die vorgeschlagenen Links bei mehreren Artikeln aus verschiedenen Kategorien prüfen",
+  "neg": "Ein gelöschter Artikel wird nach der Neugenerierung nicht mehr vorgeschlagen"
+ },
+ "eclair-table-of-contents": {
+  "title": "Automatisches Inhaltsverzeichnis",
+  "goal": "langen Inhalten ein anklickbares Inhaltsverzeichnis hinzufügen",
+  "wp": "Easy Table of Contents, LuckyWP",
+  "model": "Zwischenüberschriften, Anker, Ebenen",
+  "procedure": "Das Inhaltsverzeichnis beim serverseitigen Rendern aus den Zwischenüberschriften erzeugen, mit stabilen Ankern und ohne zwingendes JavaScript",
+  "invariant": "Die erzeugten Anker sind escapt und eindeutig",
+  "pos": "Das Inhaltsverzeichnis an einem Inhalt mit drei Überschriftenebenen prüfen",
+  "neg": "Ein kurzer Inhalt ohne Zwischenüberschrift zeigt kein leeres Inhaltsverzeichnis an"
+ },
+ "eclair-media-library": {
+  "title": "Mediathek",
+  "goal": "Bilder und Dateien in der nativen Mediathek ordnen",
+  "wp": "Mediathek von WordPress",
+  "model": "Datei, Alternativtext, Abmessungen, Verwendungen",
+  "procedure": "Die Medien importieren, die Alternativtexte ausfüllen, ungenutzte Dateien und Duplikate aufspüren",
+  "invariant": "Nur die vom Kern akzeptierten Formate werden hochgeladen; keine ausführbare Datei",
+  "pos": "Mehrere Formate hochladen und Konvertierung, Abmessungen und Alternativtexte prüfen",
+  "neg": "Eine Datei in einem verbotenen Format oder eine präparierte Datei wird beim Hochladen abgelehnt"
+ },
+ "eclair-image-optimization": {
+  "title": "Bildoptimierung",
+  "goal": "das native responsive WebP und das native verzögerte Laden ausnutzen",
+  "wp": "Smush, ShortPixel, Imagify, EWWW",
+  "model": "Quellbild, responsive Varianten, Abmessungen, Dateigröße",
+  "procedure": "Quellen in passender Größe bereitstellen, den Kern die Varianten erzeugen lassen, die tatsächlich auf dem Mobilgerät ausgelieferte Dateigröße kontrollieren",
+  "invariant": "Sensible Metadaten (Geolokalisierung) werden nicht veröffentlicht",
+  "pos": "Ausgelieferte Dateigröße und Abmessungen auf Mobilgerät und Computer messen",
+  "neg": "Kein Bild wird ohne explizite Abmessungen ausgeliefert"
+ },
+ "eclair-image-galleries": {
+  "title": "Bildergalerien",
+  "goal": "leichte und barrierefreie Fotogalerien erstellen",
+  "wp": "Native Galerie, NextGEN, Envira",
+  "model": "Galerie, Bilder, Bildunterschriften, Reihenfolge",
+  "procedure": "Die Galerie als CSS-Raster aus den Bildern der Mediathek zusammenstellen, mit Bildunterschriften und Alternativtexten",
+  "invariant": "Kein Bild wird von einer Drittanbieter-Domain geladen",
+  "pos": "Eine Galerie mit zwanzig Bildern auf dem Mobilgerät anzeigen und ihre Dateigröße messen",
+  "neg": "Ein aus der Mediathek entferntes Bild hinterlässt kein defektes Vorschaubild"
+ },
+ "eclair-video-embeds": {
+  "title": "Videos",
+  "goal": "Videos einbinden, ohne die Seite zu verlangsamen oder Cookies zu setzen",
+  "wp": "Video-Block und Embeds von WordPress",
+  "model": "Video, Quelle, Vorschaubild, Untertitel",
+  "procedure": "Den nativen Video-Block verwenden, für Drittplattformen eine anklickbare Fassade bevorzugen, Untertitel oder Transkript bereitstellen",
+  "invariant": "Kein Drittanbieter-Player wird vor dem Klick des Besuchers geladen",
+  "pos": "Prüfen, dass vor dem Klick keine Drittanbieter-Anfrage abgeht",
+  "neg": "Eine Videoadresse von einer nicht zugelassenen Domain wird abgelehnt"
+ },
+ "eclair-audio-podcast": {
+  "title": "Audio und Podcast",
+  "goal": "Audiofolgen mit Player und Podcast-Feed veröffentlichen",
+  "wp": "PowerPress, Seriously Simple Podcasting",
+  "model": "Folge, Audiodatei, Dauer, Notizen, Feed",
+  "procedure": "Pro Folge eine Seite mit nativem HTML-Player anlegen, den Podcast-Feed per GET erzeugen und große Dateien bei Bedarf außerhalb der Website hosten",
+  "invariant": "Der Feed verweist nur auf veröffentlichte Folgen und öffentliche Dateien",
+  "pos": "Den Feed mit einem Podcast-Validator validieren und eine Folge auf dem Mobilgerät abspielen",
+  "neg": "Eine Folge im Entwurf fehlt im Feed"
+ },
+ "eclair-file-downloads": {
+  "title": "Downloads",
+  "goal": "Dateien zum Herunterladen anbieten (PDF, Vorlagen, Merkblätter)",
+  "wp": "Download Manager, Download Monitor",
+  "model": "Datei, Titel, Version, Größe, tragende Seite",
+  "procedure": "Die öffentlichen Dateien in der Mediathek ablegen, Dateigröße und Format anzeigen, ersetzte Dateien versionieren",
+  "invariant": "Keine private oder kostenpflichtige Datei wird unter einer erratbaren öffentlichen Adresse abgelegt",
+  "pos": "Jede Datei herunterladen und angegebenen Typ und angegebene Größe prüfen",
+  "neg": "Eine ersetzte Datei lässt die alte Version nicht versehentlich zugänglich"
+ },
+ "eclair-sliders-carousels": {
+  "title": "Slideshows und Karussells",
+  "goal": "eine schlichte Slideshow erstellen, die weder Geschwindigkeit noch Barrierefreiheit beeinträchtigt",
+  "wp": "Slider Revolution, Smart Slider, MetaSlider",
+  "model": "Folie, Bild, Text, Link, Reihenfolge",
+  "procedure": "Ein einzelnes starkes Bild bevorzugen; andernfalls CSS-Scrollen mit Tastaturbedienung, Pause und ohne aufgezwungene automatische Wiedergabe",
+  "invariant": "Keine schwere Drittanbieter-Bibliothek; prefers-reduced-motion wird beachtet",
+  "pos": "Per Tastatur und Screenreader navigieren, die Layoutverschiebung messen",
+  "neg": "Ohne JavaScript bleibt der gesamte Inhalt der Folien lesbar"
+ },
+ "eclair-lightbox": {
+  "title": "Bildbetrachter",
+  "goal": "Bilder per Klick mit einem leichten Bildbetrachter vergrößern",
+  "wp": "Lightbox-Plugins (FooBox, Simple Lightbox)",
+  "model": "Bild, vergrößerte Version, Bildunterschrift",
+  "procedure": "Natives dialog oder einen Link zum Bild verwenden, Fokus, Escape-Taste und Zurück behandeln, ohne Abhängigkeit",
+  "invariant": "Der Fokus wird gefangen und dann korrekt zurückgegeben; kein externer Inhalt",
+  "pos": "Per Tastatur öffnen, navigieren und schließen",
+  "neg": "Ohne JavaScript öffnet der Klick einfach das Bild"
+ },
+ "eclair-pdf-documents": {
+  "title": "PDF-Dokumente",
+  "goal": "lesbare, barrierefreie und auffindbare PDFs veröffentlichen",
+  "wp": "PDF Embedder, Dokumentenbetrachter",
+  "model": "Dokument, Titel, Zusammenfassung, Vorstellungsseite, Datei",
+  "procedure": "Pro Dokument eine HTML-Vorstellungsseite mit Zusammenfassung, Download-Link und barrierefreier Alternative anlegen",
+  "invariant": "Kein PDF mit personenbezogenen Daten wird ohne Einwilligung veröffentlicht",
+  "pos": "Link, Dateigröße, Dokumenttitel und Vorstellungsseite prüfen",
+  "neg": "Ein entferntes PDF liefert eine saubere Antwort und keinen defekten Link in den Seiten"
+ },
+ "eclair-accordions-faq": {
+  "title": "FAQ und Akkordeons",
+  "goal": "Fragen und Antworten mit dem nativen FAQ-Block darstellen",
+  "wp": "Akkordeon- und FAQ-Plugins",
+  "model": "Frage, Antwort, Reihenfolge",
+  "procedure": "Echte Kundenfragen formulieren, den nativen FAQ-Block verwenden, der auch das Markup erzeugt, die Anzahl pro Seite begrenzen",
+  "invariant": "Keine erfundene Antwort und kein ungeprüftes Versprechen",
+  "pos": "Öffnen per Tastatur und erzeugtes Markup prüfen",
+  "neg": "Eine leere FAQ gibt kein Markup aus"
+ },
+ "eclair-tabs": {
+  "title": "Tabs",
+  "goal": "einen Inhalt in barrierefreien Tabs gliedern",
+  "wp": "Tab-Plugins (Tabs, Kadence Blocks)",
+  "model": "Tab, Titel, Panel",
+  "procedure": "Einen Tab-Block mit ARIA-Rollen, Navigation per Pfeiltasten und Rückfall auf gestapelte Abschnitte aufbauen",
+  "invariant": "Der gesamte Inhalt bleibt im HTML und ist damit ohne JavaScript lesbar",
+  "pos": "Die Tabs per Tastatur und Screenreader durchgehen",
+  "neg": "Ohne JavaScript sind alle Panels sichtbar"
+ },
+ "eclair-data-tables": {
+  "title": "Datentabellen",
+  "goal": "auf dem Mobilgerät lesbare Tabellen darstellen",
+  "wp": "TablePress, wpDataTables",
+  "model": "Tabelle, Kopfzeilen, Zeilen, Beschriftung",
+  "procedure": "Den nativen Tabellen-Block verwenden, Beschriftung und Kopfzeilen ergänzen, ein kontrolliertes horizontales Scrollen vorsehen",
+  "invariant": "Keine personenbezogenen Daten in einer öffentlichen Tabelle ohne Einwilligung",
+  "pos": "Die Tabelle auf dem Mobilgerät und mit dem Screenreader lesen",
+  "neg": "Eine breite Tabelle verursacht kein horizontales Scrollen der gesamten Seite"
+ },
+ "eclair-pricing-tables": {
+  "title": "Preistabellen",
+  "goal": "Angebote und Preise klar und ehrlich darstellen",
+  "wp": "Preistabellen-Plugins",
+  "model": "Angebot, Preis, Zeitraum, Merkmale, Schaltfläche",
+  "procedure": "Die Angebote als vergleichbare Karten zusammenstellen, Brutto- oder Nettopreis unmissverständlich anzeigen und jede Schaltfläche mit der richtigen Aktion verknüpfen",
+  "invariant": "Keine erfundenen Preise, Rabatte oder rechtlichen Hinweise",
+  "pos": "Drei Angebote auf dem Mobilgerät vergleichen und jeden Link prüfen",
+  "neg": "Ein Angebot ohne freigegebenen Preis wird nicht angezeigt"
+ },
+ "eclair-timelines": {
+  "title": "Zeitleisten",
+  "goal": "eine Geschichte oder einen Prozess in datierten Schritten erzählen",
+  "wp": "Timeline-Plugins",
+  "model": "Schritt, Datum, Titel, Text",
+  "procedure": "Die Zeitleiste als geordnete, per CSS gestaltete Liste ausgeben, auf dem Mobilgerät einspaltig lesbar",
+  "invariant": "Die angezeigten Daten und Fakten werden vom Kunden geliefert",
+  "pos": "Lesereihenfolge und mobile Darstellung prüfen",
+  "neg": "Ein Schritt ohne Datum bleibt lesbar und geordnet"
+ },
+ "eclair-countdowns": {
+  "title": "Countdowns",
+  "goal": "einen Countdown zu einem echten Datum anzeigen",
+  "wp": "Countdown-Plugins",
+  "model": "Zieldatum, Zeitzone, Abschlussmeldung",
+  "procedure": "Das Datum ins HTML schreiben, als Progressive Enhancement animieren, den Zustand nach Fristablauf und die Cache-Invalidierung vorsehen",
+  "invariant": "Keine falsche Dringlichkeit: Das Datum entspricht einem echten Ereignis",
+  "pos": "Vor, während und nach dem Fristablauf sowie in zwei Zeitzonen testen",
+  "neg": "Nach dem Fristablauf zeigt die Seite aus dem Cache kein abgelaufenes Angebot mehr an"
+ },
+ "eclair-team-members": {
+  "title": "Team",
+  "goal": "das Team mit dem nativen Block vorstellen",
+  "wp": "Plugins zur Teamvorstellung",
+  "model": "Person, Funktion, Foto, Kurzbiografie",
+  "procedure": "Den nativen Team-Block mit einheitlichen Fotos und von den Personen gelieferten Texten verwenden",
+  "invariant": "Kein Foto und keine Information wird ohne Einwilligung der Person veröffentlicht",
+  "pos": "Das Team auf dem Mobilgerät mit korrekten Alternativtexten anzeigen",
+  "neg": "Eine entfernte Person verschwindet auch aus den Seiten im Cache"
+ },
+ "eclair-logo-walls": {
+  "title": "Kunden- und Partnerlogos",
+  "goal": "Logos von Kunden oder Partnern anzeigen, deren Nutzung genehmigt ist",
+  "wp": "Logo-Karussell-Plugins",
+  "model": "Logo, Name, optionaler Link",
+  "procedure": "Die Logos in einem statischen Raster anzeigen, einheitliche Größen, Namen als Alternativtext",
+  "invariant": "Nur Logos, deren Nutzung genehmigt ist, werden veröffentlicht",
+  "pos": "Lesbarkeit im hellen und im dunklen Modus prüfen",
+  "neg": "Ein Logo ohne dokumentierte Genehmigung wird nicht eingebunden"
+ },
+ "eclair-cta-sections": {
+  "title": "Handlungsaufforderungen",
+  "goal": "klare Handlungsaufforderungen mit den nativen Blöcken platzieren",
+  "wp": "Button-Blöcke und Call-to-Action-Banner",
+  "model": "Titel, Text, Schaltfläche, Ziel",
+  "procedure": "Pro Seite eine Hauptaktion festlegen, sie an den richtigen Stellen wiederholen, Kontrast und eindeutige Beschriftung prüfen",
+  "invariant": "Kein irreführender Link und keine offene Weiterleitung",
+  "pos": "Jeder Schaltfläche auf dem Mobilgerät bis zu ihrem Ziel folgen",
+  "neg": "Eine Schaltfläche ohne gültiges Ziel wird nicht veröffentlicht"
+ },
+ "eclair-hero-sections": {
+  "title": "Hero-Bereiche",
+  "goal": "einen starken Eröffnungsbereich mit dem nativen Block gestalten",
+  "wp": "Hero-Bereiche der Page-Builder",
+  "model": "Titel, Untertitel, Bild, Schaltfläche",
+  "procedure": "Ein präzises Versprechen formulieren, ein leichtes Bild wählen, bei einer einzigen Hauptüberschrift und einer Schaltfläche bleiben",
+  "invariant": "Das Hauptbild hat explizite Abmessungen und verzögert die Anzeige nicht",
+  "pos": "Die Anzeige des größten Elements auf dem Mobilgerät messen",
+  "neg": "Ohne Bild bleibt der Bereich lesbar und kontrastreich"
+ },
+ "eclair-headers-footers": {
+  "title": "Kopf- und Fußbereiche",
+  "goal": "Kopf- und Fußbereich über ein Website-Theme anpassen",
+  "wp": "Header- und Footer-Builder",
+  "model": "Logo, Menü, Kontaktdaten, rechtliche Links",
+  "procedure": "Über ein Theme-Paket in site/themes gehen, die Variablen des Theme-Vertrags einhalten, Sprunglink und rechtliche Links beibehalten",
+  "invariant": "Niemals selbst SEO-Tags oder Header erzeugen, die der Kern bereits liefert",
+  "pos": "Das Theme validieren und Kopf- und Fußbereich auf allen Seitentypen prüfen",
+  "neg": "Das vom Validator abgelehnte Theme wird nicht ausgeliefert"
+ },
+ "eclair-breadcrumbs": {
+  "title": "Brotkrumennavigation",
+  "goal": "die native Brotkrumennavigation und ihr natives Markup prüfen",
+  "wp": "Brotkrumennavigation von Yoast oder Breadcrumb NavXT",
+  "model": "Ebenen, Beschriftungen, Adressen",
+  "procedure": "Die Übereinstimmung zwischen Seitenstruktur, angezeigter Brotkrumennavigation und strukturierten Daten des Kerns kontrollieren",
+  "invariant": "Die Brotkrumennavigation verrät keine nicht veröffentlichte Seite",
+  "pos": "Angezeigte Brotkrumennavigation und Markup über drei Ebenen Tiefe vergleichen",
+  "neg": "Eine verwaiste Seite zeigt keine widersprüchliche Brotkrumennavigation an"
+ },
+ "eclair-pagination": {
+  "title": "Paginierung und Listen",
+  "goal": "die Listen von Artikeln und Datensätzen sauber paginieren",
+  "wp": "Native Paginierung, WP-PageNavi",
+  "model": "Liste, aktuelle Seite, Seitengröße, Links zurück und weiter",
+  "procedure": "Eine vernünftige Seitengröße, stabile Adressen pro Seite und barrierefreie Links festlegen",
+  "invariant": "Die Seitenparameter sind begrenzt und validiert",
+  "pos": "Die erste, eine mittlere und die letzte Seite durchgehen",
+  "neg": "Eine Seitennummer außerhalb der Grenzen antwortet mit einem sauberen Fehler, nicht mit einer leeren, indexierbaren Liste"
+ },
+ "eclair-dark-mode": {
+  "title": "Dunkler Modus",
+  "goal": "einen dunklen Modus anbieten, der dem Corporate Design treu bleibt",
+  "wp": "Dark-Mode-Plugins",
+  "model": "Helles und dunkles Farbschema, Präferenz des Besuchers",
+  "procedure": "Die Farbvariablen des Themes für prefers-color-scheme definieren, Kontraste, Bilder und Logos prüfen",
+  "invariant": "Kein Cookie ist nötig, um die Systempräferenz zu beachten",
+  "pos": "Die Kontraste beider Modi auf den Seitentypen kontrollieren",
+  "neg": "Ein dunkles Logo wird im dunklen Modus nicht unsichtbar"
+ },
+ "eclair-design": {
+  "title": "Art Direction Éclair",
+  "goal": "stimmige Websites mit Éclair Design und dem nativen Theme erstellen",
+  "wp": "Themes und Customizer von WordPress",
+  "model": "Positionierung, Identität, Typografie, Farben, Komponenten, Fotografien und echter Inhalt",
+  "procedure": "Eine aus dem Geschäftsfeld abgeleitete Bildwelt definieren, Abschnitte zusammenstellen, CSS anpassen und Themes mit echtem Inhalt testen; site/themes und die vorhandenen Blöcke bevorzugen",
+  "invariant": "Niemals app/theme/ ändern und niemals das SEO, die CSP oder den schnellen Pfad beschädigen",
+  "pos": "Kontrast, seitenübergreifende Kohärenz und mobile Versionen testen",
+  "neg": "Das neue Erscheinungsbild bleibt ohne JavaScript lesbar und respektiert die vorhandenen Links"
+ },
+ "eclair-theme-builder": {
+  "title": "Theme-Erstellung",
+  "goal": "ein updatefähiges Éclair-v2-Theme erstellen",
+  "wp": "Child-Themes und Block-Themes",
+  "model": "theme.json, Styles, Assets, deklarierte Templates, Lizenz und Herkunft",
+  "procedure": "Vom offiziellen Beispiel-Theme ausgehen, unterstützte Variablen und Vorlagen verwenden, erst die Preview und dann das ZIP testen, die Versionskompatibilität prüfen",
+  "invariant": "Niemals SEO head und canonical neu bauen und niemals Kerndateien anfassen",
+  "pos": "Theme-Validator, Aktivierung, Vorschau und Rollback testen",
+  "neg": "Ein fehlerhaftes Template macht die Website dank des vorgesehenen Rückfalls nicht unerreichbar"
+ },
+ "eclair-blocks-library": {
+  "title": "Block-Bibliothek",
+  "goal": "Inhaltsblöcke und bearbeitbare Erweiterungen zusammenstellen",
+  "wp": "Block-Bibliotheken (Kadence, Spectra)",
+  "model": "Typ mit Namespace, Deklaration der Felder, Grenzen, Ausgabe und beibehaltene Daten",
+  "procedure": "Native Blöcke bevorzugen; zulässige Felder deklarieren; escapte Ausgabe, Standardwerte und Datenerhalt nach der Deaktivierung erzeugen",
+  "invariant": "Die Ausführung von HTML/JS aus Feldern ablehnen; kein Datenverlust, wenn der Block fehlt",
+  "pos": "Ungültige Felder, Entfernen der Erweiterung und Neuinstallation testen",
+  "neg": "Der deaktivierte Block bleibt erhalten, wird aber weder ausgeführt noch ausgegeben"
+ },
+ "eclair-accessibility": {
+  "title": "Barrierefreiheit nach WCAG",
+  "goal": "eine Éclair-Oberfläche auf Barrierefreiheit prüfen und korrigieren",
+  "wp": "WP Accessibility, One Click Accessibility",
+  "model": "Überschriftenstruktur, Tastaturnavigation, Fokus, Formulare, Medien, Kontraste",
+  "procedure": "Ein Audit mit Tastatur und Screenreader durchführen, axe-core, Kontraste, Fehlermeldungen und reduzierte Bewegung prüfen",
+  "invariant": "Den sichtbaren Fokus nicht entfernen und keine Funktion ausschließlich von Farbe oder Geste abhängig machen",
+  "pos": "Nutzerwege ohne Maus, Formularfehler und Zoom 200% testen",
+  "neg": "Ein Formular bleibt ohne Farbe und über die Tastatur verständlich"
+ },
+ "eclair-design-system": {
+  "title": "Designsystem",
+  "goal": "eine stimmige und wartbare visuelle Sprache aufbauen",
+  "wp": "theme.json und globale Stile",
+  "model": "Tokens, Raster, Abstände, Farben, Typografie, Komponenten und Zustände",
+  "procedure": "Die Token-Skala deklarieren, Komponenten wiederverwenden, Zustände und Varianten dokumentieren; Kompatibilität mit dem Éclair-Theme",
+  "invariant": "Kein schweres CSS-Stylesheet und keine JS-Bibliothek ohne Nachweis des Bedarfs einführen",
+  "pos": "Kontrast, Kohärenz und Theme-Wechsel testen",
+  "neg": "Das Ändern der Hauptfarbe macht weder Links noch Fehlermeldungen unlesbar"
+ },
+ "eclair-responsive-ux": {
+  "title": "Responsive UX",
+  "goal": "Navigation, Formulare und mobile Layouts optimieren",
+  "wp": "Responsive-Einstellungen der Page-Builder",
+  "model": "Breakpoints, Dichte, Textbreite, Menü, Formulare und Medien",
+  "procedure": "Mobile-first gestalten; die Informationshierarchie beibehalten; kleine Bildschirme, Größen der Zielflächen und Ausrichtungen testen",
+  "invariant": "Kein wesentlicher Inhalt ist auf dem Mobilgerät versteckt oder von einer Animation abhängig",
+  "pos": "320px, 375px, Tablet und mobile Tastatur testen",
+  "neg": "Eine primäre Aktion bleibt auf einem schmalen Bildschirm ohne horizontales Scrollen sichtbar und bedienbar"
+ },
+ "eclair-performance-ux": {
+  "title": "Performance-UX",
+  "goal": "Gewicht und Instabilität von Seiten messen und verringern",
+  "wp": "WP Rocket, Perfmatters",
+  "model": "LCP, CLS, INP, Gewicht der Assets, CSS, JS, Cache und Schriften",
+  "procedure": "Vorher/nachher mit tools/measure.php --check, Chrome Lighthouse und langsamem Netz messen, Bilder und Skripte optimieren",
+  "invariant": "Den PHP-Cache-Pfad nicht verschlechtern und die CSP nicht aus Bequemlichkeit deaktivieren",
+  "pos": "Die öffentliche Website ohne Erweiterung, mit Erweiterung und auf dem Mobilgerät testen",
+  "neg": "Eine behauptete Verbesserung wird von reproduzierbaren Vorher/nachher-Messungen begleitet"
+ },
+ "eclair-multilingual-content": {
+  "title": "Mehrsprachige Inhalte",
+  "goal": "eine Website in mehreren Sprachen mit verknüpften Versionen veröffentlichen",
+  "wp": "WPML, Polylang, TranslatePress",
+  "model": "Inhalt, Sprache, verknüpfte Version, Adresse pro Sprache",
+  "procedure": "In den Fähigkeiten die von der Website unterstützten Sprachen prüfen, eine Seitenstruktur pro Sprache aufbauen, die Versionen verknüpfen und hreflang kontrollieren",
+  "invariant": "Keine maschinelle Übersetzung wird ohne menschliche Durchsicht veröffentlicht",
+  "pos": "Eine Seite in zwei Sprachen anlegen und Querverweise und hreflang prüfen",
+  "neg": "Eine Sprache ohne Übersetzung verweist nicht auf eine leere Seite"
+ },
+ "eclair-language-switcher": {
+  "title": "Sprachumschalter",
+  "goal": "einen klaren und barrierefreien Sprachumschalter hinzufügen",
+  "wp": "Sprachumschalter von WPML oder Polylang",
+  "model": "Aktuelle Sprache, verfügbare Versionen, Beschriftungen",
+  "procedure": "Die Sprachen mit ihrem Namen in der jeweils eigenen Sprache auflisten, auf die entsprechende Version verweisen, ohne erzwungene automatische Weiterleitung",
+  "invariant": "Keine Weiterleitung anhand der IP-Adresse; die Wahl des Besuchers wird respektiert",
+  "pos": "Von einer tief liegenden Seite aus die Sprache wechseln und auf ihrer Entsprechung landen",
+  "neg": "Ohne Entsprechung führt der Link zur Startseite der Sprache, nicht zu einem Fehler"
+ },
+ "eclair-rtl-support": {
+  "title": "Sprachen von rechts nach links",
+  "goal": "das Theme an Arabisch oder Hebräisch anpassen",
+  "wp": "RTL-Stylesheets der WordPress-Themes",
+  "model": "Textrichtung, logische CSS-Eigenschaften, richtungsabhängige Icons",
+  "procedure": "Im Website-Theme die logischen CSS-Eigenschaften verwenden, jede Vorlage mit dir=rtl testen",
+  "invariant": "Kein Benutzertext wird ohne Escaping eingefügt, Richtungszeichen eingeschlossen",
+  "pos": "Die Seitentypen von rechts nach links ohne Überlauf anzeigen",
+  "neg": "Eine Mischung von Sprachen bricht die Lesereihenfolge nicht"
+ },
+ "eclair-locale-formats": {
+  "title": "Regionale Formate",
+  "goal": "Datumsangaben, Zahlen, Preise und Adressen im Format des jeweiligen Landes anzeigen",
+  "wp": "Regionale Einstellungen von WordPress",
+  "model": "Sprache, Land, Währung, Zeitzone",
+  "procedure": "Die Formatierung serverseitig zentralisieren, niemals ein Format fest in die Vorlagen schreiben",
+  "invariant": "Ein angezeigter Preis entspricht immer der tatsächlich berechneten Währung",
+  "pos": "Ein Datum und einen Preis auf Französisch, Englisch und Deutsch vergleichen",
+  "neg": "Eine unbekannte Währung wird nicht mit einem irreführenden Standardsymbol angezeigt"
+ },
+ "eclair-translated-urls": {
+  "title": "Übersetzte Adressen",
+  "goal": "die Adressen übersetzen, ohne das Suchmaschinenranking zu verlieren",
+  "wp": "Übersetzung der Slugs (WPML, Polylang Pro)",
+  "model": "Adresse pro Sprache, Weiterleitungen, canonical, hreflang",
+  "procedure": "Eine Adresskonvention pro Sprache festlegen, die Slugs vor der Veröffentlichung übersetzen, vom Kern erzeugtes canonical und hreflang prüfen",
+  "invariant": "Keine veröffentlichte Adresse wird ohne Weiterleitung geändert",
+  "pos": "canonical und hreflang jeder Version prüfen",
+  "neg": "Zwei Sprachen teilen sich niemals dieselbe Adresse"
+ },
+ "eclair-translation-workflow": {
+  "title": "Übersetzungsworkflow",
+  "goal": "Übersetzung, Korrekturlesen und Aktualisierung der Versionen organisieren",
+  "wp": "Übersetzungsverwaltung (WPML, Weglot)",
+  "model": "Quellinhalt, Zielversion, Übersetzer, Status, Aktualisierungsdatum",
+  "procedure": "Eine Übersicht der zu übersetzenden Inhalte führen, die Übersetzungen als Entwurf erstellen, von einem Sprecher der Sprache gegenlesen lassen, veraltete Versionen kennzeichnen",
+  "invariant": "Keine juristische oder medizinische Übersetzung wird ohne qualifizierte Freigabe veröffentlicht",
+  "pos": "Eine Seite übersetzen, gegenlesen lassen, veröffentlichen, dann die Quelle ändern und die Kennzeichnung prüfen",
+  "neg": "Eine nicht gegengelesene Übersetzung bleibt im Entwurf"
+ },
+ "eclair-contact-forms": {
+  "title": "Kontaktformular",
+  "goal": "das native Kontaktformular und seinen Posteingang einrichten",
+  "wp": "Contact Form 7, WPForms",
+  "model": "Nachricht, Name, E-Mail, Betreff, Datum, Lesestatus",
+  "procedure": "Den nativen Kontakt-Block platzieren, den Empfänger einstellen, Versand und Empfang testen, den Informationshinweis anzeigen",
+  "invariant": "Die Nachrichten sind nur für Konten mit dem Recht Nachrichten sichtbar",
+  "pos": "Eine echte Nachricht senden und sie in der Administration und per E-Mail wiederfinden",
+  "neg": "Wiederholte Sendungen in schneller Folge werden vom Kern begrenzt"
+ },
+ "eclair-form-inbox": {
+  "title": "Eingegangene Nachrichten",
+  "goal": "die eingegangenen Nachrichten bearbeiten, ohne eine zu verlieren",
+  "wp": "Flamingo, Formulareinträge",
+  "model": "Nachricht, Status, Antwort, Aufbewahrungsdauer",
+  "procedure": "Festlegen, wer liest und antwortet, innerhalb welcher Frist, wie lange die Nachrichten aufbewahrt und wie sie gelöscht werden",
+  "invariant": "Begrenzte Aufbewahrungsdauer und eingeschränktes Zugriffsrecht",
+  "pos": "Eine Nachricht vom Eingang bis zur Archivierung bearbeiten",
+  "neg": "Ein Konto ohne das Recht Nachrichten greift auf keine Nachricht zu"
+ },
+ "eclair-multi-step-forms": {
+  "title": "Mehrstufige Formulare",
+  "goal": "ein langes, in Schritte unterteiltes Formular konzipieren",
+  "wp": "Gravity Forms, Formidable Forms",
+  "model": "Schritt, Felder, Validierung, Antwortentwurf",
+  "procedure": "Nach Themen unterteilen, bei jedem Schritt serverseitig validieren, Wiederaufnahme und Zusammenfassung vor dem Absenden vorsehen",
+  "invariant": "Keine Teildaten werden gespeichert, ohne die Person zu informieren",
+  "pos": "Ausfüllen, zurückgehen, korrigieren und absenden",
+  "neg": "Ein ungültiger Schritt blockiert den weiteren Ablauf und keine unvollständigen Daten werden übermittelt"
+ },
+ "eclair-file-upload-forms": {
+  "title": "Formulare mit Dateianhängen",
+  "goal": "das Hochladen von Dateien durch Besucher sicher konzipieren",
+  "wp": "Upload-Felder der Formular-Plugins",
+  "model": "Hochgeladene Datei, Typ, Größe, Eigentümer, Aufbewahrungsdauer",
+  "procedure": "Akzeptierte Typen und Größen, Speicherung außerhalb des öffentlichen Wurzelverzeichnisses, Prüfung und automatische Löschung festlegen",
+  "invariant": "Keine hochgeladene Datei ist ausführbar oder wird direkt an die Öffentlichkeit ausgeliefert",
+  "pos": "Eine gültige Datei hochladen und sie in der Administration wiederfinden",
+  "neg": "Eine zu große, getarnte oder ausführbare Datei wird abgelehnt"
+ },
+ "eclair-payment-forms": {
+  "title": "Zahlungsformulare",
+  "goal": "eine Anzahlung, eine Spende oder eine einfache Leistung per Zahlungslink einziehen",
+  "wp": "WP Simple Pay, Stripe-Formulare",
+  "model": "Leistung, Betrag, Zahlungslink des Dienstleisters",
+  "procedure": "Den Link beim Zahlungsdienstleister erstellen, ihn auf einer klaren Seite mit Bedingungen anzeigen, nichts auf der Website speichern",
+  "invariant": "Keine Bankdaten laufen über die Website oder werden dort gespeichert",
+  "pos": "Im Testmodus bezahlen und Beleg und Rückkehrseite prüfen",
+  "neg": "Ein im Browser geänderter Betrag hat keinerlei Auswirkung auf den eingezogenen Betrag"
+ },
+ "eclair-surveys-polls": {
+  "title": "Umfragen und Befragungen",
+  "goal": "Umfragen und Zufriedenheitsfragebögen konzipieren",
+  "wp": "WP Polls, Quiz and Survey Master",
+  "model": "Frage, Auswahl, Antwort, anonymer Teilnehmer, aggregierte Ergebnisse",
+  "procedure": "Anonymität, Begrenzung von Mehrfachabstimmungen, Anzeige der aggregierten Ergebnisse und Dauer der Umfrage festlegen",
+  "invariant": "Keine einzelne Antwort wird veröffentlicht; nur aggregierte Ergebnisse",
+  "pos": "Abstimmen, die Ergebnisse einsehen und die Umfrage schließen",
+  "neg": "Eine zweite Stimme desselben Teilnehmers wird ignoriert"
+ },
+ "eclair-quote-requests": {
+  "title": "Angebotsanfragen",
+  "goal": "qualifizierte Angebotsanfragen einholen",
+  "wp": "Angebotsformulare, Request a Quote",
+  "model": "Anfrage, Leistung, Budget, Frist, Kontaktdaten",
+  "procedure": "Mit dem nativen Kontaktformular und geführten Fragen auf der Seite beginnen; das strukturierte Formular für später konzipieren",
+  "invariant": "Nur die für das Angebot nötigen Daten werden abgefragt",
+  "pos": "Eine Musteranfrage senden und ihren vollständigen Eingang prüfen",
+  "neg": "Eine Anfrage ohne gültige Kontaktdaten wird mit einer klaren Meldung abgelehnt"
+ },
+ "eclair-conditional-forms": {
+  "title": "Bedingte Formulare",
+  "goal": "Formulare konzipieren, deren Felder von den Antworten abhängen",
+  "wp": "Bedingte Logik von Gravity Forms oder WPForms",
+  "model": "Feld, Bedingung, Zweig, Validierung",
+  "procedure": "Die Regeln als Daten beschreiben, sie serverseitig und im Browser anwenden, jeden Zweig testen",
+  "invariant": "Die Servervalidierung vertraut niemals den im Browser ausgeblendeten Feldern",
+  "pos": "Jeden Zweig bis zum Absenden durchgehen",
+  "neg": "Ein Pflichtfeld eines aktiven Zweigs lässt sich nicht umgehen"
+ },
+ "eclair-calculators": {
+  "title": "Simulatoren und Rechner",
+  "goal": "einen Preis- oder Maßrechner ohne Datenerhebung anbieten",
+  "wp": "Calculated Fields Form, Cost Calculator",
+  "model": "Parameter, Formel, Ergebnis",
+  "procedure": "Im Browser mit einer vom Kunden freigegebenen Formel rechnen, Annahmen und Grenzen anzeigen, anschließend die Kontaktaufnahme anbieten",
+  "invariant": "Das Ergebnis ist unverbindlich und wird als solches ausgewiesen; keine Eingabe wird an den Server gesendet",
+  "pos": "Die Ergebnisse mit einem Satz von Hand berechneter Fälle vergleichen",
+  "neg": "Ein unsinniger oder negativer Wert zeigt eine Meldung an, kein falsches Ergebnis"
+ },
+ "eclair-seo-audit": {
+  "title": "Technisches SEO-Audit",
+  "goal": "Indexierbarkeit, canonical, robots, Links und Performance prüfen",
+  "wp": "Yoast SEO, Rank Math, Audit-Tools",
+  "model": "URLs, Canonicals, Sitemap, Weiterleitungen, Titel, HTTP-Status, strukturierte Daten",
+  "procedure": "Die erlaubten Seiten crawlen, Abweichungen festhalten, strukturelle Ursachen priorisieren, Abdeckung und Korrekturplan prüfen",
+  "invariant": "Kein Ranking versprechen; die bestehenden URLs nicht ohne Plan für die Redirects ändern",
+  "pos": "Slash, Akzente, Paginierungen, 404, Sitemap und robots testen",
+  "neg": "Keine kritische URL ist nach dem Update verwaist oder in einer Kette weitergeleitet"
+ },
+ "eclair-geo-optimization": {
+  "title": "GEO und KI-Agenten",
+  "goal": "die Lesbarkeit der Seiten für Suchmaschinen und KI-Assistenten erleichtern",
+  "wp": "Plugins für llms.txt und SEO für KI",
+  "model": "Überprüfbarer Inhalt, Herkunft, Semantik, llms.txt, Markdown, Schema.org",
+  "procedure": "Struktur, faktische Antworten, Quellen und Kohärenz des Markdown auditieren; KI-Robots ohne übertriebene Versprechen kontrollieren",
+  "invariant": "Internen GEO-Score, Zitierfähigkeit und garantiertes Ranking nicht verwechseln",
+  "pos": "Markdown-Version, strukturierte Zitate und robots.txt testen",
+  "neg": "Die für Robots und Menschen angezeigten Fakten bleiben konsistent und aktuell"
+ },
+ "eclair-wordpress-migration": {
+  "title": "WordPress-Migration",
+  "goal": "URLs, Inhalte und Traffic bei der Migration zu Éclair 2 erhalten",
+  "wp": "WordPress-Export (WXR)",
+  "model": "WordPress-Export, alte IDs, Slugs, Medien, Kategorien, Autoren, Weiterleitungen und Anfragen ?p=",
+  "procedure": "Die native WordPress-Funktion verwenden; historische URLs inventarisieren, den Import simulieren, slug/canonical vergleichen, exakte Links und Medien beibehalten, einen Rollback-Plan liefern",
+  "invariant": "404-Fehler und das Löschen von URLs vermeiden; niemals eine DNS-Umstellung ohne Tests und Backups",
+  "pos": "URL mit abschließendem Slash, Query-Alias, Akzente, Bilder und gelöschte Seiten testen",
+  "neg": "Für jede alte indexierte URL ein exaktes 200 oder eine gezielte 301-Weiterleitung erhalten"
+ },
+ "eclair-structured-data": {
+  "title": "Strukturierte Daten",
+  "goal": "schema.org passend zum Inhalt hinzufügen oder prüfen",
+  "wp": "Schema Pro, Rank Math Schema",
+  "model": "WebPage, Article, Product, passende FAQ, Organization, BreadcrumbList",
+  "procedure": "Das native JSON-LD untersuchen, bevor ein Typ hinzugefügt wird; Duplikate vermeiden; jedes Feld an den sichtbaren Daten und den Vorgaben der Suchmaschinen ausrichten",
+  "invariant": "Éclair v2 stellt Erweiterungen noch nicht alle JSON-LD-Beiträge bereit; lieber einen RFC vorschlagen als eine undurchsichtige Injektion",
+  "pos": "Gültiges JSON, canonical, Kennungen und angezeigten Inhalt testen",
+  "neg": "Kein Preis/keine Bewertung/kein product, der erfunden ist oder auf der Seite fehlt, steht im JSON-LD"
+ },
+ "eclair-multilingual-seo": {
+  "title": "Mehrsprachiges SEO",
+  "goal": "mehrere Sprachen ohne Duplikate und ohne falsche canonical verwalten",
+  "wp": "WPML SEO, Polylang",
+  "model": "Sprache, URL der Übersetzung, wechselseitiges hreflang, Titel und Sitemap",
+  "procedure": "Veröffentlichte Sprachen inventarisieren, das Mapping der Übersetzungen festlegen, canonical pro Sprache, hreflang/x-default und das Fehlen aufdringlicher Weiterleitungen testen",
+  "invariant": "Keine ungeprüfte maschinelle Übersetzung als endgültige Seite verwenden",
+  "pos": "Paare FR/ES/EN, fehlende Seiten und Sprachwechsel testen",
+  "neg": "Jeder hreflang-Link zeigt auf eine indexierbare und wechselseitig verknüpfte URL mit 200"
+ },
+ "eclair-meta-tags": {
+  "title": "Titel und Meta-Beschreibungen",
+  "goal": "Titel und Beschreibungen mit der nativen SEO-Analyse verfassen",
+  "wp": "Yoast SEO, Rank Math, All in One SEO",
+  "model": "Titel, Meta-Beschreibung, angestrebter Suchbegriff, Ergebnisvorschau",
+  "procedure": "Für jede Seite einen einzigartigen Titel und eine einzigartige Beschreibung verfassen, den Live-Score des Editors als Hilfe nutzen, ohne ihn als Ziel zu behandeln",
+  "invariant": "Kein Positionsversprechen; kein Keyword-Stuffing",
+  "pos": "Einzigartigkeit und Länge auf allen Seiten kontrollieren",
+  "neg": "Zwei veröffentlichte Seiten haben nicht denselben Titel"
+ },
+ "eclair-xml-sitemaps": {
+  "title": "XML-Sitemap",
+  "goal": "die native Sitemap prüfen und bei den Suchmaschinen anmelden",
+  "wp": "Sitemaps von Yoast, Google XML Sitemaps",
+  "model": "Sitemap-Einträge, Daten, Bilder, Sprachen",
+  "procedure": "Die vom Kern erzeugte Sitemap kontrollieren, sie in den Tools der Suchmaschinen anmelden, die Abdeckungsfehler überwachen",
+  "invariant": "Die Sitemap listet nur veröffentlichte und indexierbare Seiten auf",
+  "pos": "Die Sitemap validieren und mit der Anzahl der veröffentlichten Seiten vergleichen",
+  "neg": "Eine Seite im Entwurf oder eine weitergeleitete Seite steht nicht darin"
+ },
+ "eclair-redirects-manager": {
+  "title": "Weiterleitungen",
+  "goal": "die 301-Weiterleitungen mit dem nativen Manager verwalten",
+  "wp": "Redirection, Yoast Premium",
+  "model": "Alte Adresse, neue Adresse, Typ, Datum",
+  "procedure": "Die alten Adressen importieren, pro Adresse eine direkte Weiterleitung anlegen, Ketten und Schleifen entfernen",
+  "invariant": "Keine offene Weiterleitung auf eine ungewollte Domain",
+  "pos": "Einen Stapel alter Adressen testen und Status und Ziel festhalten",
+  "neg": "Keine Kette mit mehr als einem Sprung und keine Schleife"
+ },
+ "eclair-local-seo": {
+  "title": "Lokale Suchmaschinenoptimierung",
+  "goal": "ein lokales Unternehmen mit den nativen Daten sichtbar machen",
+  "wp": "Yoast Local SEO, Rank Math Local",
+  "model": "Name, Adresse, Telefon, Öffnungszeiten, Einzugsgebiet",
+  "procedure": "Die exakten Kontaktdaten in den Einstellungen eintragen, das vom Kern erzeugte Markup für lokale Unternehmen prüfen, Unternehmensprofil und Website abgleichen",
+  "invariant": "Keine erfundene Adresse, Bewertung oder kein erfundenes Einsatzgebiet",
+  "pos": "Kontaktdaten der Website, des Markups und des Unternehmensprofils vergleichen",
+  "neg": "Nicht bestätigte Öffnungszeiten werden nicht veröffentlicht"
+ },
+ "eclair-social-previews": {
+  "title": "Teilen-Vorschauen",
+  "goal": "die Vorschau der in Netzwerken und Messengern geteilten Seiten pflegen",
+  "wp": "Open Graph von Yoast, Social Warfare",
+  "model": "Titel zum Teilen, Beschreibung, Bild zum Teilen",
+  "procedure": "Die Share-Tags und das vom Kern erzeugte Bild prüfen, die Vorschau auf den wichtigsten Plattformen testen",
+  "invariant": "Das Bild zum Teilen enthält keine personenbezogenen Daten und keinen irreführenden Text",
+  "pos": "Die Vorschau eines Artikels und einer Seite testen",
+  "neg": "Eine Seite ohne eigenes Bild behält standardmäßig eine korrekte Vorschau"
+ },
+ "eclair-internal-linking": {
+  "title": "Interne Verlinkung",
+  "goal": "die Seiten für Besucher und Suchmaschinen miteinander verknüpfen",
+  "wp": "Link Whisper, Internal Link Juicer",
+  "model": "Quellseite, Zielseite, Ankertext, verwaiste Seiten",
+  "procedure": "Die Links kartieren, die verwaisten Seiten aufspüren, nützliche Links mit beschreibenden Ankertexten hinzufügen",
+  "invariant": "Kein Link wird automatisch ohne Durchsicht des Kontexts hinzugefügt",
+  "pos": "Prüfen, dass jede wichtige Seite mindestens einen internen Link erhält",
+  "neg": "Kein interner Link zeigt auf eine Weiterleitung oder einen Fehler"
+ },
+ "eclair-newsletter-signup": {
+  "title": "Newsletter-Anmeldung",
+  "goal": "Anmeldungen zu einem Newsletter regelkonform einholen",
+  "wp": "MailPoet, Mailchimp for WordPress",
+  "model": "E-Mail-Adresse, Einwilligung, Datum, Quelle",
+  "procedure": "Eine vom E-Mail-Marketing-Dienst gehostete Anmeldeseite oder einen Link verwenden, solange die Website selbst keine Anmeldung entgegennehmen kann; doppelte Bestätigung",
+  "invariant": "Keine Adresse wird ohne ausdrückliche Einwilligung und Nachweis in eine Liste aufgenommen",
+  "pos": "Sich anmelden, bestätigen, sich abmelden",
+  "neg": "Eine nicht bestätigte Anmeldung erhält keinen Versand"
+ },
+ "eclair-email-campaigns": {
+  "title": "E-Mail-Kampagnen",
+  "goal": "den Versand von E-Mail-Kampagnen aus den Inhalten der Website konzipieren",
+  "wp": "MailPoet, Newsletter, FluentCRM",
+  "model": "Liste, Segment, Kampagne, Versand, Abmeldung",
+  "procedure": "Den Versand einem spezialisierten Dienst anvertrauen, die Inhalte aus der Website vorbereiten, Segmente, Frequenz und Abmeldung festlegen",
+  "invariant": "Jede E-Mail enthält einen funktionierenden Abmeldelink; keine gekaufte Liste",
+  "pos": "Eine Testkampagne an eine interne Liste senden",
+  "neg": "Eine abgemeldete Adresse erhält nichts mehr"
+ },
+ "eclair-popups-optins": {
+  "title": "Pop-ups und Opt-in-Einblendungen",
+  "goal": "eine dezente und respektvolle Opt-in-Einblendung anzeigen",
+  "wp": "Popup Maker, OptinMonster",
+  "model": "Nachricht, Auslöser, Häufigkeit, Aktion",
+  "procedure": "Eine Einblendung innerhalb der Seite bevorzugen; andernfalls natives dialog, ausgelöst durch eine Aktion des Besuchers, per Tastatur schließbar, niemals bei der Ankunft",
+  "invariant": "Kein Fenster blockiert den Inhalt oder fängt den Fokus ein",
+  "pos": "Per Tastatur und auf dem Mobilgerät öffnen und schließen",
+  "neg": "Die abgelehnte Einblendung erscheint während des Besuchs nicht erneut"
+ },
+ "eclair-landing-pages": {
+  "title": "Landingpages",
+  "goal": "eine zielgerichtete Landingpage mit den nativen Blöcken gestalten",
+  "wp": "Elementor, SeedProd, Leadpages",
+  "model": "Versprechen, Belege, Angebot, Handlungsaufforderung",
+  "procedure": "Eine Seite für eine einzige Absicht schreiben, sie aus nativen Blöcken aufbauen, die Aktion mit einem Formular oder einem Zahlungslink verknüpfen",
+  "invariant": "Keine erfundenen Kundenstimmen, Zahlen oder Garantien",
+  "pos": "Die Seite auf dem Mobilgerät bis zur Aktion durchgehen",
+  "neg": "Ein nicht vom Kunden gelieferter Beleg erscheint nicht"
+ },
+ "eclair-ab-testing": {
+  "title": "A/B-Tests",
+  "goal": "A/B-Tests konzipieren, die mit einer aus dem Cache ausgelieferten Website vereinbar sind",
+  "wp": "Nelio A/B Testing, Google Optimize (eingestellt)",
+  "model": "Variante, Aufteilung, Ziel, Ergebnis",
+  "procedure": "In aufeinanderfolgenden Zeiträumen oder über getrennte Adressen testen statt über Varianten im Cache; Hypothese, Dauer und Messung im Voraus festlegen",
+  "invariant": "Keine Variante wird besucherabhängig im gemeinsamen Cache gespeichert",
+  "pos": "Einen Test auf zwei getrennten Landingpages durchführen",
+  "neg": "Ein Ergebnis ohne ausreichendes Volumen wird nicht als aussagekräftig dargestellt"
+ },
+ "eclair-privacy-analytics": {
+  "title": "Datenschutzfreundliche Reichweitenmessung",
+  "goal": "die Reichweite ohne Cookies und ohne Profiling messen",
+  "wp": "Matomo, Plausible, Koko Analytics",
+  "model": "Seitenaufruf, Quelle, Zeitraum, Aggregate",
+  "procedure": "Die Serverprotokolle oder ein selbst gehostetes Tool ohne Cookies bevorzugen; ein Drittanbieter-Skript hängt von der nativen Content-Richtlinie ab",
+  "invariant": "Keine vollständige IP-Adresse und keine Besucherkennung wird gespeichert",
+  "pos": "Die gemessenen Seitenaufrufe mit einem Testdurchlauf vergleichen",
+  "neg": "Die Messung setzt kein Cookie"
+ },
+ "eclair-social-sharing": {
+  "title": "Teilen-Schaltflächen",
+  "goal": "Links zum Teilen ohne Drittanbieter-Skript hinzufügen",
+  "wp": "AddToAny, Social Warfare",
+  "model": "Netzwerk, Adresse zum Teilen, Beschriftung",
+  "procedure": "Einfache Links zum Teilen und die Share-API des Browsers als Progressive Enhancement verwenden",
+  "invariant": "Keine Schaltfläche lädt ein Skript oder einen Tracker eines Drittanbieters",
+  "pos": "Eine Seite vom Mobilgerät und vom Computer aus teilen",
+  "neg": "Keine Drittanbieter-Anfrage vor dem Klick"
+ },
+ "eclair-social-feeds": {
+  "title": "Social-Media-Feeds",
+  "goal": "die eigenen neuesten Social-Media-Beiträge anzeigen, ohne die Website zu beschweren",
+  "wp": "Smash Balloon, Instagram-Feeds",
+  "model": "Beitrag, Bild, Link, Abrufdatum",
+  "procedure": "Die Beiträge per geplanter Aufgabe serverseitig abrufen, wenn das Netzwerk es erlaubt, sie als statisches HTML ausgeben; andernfalls einfache Links zu den Profilen",
+  "invariant": "Kein Drittanbieter-Widget wird im Browser der Besucher geladen",
+  "pos": "Die statische Ausgabe und die Aktualisierung per Aufgabe prüfen",
+  "neg": "Ist das Netzwerk nicht erreichbar, bleibt die letzte gültige Version angezeigt"
+ },
+ "eclair-testimonials": {
+  "title": "Kundenstimmen und Bewertungen",
+  "goal": "authentische Kundenstimmen präsentieren",
+  "wp": "Strong Testimonials, Bewertungs-Plugins",
+  "model": "Kundenstimme, Autor, Datum, Genehmigung",
+  "procedure": "Die echten Kundenstimmen mit schriftlicher Genehmigung einholen, sie als Zitate darstellen, die Quelle angeben",
+  "invariant": "Keine erfundene, veränderte oder irreführend ausgewählte Bewertung",
+  "pos": "Prüfen, dass für jede veröffentlichte Kundenstimme eine dokumentierte Genehmigung vorliegt",
+  "neg": "Eine Bewertung ohne überprüfbare Quelle wird nicht veröffentlicht"
+ },
+ "eclair-affiliate-links": {
+  "title": "Affiliate-Links",
+  "goal": "Affiliate-Links mit den nativen rechtlichen Hinweisen verwalten",
+  "wp": "ThirstyAffiliates, Pretty Links, AAWP",
+  "model": "Link, Programm, Hinweis, tragender Inhalt",
+  "procedure": "Die mitgelieferte Affiliate-Erweiterung aktivieren, die Programme deklarieren, den Kern Hinweis und Sponsored-Attribut hinzufügen lassen",
+  "invariant": "Kein Affiliate-Link ohne sichtbaren Werbehinweis",
+  "pos": "Einen Vergleich veröffentlichen und Hinweis und Attribute der Links prüfen",
+  "neg": "Ein Affiliate-Link wird niemals als unabhängige Bewertung dargestellt"
+ },
+ "eclair-ads-adsense": {
+  "title": "Werbung",
+  "goal": "regelkonform Werbung in den Artikeln anzeigen",
+  "wp": "Ad Inserter, Site Kit, Advanced Ads",
+  "model": "Werbeplatz, Einwilligung, Datei ads.txt",
+  "procedure": "Die native Seite Werbung verwenden, die Werbeplätze begrenzen, Einwilligung, Kennzeichnung und Auswirkung auf die Geschwindigkeit prüfen",
+  "invariant": "Keine Werbung wird vor der erforderlichen Einwilligung geladen",
+  "pos": "Die Seite mit und ohne Werbung messen und die Einwilligung prüfen",
+  "neg": "Die Seiten außerhalb der Artikel zeigen keine Werbung an"
+ },
+ "eclair-announcement-bars": {
+  "title": "Ankündigungsleisten",
+  "goal": "eine vorübergehende Informationsleiste anzeigen",
+  "wp": "Hello Bar, Benachrichtigungsleisten",
+  "model": "Nachricht, Link, Start- und Enddatum",
+  "procedure": "Die Leiste serverseitig mit Gültigkeitsdaten ausgeben, ohne Layoutverschiebung, bei Fristablauf automatisch entfernt",
+  "invariant": "Keine abgelaufene Ankündigung wird weiterhin aus dem Cache ausgeliefert",
+  "pos": "Eine Leiste anzeigen, schließen und ablaufen lassen",
+  "neg": "Nach dem Enddatum erscheint die Leiste auf keiner Seite mehr"
+ },
+ "eclair-commerce-pro": {
+  "title": "Architektur Commerce Pro",
+  "goal": "einen vollständigen Shop konzipieren, vom Katalog bis zur ausgelieferten Bestellung",
+  "wp": "WooCommerce",
+  "model": "Katalog, Warenkorb, pro Zeile eingefrorene Preise, Bestellung, Zahlung, Erstattung, Bestand, Rechnung und Statusprotokoll",
+  "procedure": "Einen Zustandsautomaten für Bestellung/payment entwerfen, öffentliches Lesen und private Schreibvorgänge trennen, eine transaktionale Speicherung wählen, den PSP-Connector formalisieren; die von Éclair v2 nicht bereitgestellten Punkte benennen",
+  "invariant": "Keine Zahlung wird allein aufgrund der Browser-Weiterleitung als erfolgreich erklärt; der Server validiert ein authentifiziertes PSP-Ereignis",
+  "pos": "Kauf, Webhook-Bestätigung, Wiederholungsversuch, Erstattung, Bestand und Stornierung simulieren",
+  "neg": "Dieselbe Zahlungsbenachrichtigung zweimal zugestellt => ein einziger Zustandsübergang der Bestellung"
+ },
+ "eclair-product-catalog": {
+  "title": "Produktkatalog",
+  "goal": "einen schnellen und indexierbaren öffentlichen Katalog aufbauen",
+  "wp": "Katalog von WooCommerce",
+  "model": "Produkt, SKU, Slug, Titel, Beschreibung, Anzeigepreis, Medium, Verfügbarkeit und Kategorie",
+  "procedure": "Zuerst eine öffentliche, cachefähige GET-Seite als Prototyp bauen; ein Produktschema und seinen Index erstellen; Quelltitel und -beschreibungen beibehalten; Paginierung und canonical festlegen; die Slugs über alle Bearbeitungen hinweg erhalten",
+  "invariant": "Der angezeigte Preis wird bei einer künftigen Bestellung niemals als maßgebliche Quelle herangezogen",
+  "pos": "Kategorien, leere Listen, kanonische URL, Suche und Soft-Delete testen",
+  "neg": "Ein gelöschtes oder privates Produkt darf weder im Katalog noch in einem alten Cache verbleiben"
+ },
+ "eclair-product-variants": {
+  "title": "Varianten und Attribute",
+  "goal": "Größen, Farben und Konfigurationen ohne Preisfehler modellieren",
+  "wp": "Variable Produkte von WooCommerce",
+  "model": "Übergeordnetes Produkt, Varianten mit eindeutiger SKU, Attributkombinationen, eigene Preise/Bestände, Medium und Status",
+  "procedure": "Die maximale Anzahl der Kombinationen festlegen; die Eindeutigkeit der SKU sicherstellen; die Varianten in die GET-Ausgabe projizieren; eine beim Checkout serverseitig validierte Auswahl vorbereiten",
+  "invariant": "Niemals vom Browser gesendete Preise, Gewichte oder Bestände als verlässliche Daten akzeptieren",
+  "pos": "Fehlende, ausverkaufte und deaktivierte Varianten testen",
+  "neg": "Zwei Kombinationen erzeugen dieselbe SKU => ausdrückliche Ablehnung vor der Veröffentlichung"
+ },
+ "eclair-cart-checkout": {
+  "title": "Warenkorb und Bestellprozess",
+  "goal": "eine mehrzeilige Bestellung mit konsistenten Preisen und Beständen konzipieren",
+  "wp": "Warenkorb und Kasse von WooCommerce",
+  "model": "Temporärer Warenkorb, Mitglieder- oder Gastsitzung, Zeilen, Aktionen, Gebühren, Steuern, Bestellstatus",
+  "procedure": "Anzeige und Zustandsänderung trennen; jede Zeile auf dem Server erneut validieren; die Beträge in ganzen Währungseinheiten berechnen; den Bestand zum richtigen Zeitpunkt transaktional reservieren",
+  "invariant": "Kein öffentlicher Schreibvorgang vor qualifizierter POST-Route, CSRF, Kontingenten und geprüften Rechten",
+  "pos": "Gleichzeitige Änderung des Warenkorbs, Ablauf und Preisänderung testen",
+  "neg": "Doppeltes oder gleichzeitiges Absenden erzeugt keine zwei zahlbaren Bestellungen für denselben Schlüssel"
+ },
+ "eclair-orders-payments": {
+  "title": "Bestellungen und Zahlungen",
+  "goal": "die Bestellzustände und PSP-Anbieter implementieren",
+  "wp": "Bestellungen und Zahlungs-Gateways von WooCommerce",
+  "model": "Bestellung, Zahlungsversuch, Anbieterkennung, Webhook-Nachweis, idempotency key, Erstattung",
+  "procedure": "Die zulässigen Übergänge im Detail festlegen; den Nachweis der Benachrichtigung und ihren Zeitstempel speichern; den Webhook dauerhaft verarbeiten; reconciliation und Teilerstattung vorsehen",
+  "invariant": "Niemals rohe Kreditkartendaten speichern; beim Anbieter gehosteter Checkout und geprüfte Signatur der Webhooks",
+  "pos": "Umgekehrten, außer der Reihe eintreffenden und erneut gesendeten Webhook sowie abgelehnte Zahlung testen",
+  "neg": "Ein Webhook ohne gültige Signatur ändert weder die Bestellung noch den LMS-Zugang"
+ },
+ "eclair-tax-invoicing": {
+  "title": "Umsatzsteuer und Rechnungsstellung",
+  "goal": "die an die Rechtsordnung angepassten steuerlichen Anknüpfungspunkte aufbauen",
+  "wp": "Steuern von WooCommerce, PDF-Rechnungs-Plugins",
+  "model": "Verkaufs- und Lieferland, steuerlicher Standort, geltender Satz, Rechnung, Gutschrift, Nummernfolge",
+  "procedure": "Rechtsordnungen und Kundentypen auflisten; aktuelle Regeln und Steuerberatung heranziehen; Bemessungsgrundlage/Satz zum Zeitpunkt der Bestellung einfrieren; Exporte von Rechnungen und Gutschriften vorbereiten",
+  "invariant": "Niemals einen universellen Umsatzsteuersatz anwenden oder vorgeben, steuerliche Konformität ohne lokale Prüfung sicherzustellen",
+  "pos": "Inlandsverkauf, grenzüberschreitenden Verkauf, Erstattung und Satzänderung testen",
+  "neg": "Eine ausgestellte und dann stornierte Rechnung darf nicht stillschweigend gelöscht oder neu nummeriert werden"
+ },
+ "eclair-inventory": {
+  "title": "Bestände und Reservierungen",
+  "goal": "den tatsächlichen Bestand zwischen Produkten, Varianten und Bestellungen synchronisieren",
+  "wp": "Lagerverwaltung von WooCommerce",
+  "model": "SKU, Lager, physischer Bestand, reserviert, verfügbar, unveränderliche Bewegungen",
+  "procedure": "Die Zu- und Abgangsbewegungen konzipieren; die Reservierung sperren; Ablauf und Kompensation behandeln; alle manuellen Korrekturen nachverfolgen",
+  "invariant": "Das cachefähige Lesen der Verfügbarkeit ist informativ; jeder Verkauf liest den Bestand in einer Transaktion erneut",
+  "pos": "Gleichzeitige Käufe des letzten Exemplars und die Freigabe nach Ablauf testen",
+  "neg": "Zwei Käufer können nicht denselben letzten Bestand reservieren"
+ },
+ "eclair-shipping": {
+  "title": "Lieferung und Transport",
+  "goal": "Zonen, Tarife, Sendungsverfolgung und Lieferstatus verwalten",
+  "wp": "Versandzonen und Versandarten von WooCommerce",
+  "model": "Validierte Adresse, Zone, Transportunternehmen, Paket, Gewicht, Service, Kosten, Tracking",
+  "procedure": "Zonen und Unverträglichkeiten modellieren; das Angebot serverseitig berechnen; split shipments und Teillieferung vorsehen; Versanddaten in den Protokollen anonymisieren",
+  "invariant": "Adresse und Sendungsverfolgung sind privat; keine personenbezogenen Daten im öffentlichen Cache, in detaillierten Logs oder in URLs",
+  "pos": "Nicht bediente Zone, Gewichtsgrenze, zwei Pakete und Status verloren testen",
+  "neg": "Die Sendungsnummer eines Kunden darf von einem anderen Konto aus nicht sichtbar sein"
+ },
+ "eclair-discounts": {
+  "title": "Aktionen und Gutscheine",
+  "goal": "stimmige Rabatte und Gutscheine erstellen, die nicht versehentlich kombiniert werden",
+  "wp": "Gutscheincodes von WooCommerce",
+  "model": "Code, Budget, Daten, Kontingent, Warenkorbbedingungen, Verwendungen und Ausschlüsse",
+  "procedure": "Berechnungsreihenfolge und Rundung festlegen; den Gutschein vor der Bestellung prüfen; die Verwendungen atomar zählen; Stornierung und Rückgabe nachverfolgen",
+  "invariant": "Die Entscheidung über die Berechtigung stammt aus den Serverdaten und nicht aus dem im HTML eingegebenen Rabatt",
+  "pos": "Abgelaufene und aufgebrauchte Gutscheine, Schwellenwert und Ausschlüsse testen",
+  "neg": "Zwei gleichzeitige Bestellungen können nicht den letzten einmaligen Gutschein verbrauchen"
+ },
+ "eclair-commerce-analytics": {
+  "title": "Verkaufsmessung",
+  "goal": "Verkäufe und Conversions verfolgen, ohne Kundendaten offenzulegen",
+  "wp": "WooCommerce Analytics",
+  "model": "Trichter, bestätigte Bestellungen, Erstattungen, Conversion-Rate, Nettoumsätze, Einwilligungen",
+  "procedure": "Ereignisse und Kennzahlen festlegen, ohne sensible Daten wiederzuverwenden; Bestellsummen, Gutschriften und Zahlungen abgleichen; eine aggregierte Übersicht vorsehen",
+  "invariant": "Personenbezogene Analysedaten erfordern eine Rechtsgrundlage und dürfen nicht über den Cache nach außen dringen",
+  "pos": "Umsätze nach Erstattung und Zählunterbrechung testen",
+  "neg": "Die Aggregation darf weder dieselbe Zahlung doppelt zählen noch eine identifizierbare Bestellung preisgeben"
+ },
+ "eclair-shop-setup": {
+  "title": "Eröffnung des leichten Shops",
+  "goal": "den nativen leichten Shop mit seinen rechtlichen Seiten eröffnen",
+  "wp": "WooCommerce (Installation und Einstellungen)",
+  "model": "Produkt, Preis, Kategorie, Impressum, Verkaufsbedingungen",
+  "procedure": "Impressum und Verkaufsbedingungen veröffentlichen, den Shop eröffnen, die ersten Produktseiten anlegen, Katalog und strukturierte Daten prüfen",
+  "invariant": "Keine vom Agenten erfundenen Preise, Fristen oder Verkaufsbedingungen",
+  "pos": "Den Shop auf einer Kopie eröffnen und Katalog und Produktseite durchgehen",
+  "neg": "Der Shop öffnet nicht ohne veröffentlichte rechtliche Seiten"
+ },
+ "eclair-payment-links": {
+  "title": "Zahlungslinks",
+  "goal": "jedes Produkt mit einem Zahlungslink des Dienstleisters verknüpfen",
+  "wp": "Stripe- und PayPal-Gateways für WooCommerce",
+  "model": "Produkt oder Variante, Zahlungslink, Dienstleister",
+  "procedure": "Den Link beim Dienstleister erstellen, ihn in die Produktseite oder die Variante einfügen, im Testmodus testen, Beleg und Erstattung auf Seiten des Dienstleisters prüfen",
+  "invariant": "Keine Bankdaten auf der Website; ein Link führt nur zur Domain des Dienstleisters",
+  "pos": "Im Testmodus kaufen und Betrag und Beleg prüfen",
+  "neg": "Ein Link zu einer nicht anerkannten Domain wird abgelehnt"
+ },
+ "eclair-merchant-feed": {
+  "title": "Produktfeed",
+  "goal": "die Produkte mit dem nativen Feed in den Preisvergleichsportalen verbreiten",
+  "wp": "Product Feed PRO, Google Listings and Ads",
+  "model": "Produkt, Preis, Verfügbarkeit, Bild, Kennungen",
+  "procedure": "Die Produktseiten vervollständigen, den vom Kern erzeugten Feed kontrollieren, ihn im Händler-Tool anmelden, die Ablehnungen korrigieren",
+  "invariant": "Preis und Verfügbarkeit im Feed sind die der öffentlichen Produktseite",
+  "pos": "Den Feed validieren und drei Produkte mit ihrer Produktseite vergleichen",
+  "neg": "Ein nicht verfügbares Produkt wird nicht als vorrätig angezeigt"
+ },
+ "eclair-subscriptions-billing": {
+  "title": "Kostenpflichtige Abonnements",
+  "goal": "wiederkehrende, vom Zahlungsdienstleister verwaltete Abonnements konzipieren",
+  "wp": "WooCommerce Subscriptions",
+  "model": "Angebot, Zeitraum, Abonnent, Fälligkeit, Status",
+  "procedure": "Den Dienstleister Abbuchungen und Kundenbereich verwalten lassen; die Synchronisierung der Rechte über signierte Ereignisse konzipieren",
+  "invariant": "Ein Zugriffsrecht wird nur aufgrund eines authentifizierten Zahlungsereignisses freigeschaltet",
+  "pos": "Abschluss, Verlängerung, Fehlschlag und Kündigung simulieren",
+  "neg": "Eine fehlgeschlagene Zahlung verlängert keinen Zugang"
+ }
+}

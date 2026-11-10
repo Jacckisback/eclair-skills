@@ -1,12 +1,12 @@
 ---
 name: eclair-crm-integration
-description: "Sync leads and customers with a CRM, without duplicates. Use on Éclair CMS 2.x when the user wants to: relier prospects/clients à un crm sans doublons. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
+description: "Sync leads and customers with a CRM, without duplicates. Use on Éclair CMS 2.x when the user wants to: relier prospects/clients à un CRM sans doublons. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Synchronisation CRM — Éclair CMS 2.x
 
 ## Déclencheur et résultat attendu
-Utiliser ce skill pour **relier prospects/clients à un crm sans doublons**. Cette fonction **exige des capacités absentes du noyau 2.0** : le skill livre conception, maquette sûre et tests, pas une mise en production. Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
+Utiliser ce skill pour **relier prospects/clients à un CRM sans doublons**. Cette fonction **exige des capacités absentes du noyau 2.0** : le skill livre conception, maquette sûre et tests, pas une mise en production. Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
 
 **Équivalent WordPress :** Extensions HubSpot ou Salesforce. Famille : Intégrations et automatisations.
 

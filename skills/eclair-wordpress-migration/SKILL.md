@@ -1,12 +1,12 @@
 ---
 name: eclair-wordpress-migration
-description: "Migrate from WordPress while preserving URLs, content and traffic. Use on Éclair CMS 2.x when the user wants to: préserver les urls, contenus et trafic en migrant vers éclair 2. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
+description: "Migrate from WordPress while preserving URLs, content and traffic. Use on Éclair CMS 2.x when the user wants to: préserver les URL, contenus et trafic en migrant vers Éclair 2. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Migration WordPress — Éclair CMS 2.x
 
 ## Déclencheur et résultat attendu
-Utiliser ce skill pour **préserver les urls, contenus et trafic en migrant vers éclair 2**. Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches). Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
+Utiliser ce skill pour **préserver les URL, contenus et trafic en migrant vers Éclair 2**. Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches). Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
 
 **Équivalent WordPress :** Export WordPress (WXR). Famille : SEO, GEO et migration.
 

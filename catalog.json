@@ -1307,6 +1307,12 @@
   ],
   "languages": {
     "default": "fr",
-    "translations": []
+    "translations": [
+      "en",
+      "es",
+      "de",
+      "it",
+      "pt"
+    ]
   }
 }

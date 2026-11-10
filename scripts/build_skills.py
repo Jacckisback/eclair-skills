@@ -194,6 +194,11 @@ def outputs():
                 if not src.is_file():
                     raise SystemExit(f'i18n/{lang}/foundation: missing {key}')
                 files[f'{base}/{path}'] = src.read_text(encoding='utf-8')
+            # Data assets of the foundation skills (CSV, JSON examples) are copied as they are.
+            for s in foundation:
+                for f in sorted((ROOT / 'skills' / s['name']).rglob('*')):
+                    if f.is_file() and f.suffix != '.md':
+                        files[f"{base}/{s['name']}/{f.relative_to(ROOT / 'skills' / s['name']).as_posix()}"] = f.read_text(encoding='utf-8')
         for family, s, is_legacy in templated:
             if lang == 'fr':
                 text = {k: s[k] for k in TEXT_FIELDS}

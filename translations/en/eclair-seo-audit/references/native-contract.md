@@ -1,0 +1,11 @@
+# Applying the native contract to the skill eclair-seo-audit
+
+This skill uses exclusively what Éclair CMS 2.0.x ships: the core features, the theme contract and the `eclair-extension/1` contract. Official reference: https://github.com/Jacckisback/eclair-cms/blob/main/docs/EXTENSION-CONTRACT.md
+
+## Position of this skill
+
+Basic SEO/GEO is native. Extensions do not yet have a universal API for injecting JSON-LD; document the contract gap rather than hacking the HTML or scripts.
+
+## Practical safeguard
+
+On a real checkout, re-read `eclair/index.php`, run `php tools/validate.php` on every package produced and `php tests/run.php`. If the request goes beyond the native features, public GET routes, protected administration pages, blocks, settings and `Store`, produce a separate change request; **never simulate its availability**.

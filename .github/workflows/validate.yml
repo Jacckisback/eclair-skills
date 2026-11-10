@@ -32,6 +32,8 @@ jobs:
         run: php scripts/verify_signature.php
       - name: Validate skills structure
         run: python3 scripts/validate_skills.py
+      - name: Translations consistent with the French source
+        run: python3 scripts/check_i18n.py
       - name: Generated skills and catalogue are up to date
         run: python3 scripts/build_skills.py --check
       - name: Generated READMEs and diagrams are up to date

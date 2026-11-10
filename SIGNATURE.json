@@ -3,6 +3,6 @@
     "algorithm": "Ed25519 (libsodium crypto_sign_detached)",
     "context": "eclair-skills/release/1:",
     "public_key": "H+pk0ph+U+csV7aoGTUZp8hsWBrjvtxavotdKqJuYEs=",
-    "payload": "{\"repository\":\"Jacckisback/eclair-skills\",\"version\":\"2.1.0\",\"skills\":200,\"sums_file\":\"SHA256SUMS.json\",\"sums_sha256\":\"d58a4d0d4d54acfed80301831635b6bccfdbb495da9485e7beffd3628b6466bf\",\"signed_at\":\"2026-11-09T23:42:43Z\"}",
-    "signature": "GTccmGn/YfxFubRMxCOQ0qc6dQxrEki2glxD+MXGUWHU8SIMnNu3Ir3YszM88feFzCcVjOHZ3aOeVJIO+e8pAA=="
+    "payload": "{\"repository\":\"Jacckisback/eclair-skills\",\"version\":\"2.2.0\",\"skills\":200,\"sums_file\":\"SHA256SUMS.json\",\"sums_sha256\":\"44e01361a4ee21de0fb9f61cc00d33de7acf31a25fcf15f3486452652831a90c\",\"signed_at\":\"2026-11-10T00:13:49Z\"}",
+    "signature": "pl3Y2FTpcweUkNi7cusdTtEbLcIFEs2QUitjh/PlujazOLKU27676jGthgg3wV99sj49aSjOieQ1qVKN2QBCCg=="
 }

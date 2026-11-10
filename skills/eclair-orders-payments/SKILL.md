@@ -1,12 +1,12 @@
 ---
 name: eclair-orders-payments
-description: "Implement order states and payment providers (PSP) with signed webhooks. Use on Éclair CMS 2.x when the user wants to: implémenter les états de commande et des prestataires psp. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
+description: "Implement order states and payment providers (PSP) with signed webhooks. Use on Éclair CMS 2.x when the user wants to: implémenter les états de commande et des prestataires PSP. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # Commandes et paiements — Éclair CMS 2.x
 
 ## Déclencheur et résultat attendu
-Utiliser ce skill pour **implémenter les états de commande et des prestataires psp**. Cette fonction **exige des capacités absentes du noyau 2.0** : le skill livre conception, maquette sûre et tests, pas une mise en production. Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
+Utiliser ce skill pour **implémenter les états de commande et des prestataires PSP**. Cette fonction **exige des capacités absentes du noyau 2.0** : le skill livre conception, maquette sûre et tests, pas une mise en production. Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
 
 **Équivalent WordPress :** Commandes et passerelles de paiement de WooCommerce. Famille : Commerce Pro.
 

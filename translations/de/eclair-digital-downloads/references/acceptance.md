@@ -1,0 +1,19 @@
+# Validierungsplan — Digitale Produkte
+
+## Datenmodell
+Digitales Produkt, Kauf, zeitlich begrenzter Auslieferungslink.
+
+## Erwartete Umsetzung
+Die Datei vom Dienstleister oder über einen signierten, zeitlich begrenzten Link ausliefern lassen; die Datei niemals unter einer öffentlichen Adresse ablegen.
+
+## Vorzusehende Tests
+1. Normalfall: Kauf, Auslieferung und Ablauf des Links simulieren.
+2. Ablehnungskontrolle: Ein abgelaufener oder weitergegebener Link gibt keinen Zugriff mehr auf die Datei.
+3. Invariante: Keine kostenpflichtige Datei ist ohne verifizierten Kauf zugänglich.
+4. GET/HEAD: öffentlicher Cache nur ohne Sitzungszustand und ohne sensible Daten; Canonical, HTTP-Status, SEO und GEO unverändert oder verbessert.
+5. POST: niemals gemeinsamer Cache; CSRF, TLS, Berechtigungen, Begrenzung der Versuche, Idempotenz. Nicht ausführen, wenn der Kern es nicht offiziell unterstützt.
+6. Aktivierung und Deaktivierung: Die Inhalte bleiben erhalten und die öffentlichen Routen werden ohne Datenleck entfernt.
+7. Kontrollen: nativer Validator, PHP- und HTTP-Tests, Budgets; die ausgeführten Befehle, ihre Ergebnisse und das, was nicht getestet wurde, festhalten.
+
+## Verfügbarkeitsnachweis
+Zustand der Funktion oder der Erweiterung, CI-Protokolle, Testmatrix, Rollback-Verfahren und Ablehnung jedes ungeprüften Versprechens.

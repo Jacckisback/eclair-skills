@@ -16,7 +16,7 @@ Utiliser ce skill pour **concevoir des discussions publiques et privées avec mo
 3. Identifier le modèle de données : **Espace, catégorie, sujet, message, auteur, rôle, signalement, verrouillage**. Documenter ce qui est public, ce qui est privé et d'où vient chaque donnée.
 
 ## Procédure spécifique
-4. **Parcours :** Séparer sujets indexables et privés; prévoir pagination stable, permissions objet, quotats et modération; préparer moteur de recherche borné. Décrire les états et les erreurs avant d'écrire du code.
+4. **Parcours :** Séparer sujets indexables et privés; prévoir pagination stable, permissions objet, quotas et modération; préparer moteur de recherche borné. Décrire les états et les erreurs avant d'écrire du code.
 5. **Emplacements :** code propre au site dans `site/extensions/<id>/`, apparence dans `site/themes/<id>/`, données sous `$ctx['data']`, contenus et réglages par l'administration ou le MCP. Ne jamais éditer `app/`, `assets/`, `index.php` ni l'updater.
 6. **Contrat actuel :** Les catégories et listes publiques peuvent être GET; publications, signalements, profils privés et modération exigent une identité et des routes d’écriture sûres, anti-spam et stockage adapté.
 7. **Invariant de sécurité :** Aucune écriture anonyme sans anti-spam, CSRF et limitation de débit; jamais de HTML arbitraire exécuté. Vérifier aussi les droits côté serveur, l'échappement avec `e()`, la validation des données et l'absence de secret ou de donnée personnelle dans le HTML public ou un cache partagé.

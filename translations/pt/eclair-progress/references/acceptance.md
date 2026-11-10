@@ -1,0 +1,19 @@
+# Plano de validação — Acompanhamento do progresso
+
+## Modelo de dados
+Inscrição, unidade, estado de conclusão, tentativa, duração, revisão.
+
+## Implementação esperada
+Definir regras de conclusão; registar progresso sob controlo de acesso; versionar unidades; agregar progresso calculado a partir de estados autorizados.
+
+## Testes a prever
+1. Nominal: Testar retoma de sessão, dois dispositivos, lição retirada.
+2. Controlo de recusa: Dois dispositivos não devem fazer regredir o progresso já validado.
+3. Invariante: Os progressos são dados individuais não colocáveis em cache; nunca aceitar um identificador de membro arbitrário.
+4. GET/HEAD: cache pública apenas sem estado de sessão nem dados sensíveis; canonical, estado HTTP, SEO e GEO inalterados ou melhorados.
+5. POST: nunca cache partilhada; CSRF, TLS, permissões, limitação das tentativas, idempotência. Não executar se o núcleo não o suportar oficialmente.
+6. Ativação e desativação: os conteúdos são conservados e as rotas públicas retiradas sem fugas.
+7. Controlos: validador nativo, testes PHP e HTTP, orçamentos; registar os comandos lançados, os seus resultados e o que não foi testado.
+
+## Prova de disponibilidade
+Estado da funcionalidade ou da extensão, registos de CI, matriz dos testes, procedimento de reversão e recusa de qualquer promessa não verificada.

@@ -4,7 +4,7 @@
 Espace, catégorie, sujet, message, auteur, rôle, signalement, verrouillage.
 
 ## Mise en œuvre attendue
-Séparer sujets indexables et privés; prévoir pagination stable, permissions objet, quotats et modération; préparer moteur de recherche borné.
+Séparer sujets indexables et privés; prévoir pagination stable, permissions objet, quotas et modération; préparer moteur de recherche borné.
 
 ## Tests à prévoir
 1. Nominal : Tester visiteur, membre, modérateur et compte suspendu.

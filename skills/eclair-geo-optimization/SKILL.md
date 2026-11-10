@@ -1,12 +1,12 @@
 ---
 name: eclair-geo-optimization
-description: "Make pages easy to read for search engines and AI assistants (GEO). Use on Éclair CMS 2.x when the user wants to: faciliter lisibilité des pages pour moteurs et assistants ia. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
+description: "Make pages easy to read for search engines and AI assistants (GEO). Use on Éclair CMS 2.x when the user wants to: faciliter lisibilité des pages pour moteurs et assistants IA. Agent workflow with native-contract check, security invariant and acceptance tests; not a PHP plugin."
 ---
 
 # GEO et agents IA — Éclair CMS 2.x
 
 ## Déclencheur et résultat attendu
-Utiliser ce skill pour **faciliter lisibilité des pages pour moteurs et assistants ia**. Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches). Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
+Utiliser ce skill pour **faciliter lisibilité des pages pour moteurs et assistants IA**. Cette fonction est **réalisable aujourd'hui** avec le contrat natif (thème, blocs, routes GET, pages d'administration, tâches). Ce skill est un **workflow d'agent**, pas une extension PHP fonctionnelle ni une garantie de conformité.
 
 **Équivalent WordPress :** Extensions llms.txt et SEO pour les IA. Famille : SEO, GEO et migration.
 
